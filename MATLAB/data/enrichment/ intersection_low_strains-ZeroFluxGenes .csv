@@ -1,0 +1,16 @@
+"","source","term_id","term_name","term_size","intersection_size","adj_pval"
+"1","GO:BP","GO:0006778","porphyrin-containing compound metabolic process",18,1,0.00800122624156934
+"2","GO:BP","GO:0006779","porphyrin-containing compound biosynthetic process",17,1,0.00800122624156934
+"3","GO:BP","GO:0006782","protoporphyrinogen IX biosynthetic process",7,1,0.00800122624156934
+"4","GO:BP","GO:0006783","heme biosynthetic process",17,1,0.00800122624156934
+"5","GO:BP","GO:0033013","tetrapyrrole metabolic process",18,1,0.00800122624156934
+"6","GO:BP","GO:0033014","tetrapyrrole biosynthetic process",17,1,0.00800122624156934
+"7","GO:BP","GO:0042168","heme metabolic process",18,1,0.00800122624156934
+"8","GO:BP","GO:0042440","pigment metabolic process",18,1,0.00800122624156934
+"9","GO:BP","GO:0046148","pigment biosynthetic process",17,1,0.00800122624156934
+"10","GO:BP","GO:0046501","protoporphyrinogen IX metabolic process",7,1,0.00800122624156934
+"11","GO:MF","GO:0004729","oxygen-dependent protoporphyrinogen oxidase activity",1,1,0.00053508637822991
+"12","GO:MF","GO:0070818","protoporphyrinogen oxidase activity",1,1,0.00053508637822991
+"13","GO:MF","GO:0016634","oxidoreductase activity, acting on the CH-CH group of donors, oxygen as acceptor",3,1,0.0010701727564593
+"14","GO:MF","GO:0016627","oxidoreductase activity, acting on the CH-CH group of donors",30,1,0.00802629567344457
+"15","KEGG","KEGG:00860","Porphyrin metabolism",17,1,0.0406309751434025

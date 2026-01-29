@@ -1,0 +1,957 @@
+"","source","term_id","term_name","term_size","intersection_size","adj_pval"
+"1","GO:BP","GO:0044281","small molecule metabolic process",802,228,1.98539678026827e-69
+"2","GO:BP","GO:0044255","cellular lipid metabolic process",342,136,2.77259240595419e-57
+"3","GO:BP","GO:0006629","lipid metabolic process",367,139,1.04618489404491e-55
+"4","GO:BP","GO:0008610","lipid biosynthetic process",231,92,2.00359098172926e-37
+"5","GO:BP","GO:0019637","organophosphate metabolic process",410,124,4.65364933539071e-37
+"6","GO:BP","GO:0006082","organic acid metabolic process",445,129,1.27932933474301e-36
+"7","GO:BP","GO:0043436","oxoacid metabolic process",443,128,3.41099057127212e-36
+"8","GO:BP","GO:0019752","carboxylic acid metabolic process",425,124,1.8864543021588e-35
+"9","GO:BP","GO:0046486","glycerolipid metabolic process",149,69,9.86530158690092e-33
+"10","GO:BP","GO:0006644","phospholipid metabolic process",173,72,1.59968747121302e-30
+"11","GO:BP","GO:1901135","carbohydrate derivative metabolic process",348,104,3.21389171835541e-30
+"12","GO:BP","GO:0044282","small molecule catabolic process",158,68,6.97246850008129e-30
+"13","GO:BP","GO:0006650","glycerophospholipid metabolic process",132,62,8.32859003699391e-30
+"14","GO:BP","GO:0008152","metabolic process",3887,458,1.1785522528056e-28
+"15","GO:BP","GO:0071704","organic substance metabolic process",3696,440,8.42668612186641e-27
+"16","GO:BP","GO:0090407","organophosphate biosynthetic process",289,88,6.01659942596849e-26
+"17","GO:BP","GO:0009987","cellular process",4993,525,6.33046803263724e-26
+"18","GO:BP","GO:0046488","phosphatidylinositol metabolic process",86,46,5.10721058679918e-25
+"19","GO:BP","GO:0008654","phospholipid biosynthetic process",131,56,2.58714961854805e-24
+"20","GO:BP","GO:1901137","carbohydrate derivative biosynthetic process",258,80,4.51190250996526e-24
+"21","GO:BP","GO:0055085","transmembrane transport",504,117,1.52976219066271e-23
+"22","GO:BP","GO:0046474","glycerophospholipid biosynthetic process",96,47,1.87683401840082e-23
+"23","GO:BP","GO:0045017","glycerolipid biosynthetic process",102,48,5.08964271588921e-23
+"24","GO:BP","GO:0006661","phosphatidylinositol biosynthetic process",61,37,1.07181092577014e-22
+"25","GO:BP","GO:0032787","monocarboxylic acid metabolic process",172,61,1.64091531516019e-21
+"26","GO:BP","GO:0006793","phosphorus metabolic process",759,146,3.07434152974121e-21
+"27","GO:BP","GO:0046467","membrane lipid biosynthetic process",75,38,1.53811383525628e-19
+"28","GO:BP","GO:0006643","membrane lipid metabolic process",87,40,1.24292511951116e-18
+"29","GO:BP","GO:0006796","phosphate-containing compound metabolic process",741,138,1.55419752039996e-18
+"30","GO:BP","GO:0016054","organic acid catabolic process",107,43,2.43400371291225e-17
+"31","GO:BP","GO:1901575","organic substance catabolic process",815,144,2.94806115842185e-17
+"32","GO:BP","GO:0005975","carbohydrate metabolic process",269,71,6.42923170959859e-17
+"33","GO:BP","GO:0016052","carbohydrate catabolic process",101,41,9.93655526288307e-17
+"34","GO:BP","GO:0046395","carboxylic acid catabolic process",106,42,1.0670844584436e-16
+"35","GO:BP","GO:1901615","organic hydroxy compound metabolic process",169,54,1.13545956207875e-16
+"36","GO:BP","GO:0061795","Golgi lumen acidification",16,16,4.63109782887166e-16
+"37","GO:BP","GO:0048388","endosomal lumen acidification",16,16,4.63109782887166e-16
+"38","GO:BP","GO:0044237","cellular metabolic process",3511,398,5.36798536289613e-16
+"39","GO:BP","GO:0009056","catabolic process",1028,164,1.509889770385e-15
+"40","GO:BP","GO:0009100","glycoprotein metabolic process",99,39,2.02025704889985e-15
+"41","GO:BP","GO:0009101","glycoprotein biosynthetic process",90,37,2.43481904171014e-15
+"42","GO:BP","GO:0070085","glycosylation",88,36,7.74904232259217e-15
+"43","GO:BP","GO:0044283","small molecule biosynthetic process",357,80,9.81513308387837e-15
+"44","GO:BP","GO:0043413","macromolecule glycosylation",87,35,3.62220990348289e-14
+"45","GO:BP","GO:0006486","protein glycosylation",87,35,3.62220990348289e-14
+"46","GO:BP","GO:0009247","glycolipid biosynthetic process",35,22,6.43337645043355e-14
+"47","GO:BP","GO:0044248","cellular catabolic process",595,109,9.24068589743499e-14
+"48","GO:BP","GO:0006664","glycolipid metabolic process",39,23,1.00055501777427e-13
+"49","GO:BP","GO:1903509","liposaccharide metabolic process",39,23,1.00055501777427e-13
+"50","GO:BP","GO:1901566","organonitrogen compound biosynthetic process",1076,163,2.5308835101334e-13
+"51","GO:BP","GO:0006505","GPI anchor metabolic process",37,22,3.11818208533851e-13
+"52","GO:BP","GO:0006487","protein N-linked glycosylation",53,26,5.36542872209995e-13
+"53","GO:BP","GO:0072330","monocarboxylic acid biosynthetic process",53,26,5.36542872209995e-13
+"54","GO:BP","GO:0055080","monoatomic cation homeostasis",166,48,5.36542872209995e-13
+"55","GO:BP","GO:0030003","intracellular monoatomic cation homeostasis",162,47,8.65924455919354e-13
+"56","GO:BP","GO:0044242","cellular lipid catabolic process",54,26,9.18359909230258e-13
+"57","GO:BP","GO:0048878","chemical homeostasis",266,63,1.08889939868006e-12
+"58","GO:BP","GO:0042592","homeostatic process",315,70,1.09653175310256e-12
+"59","GO:BP","GO:0006520","amino acid metabolic process",253,61,1.17578787013871e-12
+"60","GO:BP","GO:0019725","cellular homeostasis",285,65,2.61537894511648e-12
+"61","GO:BP","GO:0050801","monoatomic ion homeostasis",179,49,2.61537894511648e-12
+"62","GO:BP","GO:0006066","alcohol metabolic process",132,41,2.99623533556651e-12
+"63","GO:BP","GO:0006873","intracellular monoatomic ion homeostasis",174,48,3.31300177722042e-12
+"64","GO:BP","GO:0015711","organic anion transport",139,42,4.13338592578835e-12
+"65","GO:BP","GO:0055082","intracellular chemical homeostasis",235,57,6.06273355762966e-12
+"66","GO:BP","GO:0046854","phosphatidylinositol phosphate biosynthetic process",22,16,1.18168454192108e-11
+"67","GO:BP","GO:0006081","cellular aldehyde metabolic process",39,21,1.48007355266721e-11
+"68","GO:BP","GO:0046942","carboxylic acid transport",94,33,1.65512400395508e-11
+"69","GO:BP","GO:0055086","nucleobase-containing small molecule metabolic process",235,56,2.09346389171456e-11
+"70","GO:BP","GO:0015849","organic acid transport",95,33,2.26764069924939e-11
+"71","GO:BP","GO:0006631","fatty acid metabolic process",70,28,2.30552986151798e-11
+"72","GO:BP","GO:1901564","organonitrogen compound metabolic process",2171,265,2.65617422984143e-11
+"73","GO:BP","GO:0016042","lipid catabolic process",67,27,4.70602978384777e-11
+"74","GO:BP","GO:0098660","inorganic ion transmembrane transport",209,51,8.54004387851929e-11
+"75","GO:BP","GO:0098655","monoatomic cation transmembrane transport",190,48,9.88815552316435e-11
+"76","GO:BP","GO:0006812","monoatomic cation transport",217,52,1.06765896332194e-10
+"77","GO:BP","GO:0006506","GPI anchor biosynthetic process",31,18,1.1056361796006e-10
+"78","GO:BP","GO:0019751","polyol metabolic process",39,20,1.55121191315003e-10
+"79","GO:BP","GO:0034220","monoatomic ion transmembrane transport",207,50,1.99752627378088e-10
+"80","GO:BP","GO:0016053","organic acid biosynthetic process",195,48,2.53388020821237e-10
+"81","GO:BP","GO:0046394","carboxylic acid biosynthetic process",195,48,2.53388020821237e-10
+"82","GO:BP","GO:0098662","inorganic cation transmembrane transport",189,47,2.82663479199556e-10
+"83","GO:BP","GO:0051452","intracellular pH reduction",29,17,3.30606435757545e-10
+"84","GO:BP","GO:0007035","vacuolar acidification",29,17,3.30606435757545e-10
+"85","GO:BP","GO:0009064","glutamine family amino acid metabolic process",68,26,4.41482632939584e-10
+"86","GO:BP","GO:0015851","nucleobase transport",10,10,5.45684989484623e-10
+"87","GO:BP","GO:0006865","amino acid transport",57,23,1.78389322781194e-09
+"88","GO:BP","GO:0006811","monoatomic ion transport",243,53,2.66280973427529e-09
+"89","GO:BP","GO:0006672","ceramide metabolic process",13,11,2.97024273676184e-09
+"90","GO:BP","GO:0044238","primary metabolic process",3521,375,3.21534759122239e-09
+"91","GO:BP","GO:0072348","sulfur compound transport",25,15,3.21534759122239e-09
+"92","GO:BP","GO:0009313","oligosaccharide catabolic process",22,14,4.35617752029706e-09
+"93","GO:BP","GO:0030641","regulation of cellular pH",37,18,4.63077426139841e-09
+"94","GO:BP","GO:0051453","regulation of intracellular pH",37,18,4.63077426139841e-09
+"95","GO:BP","GO:0007032","endosome organization",37,18,4.63077426139841e-09
+"96","GO:BP","GO:0043605","amide catabolic process",16,12,4.63077426139841e-09
+"97","GO:BP","GO:0046513","ceramide biosynthetic process",11,10,4.86100139893761e-09
+"98","GO:BP","GO:0009065","glutamine family amino acid catabolic process",19,13,4.86100139893761e-09
+"99","GO:BP","GO:1901606","alpha-amino acid catabolic process",51,21,6.80679093702862e-09
+"100","GO:BP","GO:0072329","monocarboxylic acid catabolic process",38,18,7.62515747792635e-09
+"101","GO:BP","GO:0006885","regulation of pH",38,18,7.62515747792635e-09
+"102","GO:BP","GO:0009311","oligosaccharide metabolic process",38,18,7.62515747792635e-09
+"103","GO:BP","GO:1901605","alpha-amino acid metabolic process",183,43,1.2500311937451e-08
+"104","GO:BP","GO:0009063","amino acid catabolic process",63,23,1.60663411382404e-08
+"105","GO:BP","GO:0030148","sphingolipid biosynthetic process",44,19,1.71857112203676e-08
+"106","GO:BP","GO:1905039","carboxylic acid transmembrane transport",69,24,2.11963706423957e-08
+"107","GO:BP","GO:0006665","sphingolipid metabolic process",54,21,2.23368433637195e-08
+"108","GO:BP","GO:0098771","inorganic ion homeostasis",121,33,2.26158393957298e-08
+"109","GO:BP","GO:0006790","sulfur compound metabolic process",140,36,2.28811030337034e-08
+"110","GO:BP","GO:0070127","tRNA aminoacylation for mitochondrial protein translation",12,10,2.39800071196799e-08
+"111","GO:BP","GO:1903825","organic acid transmembrane transport",70,24,2.83519665286353e-08
+"112","GO:BP","GO:0046352","disaccharide catabolic process",18,12,3.43735448300994e-08
+"113","GO:BP","GO:0006490","oligosaccharide-lipid intermediate biosynthetic process",15,11,3.48319412093017e-08
+"114","GO:BP","GO:0006575","cellular modified amino acid metabolic process",42,18,5.16719706677688e-08
+"115","GO:BP","GO:0034486","vacuolar transmembrane transport",8,8,5.63424030739893e-08
+"116","GO:BP","GO:0003333","amino acid transmembrane transport",47,19,6.01028273413533e-08
+"117","GO:BP","GO:0019400","alditol metabolic process",19,12,8.23525412413525e-08
+"118","GO:BP","GO:0000272","polysaccharide catabolic process",23,13,1.22527724852069e-07
+"119","GO:BP","GO:0006497","protein lipidation",49,19,1.33166506949996e-07
+"120","GO:BP","GO:0042158","lipoprotein biosynthetic process",49,19,1.33166506949996e-07
+"121","GO:BP","GO:0042157","lipoprotein metabolic process",50,19,1.94529123801056e-07
+"122","GO:BP","GO:0043648","dicarboxylic acid metabolic process",55,20,1.94529123801056e-07
+"123","GO:BP","GO:0006089","lactate metabolic process",11,9,2.1046137744413e-07
+"124","GO:BP","GO:0046434","organophosphate catabolic process",32,15,2.28219311756132e-07
+"125","GO:BP","GO:0005984","disaccharide metabolic process",32,15,2.28219311756132e-07
+"126","GO:BP","GO:0006749","glutathione metabolic process",21,12,3.73373653979487e-07
+"127","GO:BP","GO:1901616","organic hydroxy compound catabolic process",21,12,3.73373653979487e-07
+"128","GO:BP","GO:0030001","metal ion transport",109,29,3.73373653979487e-07
+"129","GO:BP","GO:0019405","alditol catabolic process",9,8,4.17824360626427e-07
+"130","GO:BP","GO:0032974","amino acid transmembrane export from vacuole",7,7,5.84201656001891e-07
+"131","GO:BP","GO:0006144","purine nucleobase metabolic process",22,12,7.40141041900238e-07
+"132","GO:BP","GO:0006633","fatty acid biosynthetic process",26,13,7.80028341382121e-07
+"133","GO:BP","GO:0015980","energy derivation by oxidation of organic compounds",182,39,9.66806987764614e-07
+"134","GO:BP","GO:0006099","tricarboxylic acid cycle",31,14,1.18880780207004e-06
+"135","GO:BP","GO:0042180","cellular ketone metabolic process",51,18,1.63981781885502e-06
+"136","GO:BP","GO:0006753","nucleoside phosphate metabolic process",201,41,1.83672476722985e-06
+"137","GO:BP","GO:0042559","pteridine-containing compound biosynthetic process",13,9,2.08024104556695e-06
+"138","GO:BP","GO:0000023","maltose metabolic process",13,9,2.08024104556695e-06
+"139","GO:BP","GO:0097237","cellular response to toxic substance",37,15,2.25615984098207e-06
+"140","GO:BP","GO:0009112","nucleobase metabolic process",42,16,2.40322488397101e-06
+"141","GO:BP","GO:0072521","purine-containing compound metabolic process",160,35,2.60721879923827e-06
+"142","GO:BP","GO:0009636","response to toxic substance",53,18,3.06253904348148e-06
+"143","GO:BP","GO:0046503","glycerolipid catabolic process",17,10,3.64121366674532e-06
+"144","GO:BP","GO:0006673","inositol phosphoceramide metabolic process",8,7,3.90426449838477e-06
+"145","GO:BP","GO:0046174","polyol catabolic process",11,8,5.8232787009172e-06
+"146","GO:BP","GO:0006536","glutamate metabolic process",18,10,7.40762306000653e-06
+"147","GO:BP","GO:0006879","intracellular iron ion homeostasis",57,18,1.02239000825977e-05
+"148","GO:BP","GO:0043039","tRNA aminoacylation",41,15,1.02806659526528e-05
+"149","GO:BP","GO:0043038","amino acid activation",41,15,1.02806659526528e-05
+"150","GO:BP","GO:0006767","water-soluble vitamin metabolic process",63,19,1.07807405575433e-05
+"151","GO:BP","GO:0044036","cell wall macromolecule metabolic process",63,19,1.07807405575433e-05
+"152","GO:BP","GO:0006766","vitamin metabolic process",63,19,1.07807405575433e-05
+"153","GO:BP","GO:1990822","basic amino acid transmembrane transport",15,9,1.12066692818634e-05
+"154","GO:BP","GO:0006040","amino sugar metabolic process",32,13,1.37145341829666e-05
+"155","GO:BP","GO:0009396","folic acid-containing compound biosynthetic process",12,8,1.50119169499548e-05
+"156","GO:BP","GO:0009395","phospholipid catabolic process",12,8,1.50119169499548e-05
+"157","GO:BP","GO:0042398","cellular modified amino acid biosynthetic process",24,11,2.22042599325934e-05
+"158","GO:BP","GO:0000041","transition metal ion transport",72,20,2.27056251154727e-05
+"159","GO:BP","GO:0043173","nucleotide salvage",16,9,2.27704657798088e-05
+"160","GO:BP","GO:0006057","mannoprotein biosynthetic process",20,10,2.38774015583903e-05
+"161","GO:BP","GO:0006056","mannoprotein metabolic process",20,10,2.38774015583903e-05
+"162","GO:BP","GO:0031506","cell wall glycoprotein biosynthetic process",20,10,2.38774015583903e-05
+"163","GO:BP","GO:0000032","cell wall mannoprotein biosynthetic process",20,10,2.38774015583903e-05
+"164","GO:BP","GO:0044272","sulfur compound biosynthetic process",79,21,2.64350275069155e-05
+"165","GO:BP","GO:0006720","isoprenoid metabolic process",29,12,2.67716948498222e-05
+"166","GO:BP","GO:1901264","carbohydrate derivative transport",50,16,3.09670653831339e-05
+"167","GO:BP","GO:0009117","nucleotide metabolic process",193,37,3.09670653831339e-05
+"168","GO:BP","GO:0009068","aspartate family amino acid catabolic process",13,8,3.33107472901803e-05
+"169","GO:BP","GO:0072530","purine-containing compound transmembrane transport",13,8,3.33107472901803e-05
+"170","GO:BP","GO:0000255","allantoin metabolic process",7,6,3.37156001439406e-05
+"171","GO:BP","GO:0000256","allantoin catabolic process",7,6,3.37156001439406e-05
+"172","GO:BP","GO:0030258","lipid modification",45,15,3.49280404639534e-05
+"173","GO:BP","GO:1901071","glucosamine-containing compound metabolic process",30,12,3.92555264128599e-05
+"174","GO:BP","GO:1990748","cellular detoxification",35,13,4.04455648944707e-05
+"175","GO:BP","GO:0015802","basic amino acid transport",17,9,4.06159478669443e-05
+"176","GO:BP","GO:0046487","glyoxylate metabolic process",10,7,4.10404932786202e-05
+"177","GO:BP","GO:0045333","cellular respiration",129,28,4.28483014839221e-05
+"178","GO:BP","GO:0036092","phosphatidylinositol-3-phosphate biosynthetic process",5,5,5.73632176723856e-05
+"179","GO:BP","GO:1903100","1-phosphatidyl-1D-myo-inositol 3,5-bisphosphate metabolic process",5,5,5.73632176723856e-05
+"180","GO:BP","GO:0006059","hexitol metabolic process",5,5,5.73632176723856e-05
+"181","GO:BP","GO:0019249","lactate biosynthetic process",5,5,5.73632176723856e-05
+"182","GO:BP","GO:0016093","polyprenol metabolic process",14,8,6.63693148754555e-05
+"183","GO:BP","GO:0019348","dolichol metabolic process",14,8,6.63693148754555e-05
+"184","GO:BP","GO:0042558","pteridine-containing compound metabolic process",18,9,7.13808086232039e-05
+"185","GO:BP","GO:0098869","cellular oxidant detoxification",32,12,8.15514798087339e-05
+"186","GO:BP","GO:0009060","aerobic respiration",106,24,9.51274893634371e-05
+"187","GO:BP","GO:0046185","aldehyde catabolic process",11,7,9.77975626409282e-05
+"188","GO:BP","GO:0015677","copper ion import",11,7,9.77975626409282e-05
+"189","GO:BP","GO:0006418","tRNA aminoacylation for protein translation",38,13,0.000107110202256242
+"190","GO:BP","GO:0008655","pyrimidine-containing compound salvage",8,6,0.000111560407363589
+"191","GO:BP","GO:0043650","dicarboxylic acid biosynthetic process",28,11,0.000111560407363589
+"192","GO:BP","GO:0046475","glycerophospholipid catabolic process",8,6,0.000111560407363589
+"193","GO:BP","GO:0006030","chitin metabolic process",28,11,0.000111560407363589
+"194","GO:BP","GO:0006022","aminoglycan metabolic process",28,11,0.000111560407363589
+"195","GO:BP","GO:0009062","fatty acid catabolic process",28,11,0.000111560407363589
+"196","GO:BP","GO:0072523","purine-containing compound catabolic process",15,8,0.000122789217297467
+"197","GO:BP","GO:0009110","vitamin biosynthetic process",56,16,0.000135147987757189
+"198","GO:BP","GO:0042364","water-soluble vitamin biosynthetic process",56,16,0.000135147987757189
+"199","GO:BP","GO:0006874","intracellular calcium ion homeostasis",24,10,0.000150918342447941
+"200","GO:BP","GO:0097502","mannosylation",29,11,0.000161745410413518
+"201","GO:BP","GO:0072593","reactive oxygen species metabolic process",20,9,0.000192729900465161
+"202","GO:BP","GO:0006091","generation of precursor metabolites and energy",243,41,0.000202667495375988
+"203","GO:BP","GO:0043094","cellular metabolic compound salvage",35,12,0.000215687576188711
+"204","GO:BP","GO:0006816","calcium ion transport",16,8,0.000216081888939892
+"205","GO:BP","GO:0015695","organic cation transport",16,8,0.000216081888939892
+"206","GO:BP","GO:0046164","alcohol catabolic process",16,8,0.000216081888939892
+"207","GO:BP","GO:0055074","calcium ion homeostasis",25,10,0.000223308523646751
+"208","GO:BP","GO:0055088","lipid homeostasis",41,13,0.000248454432931132
+"209","GO:BP","GO:0006048","UDP-N-acetylglucosamine biosynthetic process",6,5,0.000274184127396073
+"210","GO:BP","GO:0019563","glycerol catabolic process",6,5,0.000274184127396073
+"211","GO:BP","GO:0006102","isocitrate metabolic process",6,5,0.000274184127396073
+"212","GO:BP","GO:0006488","dolichol-linked oligosaccharide biosynthetic process",9,6,0.000279069733864782
+"213","GO:BP","GO:0006097","glyoxylate cycle",9,6,0.000279069733864782
+"214","GO:BP","GO:0010035","response to inorganic substance",79,19,0.000296161596626803
+"215","GO:BP","GO:1901136","carbohydrate derivative catabolic process",31,11,0.000313740166328432
+"216","GO:BP","GO:0006744","ubiquinone biosynthetic process",17,8,0.000351863473129099
+"217","GO:BP","GO:0006743","ubiquinone metabolic process",17,8,0.000351863473129099
+"218","GO:BP","GO:1901663","quinone biosynthetic process",17,8,0.000351863473129099
+"219","GO:BP","GO:1901661","quinone metabolic process",17,8,0.000351863473129099
+"220","GO:BP","GO:0042181","ketone biosynthetic process",17,8,0.000351863473129099
+"221","GO:BP","GO:0006760","folic acid-containing compound metabolic process",17,8,0.000351863473129099
+"222","GO:BP","GO:1901617","organic hydroxy compound biosynthetic process",103,22,0.000495339870730711
+"223","GO:BP","GO:0015855","pyrimidine nucleobase transport",4,4,0.000524246919278673
+"224","GO:BP","GO:0032262","pyrimidine nucleotide salvage",4,4,0.000524246919278673
+"225","GO:BP","GO:0010138","pyrimidine ribonucleotide salvage",4,4,0.000524246919278673
+"226","GO:BP","GO:0006676","mannosyl diphosphorylinositol ceramide metabolic process",4,4,0.000524246919278673
+"227","GO:BP","GO:0015888","thiamine transport",4,4,0.000524246919278673
+"228","GO:BP","GO:0048015","phosphatidylinositol-mediated signaling",4,4,0.000524246919278673
+"229","GO:BP","GO:0015803","branched-chain amino acid transport",4,4,0.000524246919278673
+"230","GO:BP","GO:0044206","UMP salvage",4,4,0.000524246919278673
+"231","GO:BP","GO:0015858","nucleoside transport",4,4,0.000524246919278673
+"232","GO:BP","GO:0046839","phospholipid dephosphorylation",18,8,0.000558034631816463
+"233","GO:BP","GO:0006213","pyrimidine nucleoside metabolic process",10,6,0.000591287309259402
+"234","GO:BP","GO:0006637","acyl-CoA metabolic process",23,9,0.00063038156789565
+"235","GO:BP","GO:0035383","thioester metabolic process",23,9,0.00063038156789565
+"236","GO:BP","GO:0046349","amino sugar biosynthetic process",23,9,0.00063038156789565
+"237","GO:BP","GO:0006071","glycerol metabolic process",14,7,0.000637501653937545
+"238","GO:BP","GO:0009251","glucan catabolic process",14,7,0.000637501653937545
+"239","GO:BP","GO:0098754","detoxification",45,13,0.000648583136874297
+"240","GO:BP","GO:0006979","response to oxidative stress",136,26,0.00072897903829304
+"241","GO:BP","GO:0009116","nucleoside metabolic process",34,11,0.000744045647003819
+"242","GO:BP","GO:0009438","methylglyoxal metabolic process",7,5,0.000761423315872329
+"243","GO:BP","GO:0006530","asparagine catabolic process",7,5,0.000761423315872329
+"244","GO:BP","GO:0019243","methylglyoxal catabolic process to D-lactate via S-lactoyl-glutathione",7,5,0.000761423315872329
+"245","GO:BP","GO:0006047","UDP-N-acetylglucosamine metabolic process",7,5,0.000761423315872329
+"246","GO:BP","GO:0051596","methylglyoxal catabolic process",7,5,0.000761423315872329
+"247","GO:BP","GO:0061727","methylglyoxal catabolic process to lactate",7,5,0.000761423315872329
+"248","GO:BP","GO:1902600","proton transmembrane transport",107,22,0.0008129490071287
+"249","GO:BP","GO:0006163","purine nucleotide metabolic process",145,27,0.000824684594058125
+"250","GO:BP","GO:0006825","copper ion transport",19,8,0.000827401845033134
+"251","GO:BP","GO:0046856","phosphatidylinositol dephosphorylation",15,7,0.00104534429485362
+"252","GO:BP","GO:0009225","nucleotide-sugar metabolic process",15,7,0.00104534429485362
+"253","GO:BP","GO:0006491","N-glycan processing",11,6,0.00109777634607256
+"254","GO:BP","GO:0006537","glutamate biosynthetic process",11,6,0.00109777634607256
+"255","GO:BP","GO:0051180","vitamin transport",11,6,0.00109777634607256
+"256","GO:BP","GO:0090156","intracellular sphingolipid homeostasis",11,6,0.00109777634607256
+"257","GO:BP","GO:0019693","ribose phosphate metabolic process",117,23,0.00112510378559825
+"258","GO:BP","GO:0009058","biosynthetic process",2730,277,0.00117673421265886
+"259","GO:BP","GO:0005976","polysaccharide metabolic process",81,18,0.00119312275312374
+"260","GO:BP","GO:0046173","polyol biosynthetic process",20,8,0.00122663446962106
+"261","GO:BP","GO:1901576","organic substance biosynthetic process",2716,275,0.00151195434088398
+"262","GO:BP","GO:1901292","nucleoside phosphate catabolic process",16,7,0.00165531726590267
+"263","GO:BP","GO:0006638","neutral lipid metabolic process",21,8,0.00181229700686484
+"264","GO:BP","GO:0034599","cellular response to oxidative stress",121,23,0.00185293913467945
+"265","GO:BP","GO:0006528","asparagine metabolic process",12,6,0.00194592342351851
+"266","GO:BP","GO:0033875","ribonucleoside bisphosphate metabolic process",32,10,0.00194592342351851
+"267","GO:BP","GO:0033865","nucleoside bisphosphate metabolic process",32,10,0.00194592342351851
+"268","GO:BP","GO:0070588","calcium ion transmembrane transport",12,6,0.00194592342351851
+"269","GO:BP","GO:0034032","purine nucleoside bisphosphate metabolic process",32,10,0.00194592342351851
+"270","GO:BP","GO:0006826","iron ion transport",44,12,0.00198955965989502
+"271","GO:BP","GO:0046348","amino sugar catabolic process",5,4,0.00203600802228181
+"272","GO:BP","GO:0006032","chitin catabolic process",5,4,0.00203600802228181
+"273","GO:BP","GO:0032958","inositol phosphate biosynthetic process",5,4,0.00203600802228181
+"274","GO:BP","GO:1901072","glucosamine-containing compound catabolic process",5,4,0.00203600802228181
+"275","GO:BP","GO:0006026","aminoglycan catabolic process",5,4,0.00203600802228181
+"276","GO:BP","GO:0006086","acetyl-CoA biosynthetic process from pyruvate",5,4,0.00203600802228181
+"277","GO:BP","GO:0006751","glutathione catabolic process",5,4,0.00203600802228181
+"278","GO:BP","GO:0015807","L-amino acid transport",22,8,0.00249283544736672
+"279","GO:BP","GO:1901657","glycosyl compound metabolic process",39,11,0.00252718971767645
+"280","GO:BP","GO:0009259","ribonucleotide metabolic process",110,21,0.0030529237346057
+"281","GO:BP","GO:0072337","modified amino acid transport",13,6,0.00319479759830129
+"282","GO:BP","GO:0010511","regulation of phosphatidylinositol biosynthetic process",9,5,0.00341744361964725
+"283","GO:BP","GO:0045117","azole transmembrane transport",9,5,0.00341744361964725
+"284","GO:BP","GO:0009226","nucleotide-sugar biosynthetic process",9,5,0.00341744361964725
+"285","GO:BP","GO:0072350","tricarboxylic acid metabolic process",9,5,0.00341744361964725
+"286","GO:BP","GO:0015804","neutral amino acid transport",18,7,0.00361886914013022
+"287","GO:BP","GO:0046100","hypoxanthine metabolic process",3,3,0.00465110530964894
+"288","GO:BP","GO:0051793","medium-chain fatty acid catabolic process",3,3,0.00465110530964894
+"289","GO:BP","GO:0051792","medium-chain fatty acid biosynthetic process",3,3,0.00465110530964894
+"290","GO:BP","GO:0051791","medium-chain fatty acid metabolic process",3,3,0.00465110530964894
+"291","GO:BP","GO:0061610","glycerol to glycerone phosphate metabolic process",3,3,0.00465110530964894
+"292","GO:BP","GO:0006145","purine nucleobase catabolic process",3,3,0.00465110530964894
+"293","GO:BP","GO:0046087","cytidine metabolic process",3,3,0.00465110530964894
+"294","GO:BP","GO:0006868","glutamine transport",3,3,0.00465110530964894
+"295","GO:BP","GO:0010038","response to metal ion",42,11,0.00465110530964894
+"296","GO:BP","GO:0000959","mitochondrial RNA metabolic process",42,11,0.00465110530964894
+"297","GO:BP","GO:1903088","5-amino-1-ribofuranosylimidazole-4-carboxamide transmembrane transport",3,3,0.00465110530964894
+"298","GO:BP","GO:0006060","sorbitol metabolic process",3,3,0.00465110530964894
+"299","GO:BP","GO:0019407","hexitol catabolic process",3,3,0.00465110530964894
+"300","GO:BP","GO:0006062","sorbitol catabolic process",3,3,0.00465110530964894
+"301","GO:BP","GO:0034488","basic amino acid transmembrane export from vacuole",3,3,0.00465110530964894
+"302","GO:BP","GO:0034487","vacuolar amino acid transmembrane transport",3,3,0.00465110530964894
+"303","GO:BP","GO:0006538","glutamate catabolic process",3,3,0.00465110530964894
+"304","GO:BP","GO:0006688","glycosphingolipid biosynthetic process",3,3,0.00465110530964894
+"305","GO:BP","GO:0015856","cytosine transport",3,3,0.00465110530964894
+"306","GO:BP","GO:0046365","monosaccharide catabolic process",19,7,0.00494489187802922
+"307","GO:BP","GO:0006038","cell wall chitin biosynthetic process",19,7,0.00494489187802922
+"308","GO:BP","GO:1990481","mRNA pseudouridine synthesis",6,4,0.00500386338017473
+"309","GO:BP","GO:0072527","pyrimidine-containing compound metabolic process",49,12,0.00500386338017473
+"310","GO:BP","GO:0009102","biotin biosynthetic process",6,4,0.00500386338017473
+"311","GO:BP","GO:0042744","hydrogen peroxide catabolic process",6,4,0.00500386338017473
+"312","GO:BP","GO:0006805","xenobiotic metabolic process",6,4,0.00500386338017473
+"313","GO:BP","GO:0006768","biotin metabolic process",6,4,0.00500386338017473
+"314","GO:BP","GO:0046656","folic acid biosynthetic process",6,4,0.00500386338017473
+"315","GO:BP","GO:0046459","short-chain fatty acid metabolic process",6,4,0.00500386338017473
+"316","GO:BP","GO:0046461","neutral lipid catabolic process",10,5,0.00569236767340093
+"317","GO:BP","GO:0042182","ketone catabolic process",10,5,0.00569236767340093
+"318","GO:BP","GO:0006116","NADH oxidation",10,5,0.00569236767340093
+"319","GO:BP","GO:0046890","regulation of lipid biosynthetic process",37,10,0.00596944162352311
+"320","GO:BP","GO:0034755","iron ion transmembrane transport",31,9,0.00612246292395328
+"321","GO:BP","GO:0072524","pyridine-containing compound metabolic process",57,13,0.00616867712999662
+"322","GO:BP","GO:0006031","chitin biosynthetic process",20,7,0.00663736701188982
+"323","GO:BP","GO:0006639","acylglycerol metabolic process",20,7,0.00663736701188982
+"324","GO:BP","GO:1901073","glucosamine-containing compound biosynthetic process",20,7,0.00663736701188982
+"325","GO:BP","GO:1902475","L-alpha-amino acid transmembrane transport",20,7,0.00663736701188982
+"326","GO:BP","GO:0006023","aminoglycan biosynthetic process",20,7,0.00663736701188982
+"327","GO:BP","GO:0043562","cellular response to nitrogen levels",15,6,0.00682766145866444
+"328","GO:BP","GO:0006835","dicarboxylic acid transport",15,6,0.00682766145866444
+"329","GO:BP","GO:0006995","cellular response to nitrogen starvation",15,6,0.00682766145866444
+"330","GO:BP","GO:0006113","fermentation",15,6,0.00682766145866444
+"331","GO:BP","GO:1901293","nucleoside phosphate biosynthetic process",135,23,0.00741890834149358
+"332","GO:BP","GO:0009066","aspartate family amino acid metabolic process",73,15,0.00785870323802217
+"333","GO:BP","GO:1901607","alpha-amino acid biosynthetic process",120,21,0.00842886677847051
+"334","GO:BP","GO:0071071","regulation of phospholipid biosynthetic process",21,7,0.00900405812099223
+"335","GO:BP","GO:0019321","pentose metabolic process",11,5,0.00920733751173311
+"336","GO:BP","GO:0006810","transport",1415,151,0.00958331060369702
+"337","GO:BP","GO:0006541","glutamine metabolic process",27,8,0.00969442357205736
+"338","GO:BP","GO:0042743","hydrogen peroxide metabolic process",7,4,0.00990484828246956
+"339","GO:BP","GO:0046473","phosphatidic acid metabolic process",7,4,0.00990484828246956
+"340","GO:BP","GO:0015828","tyrosine transport",7,4,0.00990484828246956
+"341","GO:BP","GO:0006103","2-oxoglutarate metabolic process",7,4,0.00990484828246956
+"342","GO:BP","GO:0043649","dicarboxylic acid catabolic process",7,4,0.00990484828246956
+"343","GO:BP","GO:0140331","aminophospholipid translocation",7,4,0.00990484828246956
+"344","GO:BP","GO:0015793","glycerol transmembrane transport",7,4,0.00990484828246956
+"345","GO:BP","GO:0006654","phosphatidic acid biosynthetic process",7,4,0.00990484828246956
+"346","GO:BP","GO:0006646","phosphatidylethanolamine biosynthetic process",7,4,0.00990484828246956
+"347","GO:BP","GO:0046165","alcohol biosynthetic process",83,16,0.0106606739844748
+"348","GO:BP","GO:1901565","organonitrogen compound catabolic process",450,57,0.0107907879026279
+"349","GO:BP","GO:0044249","cellular biosynthetic process",2651,262,0.0109435193273235
+"350","GO:BP","GO:0046686","response to cadmium ion",22,7,0.0116782402461857
+"351","GO:BP","GO:0016050","vesicle organization",149,24,0.0122243413484585
+"352","GO:BP","GO:0009165","nucleotide biosynthetic process",133,22,0.0131277562385008
+"353","GO:BP","GO:0006084","acetyl-CoA metabolic process",17,6,0.0135885524609668
+"354","GO:BP","GO:0072531","pyrimidine-containing compound transmembrane transport",4,3,0.0144191536884062
+"355","GO:BP","GO:0035965","cardiolipin acyl-chain remodeling",4,3,0.0144191536884062
+"356","GO:BP","GO:0005993","trehalose catabolic process",4,3,0.0144191536884062
+"357","GO:BP","GO:0000101","sulfur amino acid transport",4,3,0.0144191536884062
+"358","GO:BP","GO:0034034","purine nucleoside bisphosphate catabolic process",4,3,0.0144191536884062
+"359","GO:BP","GO:0046113","nucleobase catabolic process",4,3,0.0144191536884062
+"360","GO:BP","GO:0006577","amino-acid betaine metabolic process",4,3,0.0144191536884062
+"361","GO:BP","GO:0034031","ribonucleoside bisphosphate catabolic process",4,3,0.0144191536884062
+"362","GO:BP","GO:0009437","carnitine metabolic process",4,3,0.0144191536884062
+"363","GO:BP","GO:0033869","nucleoside bisphosphate catabolic process",4,3,0.0144191536884062
+"364","GO:BP","GO:0006687","glycosphingolipid metabolic process",4,3,0.0144191536884062
+"365","GO:BP","GO:0015697","quaternary ammonium group transport",4,3,0.0144191536884062
+"366","GO:BP","GO:0034356","NAD biosynthesis via nicotinamide riboside salvage pathway",4,3,0.0144191536884062
+"367","GO:BP","GO:0062197","cellular response to chemical stress",160,25,0.0146109914532749
+"368","GO:BP","GO:0009084","glutamine family amino acid biosynthetic process",29,8,0.0147113027351643
+"369","GO:BP","GO:0006037","cell wall chitin metabolic process",23,7,0.0147572753339543
+"370","GO:BP","GO:0009150","purine ribonucleotide metabolic process",94,17,0.0149250896114986
+"371","GO:BP","GO:0006085","acetyl-CoA biosynthetic process",8,4,0.0169449749809186
+"372","GO:BP","GO:0043647","inositol phosphate metabolic process",8,4,0.0169449749809186
+"373","GO:BP","GO:0006195","purine nucleotide catabolic process",8,4,0.0169449749809186
+"374","GO:BP","GO:0035384","thioester biosynthetic process",8,4,0.0169449749809186
+"375","GO:BP","GO:0046519","sphingoid metabolic process",8,4,0.0169449749809186
+"376","GO:BP","GO:0019323","pentose catabolic process",8,4,0.0169449749809186
+"377","GO:BP","GO:0071616","acyl-CoA biosynthetic process",8,4,0.0169449749809186
+"378","GO:BP","GO:0019362","pyridine nucleotide metabolic process",44,10,0.0207050049511736
+"379","GO:BP","GO:0006641","triglyceride metabolic process",19,6,0.0239023084514903
+"380","GO:BP","GO:0005996","monosaccharide metabolic process",83,15,0.0256803755174075
+"381","GO:BP","GO:0046464","acylglycerol catabolic process",9,4,0.0276869109003407
+"382","GO:BP","GO:0046655","folic acid metabolic process",9,4,0.0276869109003407
+"383","GO:BP","GO:0015917","aminophospholipid transport",9,4,0.0276869109003407
+"384","GO:BP","GO:0015801","aromatic amino acid transport",9,4,0.0276869109003407
+"385","GO:BP","GO:0005985","sucrose metabolic process",9,4,0.0276869109003407
+"386","GO:BP","GO:0034311","diol metabolic process",9,4,0.0276869109003407
+"387","GO:BP","GO:0034312","diol biosynthetic process",9,4,0.0276869109003407
+"388","GO:BP","GO:0032048","cardiolipin metabolic process",14,5,0.0276869109003407
+"389","GO:BP","GO:0008652","amino acid biosynthetic process",134,21,0.0286649334790817
+"390","GO:BP","GO:0042723","thiamine-containing compound metabolic process",20,6,0.030726490352035
+"391","GO:BP","GO:0008299","isoprenoid biosynthetic process",20,6,0.030726490352035
+"392","GO:BP","GO:0042219","cellular modified amino acid catabolic process",5,3,0.0310240308835014
+"393","GO:BP","GO:0046131","pyrimidine ribonucleoside metabolic process",5,3,0.0310240308835014
+"394","GO:BP","GO:0046466","membrane lipid catabolic process",5,3,0.0310240308835014
+"395","GO:BP","GO:0089718","amino acid import across plasma membrane",5,3,0.0310240308835014
+"396","GO:BP","GO:0030149","sphingolipid catabolic process",5,3,0.0310240308835014
+"397","GO:BP","GO:0032264","IMP salvage",5,3,0.0310240308835014
+"398","GO:BP","GO:0043097","pyrimidine nucleoside salvage",5,3,0.0310240308835014
+"399","GO:BP","GO:1904523","regulation of DNA amplification",2,2,0.0350723288025093
+"400","GO:BP","GO:0006104","succinyl-CoA metabolic process",2,2,0.0350723288025093
+"401","GO:BP","GO:1903692","methionine import across plasma membrane",2,2,0.0350723288025093
+"402","GO:BP","GO:1903457","lactate catabolic process",2,2,0.0350723288025093
+"403","GO:BP","GO:0035352","NAD transmembrane transport",2,2,0.0350723288025093
+"404","GO:BP","GO:0046049","UMP metabolic process",10,4,0.0350723288025093
+"405","GO:BP","GO:1901679","nucleotide transmembrane transport",15,5,0.0350723288025093
+"406","GO:BP","GO:0006216","cytidine catabolic process",2,2,0.0350723288025093
+"407","GO:BP","GO:1904524","negative regulation of DNA amplification",2,2,0.0350723288025093
+"408","GO:BP","GO:0046098","guanine metabolic process",2,2,0.0350723288025093
+"409","GO:BP","GO:0006522","alanine metabolic process",2,2,0.0350723288025093
+"410","GO:BP","GO:0070485","dehydro-D-arabinono-1,4-lactone biosynthetic process",2,2,0.0350723288025093
+"411","GO:BP","GO:0046133","pyrimidine ribonucleoside catabolic process",2,2,0.0350723288025093
+"412","GO:BP","GO:0019588","anaerobic glycerol catabolic process",2,2,0.0350723288025093
+"413","GO:BP","GO:0046135","pyrimidine nucleoside catabolic process",2,2,0.0350723288025093
+"414","GO:BP","GO:0046156","siroheme metabolic process",2,2,0.0350723288025093
+"415","GO:BP","GO:0071422","succinate transmembrane transport",2,2,0.0350723288025093
+"416","GO:BP","GO:0006524","alanine catabolic process",2,2,0.0350723288025093
+"417","GO:BP","GO:0019594","mannitol metabolic process",2,2,0.0350723288025093
+"418","GO:BP","GO:0071466","cellular response to xenobiotic stimulus",10,4,0.0350723288025093
+"419","GO:BP","GO:0009174","pyrimidine ribonucleoside monophosphate biosynthetic process",10,4,0.0350723288025093
+"420","GO:BP","GO:0071554","cell wall organization or biogenesis",333,42,0.0350723288025093
+"421","GO:BP","GO:0051999","mannosyl-inositol phosphorylceramide biosynthetic process",2,2,0.0350723288025093
+"422","GO:BP","GO:0015821","methionine transport",2,2,0.0350723288025093
+"423","GO:BP","GO:0015744","succinate transport",2,2,0.0350723288025093
+"424","GO:BP","GO:0000025","maltose catabolic process",2,2,0.0350723288025093
+"425","GO:BP","GO:0015723","bilirubin transport",2,2,0.0350723288025093
+"426","GO:BP","GO:0018890","cyanamide metabolic process",2,2,0.0350723288025093
+"427","GO:BP","GO:0042853","L-alanine catabolic process",2,2,0.0350723288025093
+"428","GO:BP","GO:0042851","L-alanine metabolic process",2,2,0.0350723288025093
+"429","GO:BP","GO:0009803","cinnamic acid metabolic process",2,2,0.0350723288025093
+"430","GO:BP","GO:0009698","phenylpropanoid metabolic process",2,2,0.0350723288025093
+"431","GO:BP","GO:0019354","siroheme biosynthetic process",2,2,0.0350723288025093
+"432","GO:BP","GO:0000316","sulfite transport",2,2,0.0350723288025093
+"433","GO:BP","GO:0009415","response to water",10,4,0.0350723288025093
+"434","GO:BP","GO:0009414","response to water deprivation",10,4,0.0350723288025093
+"435","GO:BP","GO:0044211","CTP salvage",2,2,0.0350723288025093
+"436","GO:BP","GO:0019478","D-amino acid catabolic process",2,2,0.0350723288025093
+"437","GO:BP","GO:0019516","lactate oxidation",2,2,0.0350723288025093
+"438","GO:BP","GO:0000918","division septum site selection",2,2,0.0350723288025093
+"439","GO:BP","GO:2000303","regulation of ceramide biosynthetic process",2,2,0.0350723288025093
+"440","GO:BP","GO:0005997","xylulose metabolic process",2,2,0.0350723288025093
+"441","GO:BP","GO:0009173","pyrimidine ribonucleoside monophosphate metabolic process",10,4,0.0350723288025093
+"442","GO:BP","GO:1990549","mitochondrial NAD transmembrane transport",2,2,0.0350723288025093
+"443","GO:BP","GO:0006222","UMP biosynthetic process",10,4,0.0350723288025093
+"444","GO:BP","GO:1901289","succinyl-CoA catabolic process",2,2,0.0350723288025093
+"445","GO:BP","GO:0097293","XMP biosynthetic process",2,2,0.0350723288025093
+"446","GO:BP","GO:0097292","XMP metabolic process",2,2,0.0350723288025093
+"447","GO:BP","GO:0050898","nitrile metabolic process",2,2,0.0350723288025093
+"448","GO:BP","GO:0009125","nucleoside monophosphate catabolic process",2,2,0.0350723288025093
+"449","GO:BP","GO:0015864","pyrimidine nucleoside transport",2,2,0.0350723288025093
+"450","GO:BP","GO:0072528","pyrimidine-containing compound biosynthetic process",41,9,0.0350723288025093
+"451","GO:BP","GO:0009107","lipoate biosynthetic process",2,2,0.0350723288025093
+"452","GO:BP","GO:0009078","pyruvate family amino acid metabolic process",2,2,0.0350723288025093
+"453","GO:BP","GO:0008643","carbohydrate transport",55,11,0.0350723288025093
+"454","GO:BP","GO:0072522","purine-containing compound biosynthetic process",104,17,0.0350723288025093
+"455","GO:BP","GO:0032265","XMP salvage",2,2,0.0350723288025093
+"456","GO:BP","GO:0043132","NAD transport",2,2,0.0350723288025093
+"457","GO:BP","GO:0071934","thiamine transmembrane transport",2,2,0.0350723288025093
+"458","GO:BP","GO:0009106","lipoate metabolic process",2,2,0.0350723288025093
+"459","GO:BP","GO:0070484","dehydro-D-arabinono-1,4-lactone metabolic process",2,2,0.0350723288025093
+"460","GO:BP","GO:0006666","3-keto-sphinganine metabolic process",2,2,0.0350723288025093
+"461","GO:BP","GO:0006660","phosphatidylserine catabolic process",2,2,0.0350723288025093
+"462","GO:BP","GO:0009080","pyruvate family amino acid catabolic process",2,2,0.0350723288025093
+"463","GO:BP","GO:1901089","acetate ester metabolic process involved in fermentation",2,2,0.0350723288025093
+"464","GO:BP","GO:0120256","olefinic compound catabolic process",2,2,0.0350723288025093
+"465","GO:BP","GO:0120254","olefinic compound metabolic process",2,2,0.0350723288025093
+"466","GO:BP","GO:0046281","cinnamic acid catabolic process",2,2,0.0350723288025093
+"467","GO:BP","GO:1900060","negative regulation of ceramide biosynthetic process",2,2,0.0350723288025093
+"468","GO:BP","GO:0032263","GMP salvage",2,2,0.0350723288025093
+"469","GO:BP","GO:0034258","nicotinamide riboside transport",2,2,0.0350723288025093
+"470","GO:BP","GO:0019662","non-glycolytic fermentation",2,2,0.0350723288025093
+"471","GO:BP","GO:0046271","phenylpropanoid catabolic process",2,2,0.0350723288025093
+"472","GO:BP","GO:1900619","acetate ester metabolic process",2,2,0.0350723288025093
+"473","GO:BP","GO:0046416","D-amino acid metabolic process",2,2,0.0350723288025093
+"474","GO:BP","GO:0046337","phosphatidylethanolamine metabolic process",10,4,0.0350723288025093
+"475","GO:BP","GO:0009159","deoxyribonucleoside monophosphate catabolic process",2,2,0.0350723288025093
+"476","GO:BP","GO:0043603","amide metabolic process",657,74,0.0389969408288606
+"477","GO:BP","GO:0019216","regulation of lipid metabolic process",50,10,0.0421678626392575
+"478","GO:BP","GO:0015850","organic hydroxy compound transport",50,10,0.0421678626392575
+"479","GO:BP","GO:0046835","carbohydrate phosphorylation",16,5,0.0421678626392575
+"480","GO:BP","GO:0006164","purine nucleotide biosynthetic process",98,16,0.0421678626392575
+"481","GO:BP","GO:0034221","fungal-type cell wall chitin biosynthetic process",16,5,0.0421678626392575
+"482","GO:BP","GO:0046496","nicotinamide nucleotide metabolic process",43,9,0.0447793646035506
+"483","GO:BP","GO:0030242","autophagy of peroxisome",29,7,0.0455044147166594
+"484","GO:BP","GO:1903725","regulation of phospholipid metabolic process",29,7,0.0455044147166594
+"485","GO:BP","GO:0009154","purine ribonucleotide catabolic process",6,3,0.0469891549407057
+"486","GO:BP","GO:0009249","protein lipoylation",6,3,0.0469891549407057
+"487","GO:BP","GO:1902476","chloride transmembrane transport",6,3,0.0469891549407057
+"488","GO:BP","GO:0042732","D-xylose metabolic process",6,3,0.0469891549407057
+"489","GO:BP","GO:0006002","fructose 6-phosphate metabolic process",6,3,0.0469891549407057
+"490","GO:BP","GO:1902358","sulfate transmembrane transport",6,3,0.0469891549407057
+"491","GO:BP","GO:0008272","sulfate transport",6,3,0.0469891549407057
+"492","GO:BP","GO:0015780","nucleotide-sugar transmembrane transport",6,3,0.0469891549407057
+"493","GO:BP","GO:0051234","establishment of localization",1497,152,0.0469891549407057
+"494","GO:BP","GO:0016556","mRNA modification",11,4,0.049425993559106
+"495","GO:BP","GO:0044042","glucan metabolic process",67,12,0.0496064905348795
+"496","GO:CC","GO:0005737","cytoplasm",4437,500,9.06460163739942e-32
+"497","GO:CC","GO:0000324","fungal-type vacuole",462,101,3.5138035093957e-18
+"498","GO:CC","GO:0000322","storage vacuole",462,101,3.5138035093957e-18
+"499","GO:CC","GO:0031090","organelle membrane",1392,210,3.5138035093957e-18
+"500","GO:CC","GO:0000323","lytic vacuole",464,101,3.9348906249768e-18
+"501","GO:CC","GO:0000329","fungal-type vacuole membrane",223,65,4.24258211789855e-18
+"502","GO:CC","GO:0098852","lytic vacuole membrane",224,65,4.72823261075822e-18
+"503","GO:CC","GO:0016471","vacuolar proton-transporting V-type ATPase complex",17,17,2.00754856374161e-17
+"504","GO:CC","GO:0033176","proton-transporting V-type ATPase complex",17,17,2.00754856374161e-17
+"505","GO:CC","GO:0005773","vacuole",547,108,2.0039865747832e-16
+"506","GO:CC","GO:0005774","vacuolar membrane",300,74,2.14976210113837e-16
+"507","GO:CC","GO:0005739","mitochondrion",1218,180,1.96019735379456e-14
+"508","GO:CC","GO:0005622","intracellular anatomical structure",5218,512,5.24923163554946e-13
+"509","GO:CC","GO:0098588","bounding membrane of organelle",667,113,2.55502705175855e-12
+"510","GO:CC","GO:0005783","endoplasmic reticulum",712,116,1.72818200487692e-11
+"511","GO:CC","GO:0035032","phosphatidylinositol 3-kinase complex, class III",12,11,3.36183367667e-10
+"512","GO:CC","GO:0005942","phosphatidylinositol 3-kinase complex",12,11,3.36183367667e-10
+"513","GO:CC","GO:0031984","organelle subcompartment",482,84,1.15249997665658e-09
+"514","GO:CC","GO:0043231","intracellular membrane-bounded organelle",4384,443,1.15445186047596e-09
+"515","GO:CC","GO:0043227","membrane-bounded organelle",4387,443,1.27596648190437e-09
+"516","GO:CC","GO:0000220","vacuolar proton-transporting V-type ATPase, V0 domain",9,9,3.20190302025106e-09
+"517","GO:CC","GO:0033179","proton-transporting V-type ATPase, V0 domain",9,9,3.20190302025106e-09
+"518","GO:CC","GO:0110165","cellular anatomical entity",5768,537,3.20190302025106e-09
+"519","GO:CC","GO:0005789","endoplasmic reticulum membrane",414,74,4.19020652002228e-09
+"520","GO:CC","GO:0098827","endoplasmic reticulum subcompartment",417,74,5.67794573895477e-09
+"521","GO:CC","GO:0016469","proton-transporting two-sector ATPase complex",35,17,7.2058519089615e-09
+"522","GO:CC","GO:0016020","membrane",2484,280,1.55160426748769e-08
+"523","GO:CC","GO:0042175","nuclear outer membrane-endoplasmic reticulum membrane network",428,74,1.72373474527954e-08
+"524","GO:CC","GO:0033180","proton-transporting V-type ATPase, V1 domain",8,8,2.84345660334536e-08
+"525","GO:CC","GO:0000221","vacuolar proton-transporting V-type ATPase, V1 domain",8,8,2.84345660334536e-08
+"526","GO:CC","GO:0005759","mitochondrial matrix",247,50,4.58225016794403e-08
+"527","GO:CC","GO:0012505","endomembrane system",1146,150,7.6724621004184e-08
+"528","GO:CC","GO:0043229","intracellular organelle",4670,456,1.61695547686779e-07
+"529","GO:CC","GO:0043226","organelle",4671,456,1.64219665881175e-07
+"530","GO:CC","GO:0042597","periplasmic space",12,9,3.58283261342567e-07
+"531","GO:CC","GO:0035339","SPOTS complex",6,6,3.11220597755673e-06
+"532","GO:CC","GO:0017059","serine C-palmitoyltransferase complex",6,6,3.11220597755673e-06
+"533","GO:CC","GO:0000506","glycosylphosphatidylinositol-N-acetylglucosaminyltransferase (GPI-GnT) complex",6,6,3.11220597755673e-06
+"534","GO:CC","GO:0030287","cell wall-bounded periplasmic space",7,6,1.96803276821397e-05
+"535","GO:CC","GO:0000139","Golgi membrane",165,33,2.15394277023252e-05
+"536","GO:CC","GO:0045239","tricarboxylic acid cycle enzyme complex",10,7,2.33486702917493e-05
+"537","GO:CC","GO:0034271","phosphatidylinositol 3-kinase complex, class III, type I",5,5,3.30730979314926e-05
+"538","GO:CC","GO:0033178","proton-transporting two-sector ATPase complex, catalytic domain",14,8,3.72837068777002e-05
+"539","GO:CC","GO:0031211","endoplasmic reticulum palmitoyltransferase complex",8,6,6.32619745179623e-05
+"540","GO:CC","GO:0002178","palmitoyltransferase complex",8,6,6.32619745179623e-05
+"541","GO:CC","GO:0009295","nucleoid",29,11,8.98884569284796e-05
+"542","GO:CC","GO:0042645","mitochondrial nucleoid",29,11,8.98884569284796e-05
+"543","GO:CC","GO:0030062","mitochondrial tricarboxylic acid cycle enzyme complex",6,5,0.000158022480469395
+"544","GO:CC","GO:0070772","PAS complex",6,5,0.000158022480469395
+"545","GO:CC","GO:0071944","cell periphery",889,109,0.000218308653716962
+"546","GO:CC","GO:0005794","Golgi apparatus",321,49,0.000236405348311579
+"547","GO:CC","GO:0033177","proton-transporting two-sector ATPase complex, proton-transporting domain",22,9,0.000248149963432248
+"548","GO:CC","GO:0034272","phosphatidylinositol 3-kinase complex, class III, type II",4,4,0.000307332993266926
+"549","GO:CC","GO:0140534","endoplasmic reticulum protein-containing complex",98,21,0.000364168982454175
+"550","GO:CC","GO:0042579","microbody",101,21,0.000557333018325594
+"551","GO:CC","GO:0005777","peroxisome",101,21,0.000557333018325594
+"552","GO:CC","GO:0005782","peroxisomal matrix",20,8,0.000727694887804967
+"553","GO:CC","GO:0031907","microbody lumen",20,8,0.000727694887804967
+"554","GO:CC","GO:0005886","plasma membrane",598,76,0.00111054122386899
+"555","GO:CC","GO:0045254","pyruvate dehydrogenase complex",5,4,0.00124404856988926
+"556","GO:CC","GO:0005967","mitochondrial pyruvate dehydrogenase complex",5,4,0.00124404856988926
+"557","GO:CC","GO:0005811","lipid droplet",60,14,0.00207843466054859
+"558","GO:CC","GO:0070916","inositol phosphoceramide synthase complex",3,3,0.00284617218828551
+"559","GO:CC","GO:0043541","UDP-N-acetylglucosamine transferase complex",3,3,0.00284617218828551
+"560","GO:CC","GO:0061576","acyl-CoA ceramide synthase complex",3,3,0.00284617218828551
+"561","GO:CC","GO:0009514","glyoxysome",3,3,0.00284617218828551
+"562","GO:CC","GO:0031415","NatA complex",3,3,0.00284617218828551
+"563","GO:CC","GO:0019898","extrinsic component of membrane",110,20,0.00421816604917869
+"564","GO:CC","GO:0031501","mannosyltransferase complex",21,7,0.00580322881786924
+"565","GO:CC","GO:1990204","oxidoreductase complex",48,11,0.00875584447462426
+"566","GO:CC","GO:0009353","mitochondrial oxoglutarate dehydrogenase complex",4,3,0.00991539167404273
+"567","GO:CC","GO:0005947","mitochondrial alpha-ketoglutarate dehydrogenase complex",4,3,0.00991539167404273
+"568","GO:CC","GO:0005576","extracellular region",127,21,0.0102511260484254
+"569","GO:CC","GO:0031314","extrinsic component of mitochondrial inner membrane",31,8,0.0151738599141982
+"570","GO:CC","GO:0005758","mitochondrial intermembrane space",90,16,0.0151738599141982
+"571","GO:CC","GO:0045240","dihydrolipoyl dehydrogenase complex",5,3,0.0217005202231535
+"572","GO:CC","GO:0045252","oxoglutarate dehydrogenase complex",5,3,0.0217005202231535
+"573","GO:CC","GO:0005740","mitochondrial envelope",550,64,0.0240709732467466
+"574","GO:CC","GO:0031970","organelle envelope lumen",95,16,0.0248174910387309
+"575","GO:CC","GO:0009579","thylakoid",2,2,0.0250431116101945
+"576","GO:CC","GO:0009361","succinate-CoA ligase complex (ADP-forming)",2,2,0.0250431116101945
+"577","GO:CC","GO:0005631","chitosan layer of spore wall",2,2,0.0250431116101945
+"578","GO:CC","GO:0005962","mitochondrial isocitrate dehydrogenase complex (NAD+)",2,2,0.0250431116101945
+"579","GO:CC","GO:0061672","glutathione hydrolase complex",2,2,0.0250431116101945
+"580","GO:CC","GO:0045009","chitosome",2,2,0.0250431116101945
+"581","GO:CC","GO:0045242","isocitrate dehydrogenase complex (NAD+)",2,2,0.0250431116101945
+"582","GO:CC","GO:1990529","glycosylphosphatidylinositol-mannosyltransferase I complex",2,2,0.0250431116101945
+"583","GO:CC","GO:0005965","protein farnesyltransferase complex",2,2,0.0250431116101945
+"584","GO:CC","GO:0042709","succinate-CoA ligase complex",2,2,0.0250431116101945
+"585","GO:CC","GO:1904949","ATPase complex",105,17,0.0256364878836327
+"586","GO:CC","GO:1990229","iron-sulfur cluster assembly complex",16,5,0.0299456998262991
+"587","GO:CC","GO:0031312","extrinsic component of organelle membrane",43,9,0.0311725650106346
+"588","GO:CC","GO:0030428","cell septum",11,4,0.0354085509528962
+"589","GO:CC","GO:0031966","mitochondrial membrane",505,58,0.0378615333601279
+"590","GO:CC","GO:0019866","organelle inner membrane",366,44,0.0407253607861162
+"591","GO:CC","GO:0005743","mitochondrial inner membrane",347,42,0.0418706790539252
+"592","GO:CC","GO:0009986","cell surface",18,5,0.047751468371564
+"593","GO:MF","GO:0003824","catalytic activity",2352,464,1.30092981227171e-118
+"594","GO:MF","GO:0016740","transferase activity",903,190,9.34322346925323e-34
+"595","GO:MF","GO:0022857","transmembrane transporter activity",416,108,4.6728057137226e-25
+"596","GO:MF","GO:0005215","transporter activity",464,112,2.92861026276006e-23
+"597","GO:MF","GO:0016491","oxidoreductase activity",355,91,2.02343561475692e-20
+"598","GO:MF","GO:0016757","glycosyltransferase activity",108,47,2.8593973457121e-20
+"599","GO:MF","GO:0016758","hexosyltransferase activity",83,41,3.42917562526246e-20
+"600","GO:MF","GO:0019829","ATPase-coupled monoatomic cation transmembrane transporter activity",35,26,7.23461116219885e-19
+"601","GO:MF","GO:0022804","active transmembrane transporter activity",196,62,1.40458295094372e-18
+"602","GO:MF","GO:0016787","hydrolase activity",961,161,9.37848017495513e-17
+"603","GO:MF","GO:0042626","ATPase-coupled transmembrane transporter activity",69,34,1.05468007195267e-16
+"604","GO:MF","GO:0008514","organic anion transmembrane transporter activity",101,40,1.37518908146121e-15
+"605","GO:MF","GO:0004553","hydrolase activity, hydrolyzing O-glycosyl compounds",49,27,8.80508127663633e-15
+"606","GO:MF","GO:0016810","hydrolase activity, acting on carbon-nitrogen (but not peptide) bonds",78,33,8.49110891308349e-14
+"607","GO:MF","GO:0016798","hydrolase activity, acting on glycosyl bonds",61,29,1.00232697501135e-13
+"608","GO:MF","GO:0016747","acyltransferase activity, transferring groups other than amino-acyl groups",110,39,2.20849374444565e-13
+"609","GO:MF","GO:0016614","oxidoreductase activity, acting on CH-OH group of donors",91,35,3.20378271747174e-13
+"610","GO:MF","GO:0046943","carboxylic acid transmembrane transporter activity",83,33,5.96378255038257e-13
+"611","GO:MF","GO:0044769","ATPase activity, coupled to transmembrane movement of ions, rotational mechanism",22,17,6.9870984763358e-13
+"612","GO:MF","GO:0042625","ATPase-coupled ion transmembrane transporter activity",22,17,6.9870984763358e-13
+"613","GO:MF","GO:0046961","proton-transporting ATPase activity, rotational mechanism",22,17,6.9870984763358e-13
+"614","GO:MF","GO:0005342","organic acid transmembrane transporter activity",84,33,7.39348173271666e-13
+"615","GO:MF","GO:0043167","ion binding",1645,221,1.22281926148793e-12
+"616","GO:MF","GO:0015399","primary active transmembrane transporter activity",99,35,4.32510369548456e-12
+"617","GO:MF","GO:0016811","hydrolase activity, acting on carbon-nitrogen (but not peptide) bonds, in linear amides",44,23,4.32510369548456e-12
+"618","GO:MF","GO:0043169","cation binding",943,145,7.73549923064137e-12
+"619","GO:MF","GO:1901702","salt transmembrane transporter activity",82,31,1.33593497180122e-11
+"620","GO:MF","GO:0046872","metal ion binding",928,142,2.1131522690022e-11
+"621","GO:MF","GO:0016616","oxidoreductase activity, acting on the CH-OH group of donors, NAD or NADP as acceptor",85,30,2.41343513547195e-10
+"622","GO:MF","GO:0022853","active monoatomic ion transmembrane transporter activity",108,34,3.61745742221923e-10
+"623","GO:MF","GO:0000030","mannosyltransferase activity",44,21,4.0524515472585e-10
+"624","GO:MF","GO:0015205","nucleobase transmembrane transporter activity",10,10,8.21747817320645e-10
+"625","GO:MF","GO:0015662","P-type ion transporter activity",17,13,8.22279410566295e-10
+"626","GO:MF","GO:0140358","P-type transmembrane transporter activity",17,13,8.22279410566295e-10
+"627","GO:MF","GO:0015171","amino acid transmembrane transporter activity",50,22,8.73953233129375e-10
+"628","GO:MF","GO:0015926","glucosidase activity",30,17,9.53980023108981e-10
+"629","GO:MF","GO:0000026","alpha-1,2-mannosyltransferase activity",15,12,1.84361058713847e-09
+"630","GO:MF","GO:1901682","sulfur compound transmembrane transporter activity",24,15,1.92493563995263e-09
+"631","GO:MF","GO:1901505","carbohydrate derivative transmembrane transporter activity",28,16,2.87891955093633e-09
+"632","GO:MF","GO:0015318","inorganic molecular entity transmembrane transporter activity",194,46,3.68082528651857e-09
+"633","GO:MF","GO:0090599","alpha-glucosidase activity",11,10,6.35210325827541e-09
+"634","GO:MF","GO:0008375","acetylglucosaminyltransferase activity",11,10,6.35210325827541e-09
+"635","GO:MF","GO:0016829","lyase activity",112,32,1.73184508050896e-08
+"636","GO:MF","GO:0016298","lipase activity",39,18,1.76260146858574e-08
+"637","GO:MF","GO:0036094","small molecule binding",928,131,4.48499426449839e-08
+"638","GO:MF","GO:0008374","O-acyltransferase activity",25,14,5.4298348803896e-08
+"639","GO:MF","GO:0008324","monoatomic cation transmembrane transporter activity",169,40,5.64487822483911e-08
+"640","GO:MF","GO:0015075","monoatomic ion transmembrane transporter activity",184,42,7.03627721981806e-08
+"641","GO:MF","GO:0016723","oxidoreductase activity, acting on metal ions, NAD or NADP as acceptor",8,8,7.31562536188846e-08
+"642","GO:MF","GO:0022890","inorganic cation transmembrane transporter activity",167,39,1.27601031540578e-07
+"643","GO:MF","GO:0016788","hydrolase activity, acting on ester bonds",324,60,1.65525293048743e-07
+"644","GO:MF","GO:0000293","ferric-chelate reductase activity",9,8,5.73148698215659e-07
+"645","GO:MF","GO:0015291","secondary active transmembrane transporter activity",97,27,5.81097078877004e-07
+"646","GO:MF","GO:0052851","ferric-chelate reductase (NADPH) activity",7,7,7.19839728813812e-07
+"647","GO:MF","GO:0016160","amylase activity",7,7,7.19839728813812e-07
+"648","GO:MF","GO:0004556","alpha-amylase activity",7,7,7.19839728813812e-07
+"649","GO:MF","GO:0004575","sucrose alpha-glucosidase activity",7,7,7.19839728813812e-07
+"650","GO:MF","GO:0004564","beta-fructofuranosidase activity",7,7,7.19839728813812e-07
+"651","GO:MF","GO:0052689","carboxylic ester hydrolase activity",64,21,8.21900573395638e-07
+"652","GO:MF","GO:0043168","anion binding",881,121,9.03991605886884e-07
+"653","GO:MF","GO:0015932","nucleobase-containing compound transmembrane transporter activity",27,13,1.70115559025636e-06
+"654","GO:MF","GO:0016874","ligase activity",129,31,1.97343155839941e-06
+"655","GO:MF","GO:0030554","adenyl nucleotide binding",682,98,2.51201288175614e-06
+"656","GO:MF","GO:0016746","acyltransferase activity",243,46,4.29740992025175e-06
+"657","GO:MF","GO:0005388","P-type calcium transporter activity",8,7,4.610642375796e-06
+"658","GO:MF","GO:0052742","phosphatidylinositol kinase activity",8,7,4.610642375796e-06
+"659","GO:MF","GO:0052866","phosphatidylinositol phosphate phosphatase activity",8,7,4.610642375796e-06
+"660","GO:MF","GO:0008194","UDP-glycosyltransferase activity",25,12,5.06878811507047e-06
+"661","GO:MF","GO:0042578","phosphoric ester hydrolase activity",135,31,5.3166218820209e-06
+"662","GO:MF","GO:0016722","oxidoreductase activity, acting on metal ions",14,9,5.88990014754103e-06
+"663","GO:MF","GO:0034595","phosphatidylinositol phosphate 5-phosphatase activity",6,6,6.4730925839217e-06
+"664","GO:MF","GO:0034593","phosphatidylinositol bisphosphate phosphatase activity",6,6,6.4730925839217e-06
+"665","GO:MF","GO:0051287","NAD binding",30,13,6.4730925839217e-06
+"666","GO:MF","GO:0018456","aryl-alcohol dehydrogenase (NAD+) activity",6,6,6.4730925839217e-06
+"667","GO:MF","GO:0047681","aryl-alcohol dehydrogenase (NADP+) activity",6,6,6.4730925839217e-06
+"668","GO:MF","GO:0140359","ABC-type transporter activity",26,12,7.76395350301675e-06
+"669","GO:MF","GO:0004620","phospholipase activity",18,10,7.83671844534418e-06
+"670","GO:MF","GO:0015179","L-amino acid transmembrane transporter activity",31,13,9.86270574227368e-06
+"671","GO:MF","GO:0015174","basic amino acid transmembrane transporter activity",15,9,1.20459913775593e-05
+"672","GO:MF","GO:0000166","nucleotide binding",854,113,1.54222437314271e-05
+"673","GO:MF","GO:1901265","nucleoside phosphate binding",854,113,1.54222437314271e-05
+"674","GO:MF","GO:0001727","lipid kinase activity",12,8,1.55772704968396e-05
+"675","GO:MF","GO:0015101","organic cation transmembrane transporter activity",12,8,1.55772704968396e-05
+"676","GO:MF","GO:0016407","acetyltransferase activity",59,18,1.82640571222642e-05
+"677","GO:MF","GO:0019842","vitamin binding",55,17,2.90663436791376e-05
+"678","GO:MF","GO:0016791","phosphatase activity",116,26,5.9327100769158e-05
+"679","GO:MF","GO:0004574","oligo-1,6-glucosidase activity",5,5,5.9327100769158e-05
+"680","GO:MF","GO:0017176","phosphatidylinositol N-acetylglucosaminyltransferase activity",5,5,5.9327100769158e-05
+"681","GO:MF","GO:0030170","pyridoxal phosphate binding",41,14,5.9327100769158e-05
+"682","GO:MF","GO:0031320","hexitol dehydrogenase activity",5,5,5.9327100769158e-05
+"683","GO:MF","GO:0043813","phosphatidylinositol-3,5-bisphosphate 5-phosphatase activity",5,5,5.9327100769158e-05
+"684","GO:MF","GO:0004376","glycolipid mannosyltransferase activity",5,5,5.9327100769158e-05
+"685","GO:MF","GO:0106018","phosphatidylinositol-3,5-bisphosphate phosphatase activity",5,5,5.9327100769158e-05
+"686","GO:MF","GO:0070279","vitamin B6 binding",41,14,5.9327100769158e-05
+"687","GO:MF","GO:0008061","chitin binding",5,5,5.9327100769158e-05
+"688","GO:MF","GO:0016209","antioxidant activity",36,13,5.96886550166128e-05
+"689","GO:MF","GO:0016875","ligase activity, forming carbon-oxygen bonds",37,13,8.30836042023078e-05
+"690","GO:MF","GO:0004812","aminoacyl-tRNA ligase activity",37,13,8.30836042023078e-05
+"691","GO:MF","GO:0016769","transferase activity, transferring nitrogenous groups",23,10,0.000105572486877644
+"692","GO:MF","GO:0008483","transaminase activity",23,10,0.000105572486877644
+"693","GO:MF","GO:0017076","purine nucleotide binding",782,101,0.000156422512859823
+"694","GO:MF","GO:0016413","O-acetyltransferase activity",12,7,0.000219591244217537
+"695","GO:MF","GO:0046873","metal ion transmembrane transporter activity",58,16,0.000241065309602902
+"696","GO:MF","GO:0004448","isocitrate dehydrogenase [NAD(P)+] activity",6,5,0.000298943216375708
+"697","GO:MF","GO:0070403","NAD+ binding",6,5,0.000298943216375708
+"698","GO:MF","GO:0015297","antiporter activity",36,12,0.000320288740469688
+"699","GO:MF","GO:0004659","prenyltransferase activity",17,8,0.000400194416262767
+"700","GO:MF","GO:0015078","proton transmembrane transporter activity",108,23,0.000420796374450425
+"701","GO:MF","GO:0005524","ATP binding",629,83,0.000447525076780655
+"702","GO:MF","GO:0016765","transferase activity, transferring alkyl or aryl (other than methyl) groups",55,15,0.000472357255193796
+"703","GO:MF","GO:0005337","nucleoside transmembrane transporter activity",4,4,0.000522596021051896
+"704","GO:MF","GO:0004439","phosphatidylinositol-4,5-bisphosphate 5-phosphatase activity",4,4,0.000522596021051896
+"705","GO:MF","GO:0050291","sphingosine N-acyltransferase activity",4,4,0.000522596021051896
+"706","GO:MF","GO:0052744","phosphatidylinositol monophosphate phosphatase activity",4,4,0.000522596021051896
+"707","GO:MF","GO:0034318","alcohol O-acyltransferase activity",4,4,0.000522596021051896
+"708","GO:MF","GO:0032559","adenyl ribonucleotide binding",633,83,0.000522596021051896
+"709","GO:MF","GO:0004338","glucan exo-1,3-beta-glucosidase activity",4,4,0.000522596021051896
+"710","GO:MF","GO:0019172","glyoxalase III activity",4,4,0.000522596021051896
+"711","GO:MF","GO:0140346","phosphatidylserine flippase activity",4,4,0.000522596021051896
+"712","GO:MF","GO:0106019","phosphatidylinositol-4,5-bisphosphate phosphatase activity",4,4,0.000522596021051896
+"713","GO:MF","GO:0016898","oxidoreductase activity, acting on the CH-OH group of donors, cytochrome as acceptor",4,4,0.000522596021051896
+"714","GO:MF","GO:0102545","phosphatidyl phospholipase B activity",4,4,0.000522596021051896
+"715","GO:MF","GO:0004438","phosphatidylinositol-3-phosphate phosphatase activity",4,4,0.000522596021051896
+"716","GO:MF","GO:0004457","lactate dehydrogenase activity",4,4,0.000522596021051896
+"717","GO:MF","GO:0004026","alcohol O-acetyltransferase activity",4,4,0.000522596021051896
+"718","GO:MF","GO:0016410","N-acyltransferase activity",50,14,0.000537567645636501
+"719","GO:MF","GO:0072349","modified amino acid transmembrane transporter activity",10,6,0.00059141293263633
+"720","GO:MF","GO:0071949","FAD binding",14,7,0.000634447420423886
+"721","GO:MF","GO:0016782","transferase activity, transferring sulphur-containing groups",14,7,0.000634447420423886
+"722","GO:MF","GO:0015085","calcium ion transmembrane transporter activity",14,7,0.000634447420423886
+"723","GO:MF","GO:0016840","carbon-nitrogen lyase activity",14,7,0.000634447420423886
+"724","GO:MF","GO:0004067","asparaginase activity",7,5,0.000772666352770787
+"725","GO:MF","GO:0019213","deacetylase activity",19,8,0.000855557030820344
+"726","GO:MF","GO:0000287","magnesium ion binding",66,16,0.00102814707735264
+"727","GO:MF","GO:0097367","carbohydrate derivative binding",765,95,0.00104559730534243
+"728","GO:MF","GO:0016790","thiolester hydrolase activity",11,6,0.00112600426843845
+"729","GO:MF","GO:0016830","carbon-carbon lyase activity",37,11,0.00171236288691526
+"730","GO:MF","GO:0004622","lysophospholipase activity",5,4,0.00217198724903682
+"731","GO:MF","GO:0016624","oxidoreductase activity, acting on the aldehyde or oxo group of donors, disulfide as acceptor",5,4,0.00217198724903682
+"732","GO:MF","GO:0016289","CoA hydrolase activity",5,4,0.00217198724903682
+"733","GO:MF","GO:0015216","purine nucleotide transmembrane transporter activity",13,6,0.00346599774706895
+"734","GO:MF","GO:0016655","oxidoreductase activity, acting on NAD(P)H, quinone or similar compound as acceptor",9,5,0.00362947739410466
+"735","GO:MF","GO:0003993","acid phosphatase activity",9,5,0.00362947739410466
+"736","GO:MF","GO:0004623","phospholipase A2 activity",9,5,0.00362947739410466
+"737","GO:MF","GO:0004364","glutathione transferase activity",9,5,0.00362947739410466
+"738","GO:MF","GO:0140101","catalytic activity, acting on a tRNA",103,20,0.00362947739410466
+"739","GO:MF","GO:0015605","organophosphate ester transmembrane transporter activity",23,8,0.00367212718864312
+"740","GO:MF","GO:0004601","peroxidase activity",18,7,0.00379743933413097
+"741","GO:MF","GO:0016684","oxidoreductase activity, acting on peroxide as acceptor",18,7,0.00379743933413097
+"742","GO:MF","GO:0016879","ligase activity, forming carbon-nitrogen bonds",47,12,0.00386160992207366
+"743","GO:MF","GO:0015293","symporter activity",47,12,0.00386160992207366
+"744","GO:MF","GO:0140679","ABC-type sodium transporter activity",3,3,0.00422298510114858
+"745","GO:MF","GO:0034739","histone H4K16 deacetylase activity",3,3,0.00422298510114858
+"746","GO:MF","GO:0034596","phosphatidylinositol phosphate 4-phosphatase activity",3,3,0.00422298510114858
+"747","GO:MF","GO:0015188","L-isoleucine transmembrane transporter activity",3,3,0.00422298510114858
+"748","GO:MF","GO:0015186","L-glutamine transmembrane transporter activity",3,3,0.00422298510114858
+"749","GO:MF","GO:0008554","P-type sodium transporter activity",3,3,0.00422298510114858
+"750","GO:MF","GO:0016813","hydrolase activity, acting on carbon-nitrogen (but not peptide) bonds, in linear amidines",3,3,0.00422298510114858
+"751","GO:MF","GO:0008126","acetylesterase activity",3,3,0.00422298510114858
+"752","GO:MF","GO:0015658","branched-chain amino acid transmembrane transporter activity",3,3,0.00422298510114858
+"753","GO:MF","GO:0141051","histone H4K deacetylase activity",3,3,0.00422298510114858
+"754","GO:MF","GO:0004555","alpha,alpha-trehalase activity",3,3,0.00422298510114858
+"755","GO:MF","GO:0004458","D-lactate dehydrogenase (cytochrome) activity",3,3,0.00422298510114858
+"756","GO:MF","GO:0004450","isocitrate dehydrogenase (NADP+) activity",3,3,0.00422298510114858
+"757","GO:MF","GO:0015651","quaternary ammonium group transmembrane transporter activity",3,3,0.00422298510114858
+"758","GO:MF","GO:0050136","NADH dehydrogenase (quinone) activity",3,3,0.00422298510114858
+"759","GO:MF","GO:0015927","trehalase activity",3,3,0.00422298510114858
+"760","GO:MF","GO:0046970","NAD-dependent histone H4K16 deacetylase activity",3,3,0.00422298510114858
+"761","GO:MF","GO:0004100","chitin synthase activity",3,3,0.00422298510114858
+"762","GO:MF","GO:0004092","carnitine O-acetyltransferase activity",3,3,0.00422298510114858
+"763","GO:MF","GO:0003939","L-iditol 2-dehydrogenase activity",3,3,0.00422298510114858
+"764","GO:MF","GO:0016406","carnitine O-acyltransferase activity",3,3,0.00422298510114858
+"765","GO:MF","GO:0046526","D-xylulose reductase activity",3,3,0.00422298510114858
+"766","GO:MF","GO:0034338","short-chain carboxylesterase activity",3,3,0.00422298510114858
+"767","GO:MF","GO:0002094","polyprenyltransferase activity",3,3,0.00422298510114858
+"768","GO:MF","GO:0043812","phosphatidylinositol-4-phosphate phosphatase activity",3,3,0.00422298510114858
+"769","GO:MF","GO:0036374","glutathione hydrolase activity",3,3,0.00422298510114858
+"770","GO:MF","GO:1903089","5-amino-1-ribofuranosylimidazole-4-carboxamide transmembrane transporter activity",3,3,0.00422298510114858
+"771","GO:MF","GO:0015355","secondary active monocarboxylate transmembrane transporter activity",3,3,0.00422298510114858
+"772","GO:MF","GO:0016780","phosphotransferase activity, for other substituted phosphate groups",14,6,0.00440500269462563
+"773","GO:MF","GO:0016836","hydro-lyase activity",36,10,0.00459160920143884
+"774","GO:MF","GO:0140333","glycerophospholipid flippase activity",6,4,0.00461661178889437
+"775","GO:MF","GO:0005302","L-tyrosine transmembrane transporter activity",6,4,0.00461661178889437
+"776","GO:MF","GO:0015247","aminophospholipid flippase activity",6,4,0.00461661178889437
+"777","GO:MF","GO:0034979","NAD-dependent protein deacetylase activity",10,5,0.0052141061825392
+"778","GO:MF","GO:0047372","acylglycerol lipase activity",10,5,0.0052141061825392
+"779","GO:MF","GO:1901474","azole transmembrane transporter activity",10,5,0.0052141061825392
+"780","GO:MF","GO:0017136","NAD-dependent histone deacetylase activity",10,5,0.0052141061825392
+"781","GO:MF","GO:0032553","ribonucleotide binding",752,89,0.00637518678345912
+"782","GO:MF","GO:0016772","transferase activity, transferring phosphorus-containing groups",335,46,0.00637518678345912
+"783","GO:MF","GO:0008028","monocarboxylic acid transmembrane transporter activity",15,6,0.00641543844104719
+"784","GO:MF","GO:0035639","purine ribonucleoside triphosphate binding",728,86,0.00817360826572327
+"785","GO:MF","GO:1901618","organic hydroxy compound transmembrane transporter activity",11,5,0.00856161425893413
+"786","GO:MF","GO:0016783","sulfurtransferase activity",11,5,0.00856161425893413
+"787","GO:MF","GO:0008422","beta-glucosidase activity",11,5,0.00856161425893413
+"788","GO:MF","GO:0032555","purine ribonucleotide binding",732,86,0.00927244679159388
+"789","GO:MF","GO:0050308","sugar-phosphatase activity",7,4,0.00927244679159388
+"790","GO:MF","GO:0003954","NADH dehydrogenase activity",7,4,0.00927244679159388
+"791","GO:MF","GO:0005310","dicarboxylic acid transmembrane transporter activity",16,6,0.00927244679159388
+"792","GO:MF","GO:0140327","flippase activity",7,4,0.00927244679159388
+"793","GO:MF","GO:0004806","triglyceride lipase activity",12,5,0.013099791059381
+"794","GO:MF","GO:0015173","aromatic amino acid transmembrane transporter activity",12,5,0.013099791059381
+"795","GO:MF","GO:0000295","adenine nucleotide transmembrane transporter activity",12,5,0.013099791059381
+"796","GO:MF","GO:0008242","omega peptidase activity",4,3,0.0134013451399428
+"797","GO:MF","GO:0070569","uridylyltransferase activity",4,3,0.0134013451399428
+"798","GO:MF","GO:0016841","ammonia-lyase activity",4,3,0.0134013451399428
+"799","GO:MF","GO:0016882","cyclo-ligase activity",4,3,0.0134013451399428
+"800","GO:MF","GO:0090555","phosphatidylethanolamine flippase activity",4,3,0.0134013451399428
+"801","GO:MF","GO:0004430","1-phosphatidylinositol 4-kinase activity",4,3,0.0134013451399428
+"802","GO:MF","GO:0051377","mannose-ethanolamine phosphotransferase activity",4,3,0.0134013451399428
+"803","GO:MF","GO:0000099","sulfur amino acid transmembrane transporter activity",4,3,0.0134013451399428
+"804","GO:MF","GO:0140326","ATPase-coupled intramembrane lipid transporter activity",8,4,0.0161484261708466
+"805","GO:MF","GO:0003955","NAD(P)H dehydrogenase (quinone) activity",8,4,0.0161484261708466
+"806","GO:MF","GO:0015215","nucleotide transmembrane transporter activity",18,6,0.0169454835747072
+"807","GO:MF","GO:0008080","N-acetyltransferase activity",44,10,0.0200392860228641
+"808","GO:MF","GO:0046915","transition metal ion transmembrane transporter activity",31,8,0.021598398235899
+"809","GO:MF","GO:0008757","S-adenosylmethionine-dependent methyltransferase activity",82,15,0.0222807798574181
+"810","GO:MF","GO:0051537","2 iron, 2 sulfur cluster binding",19,6,0.0224528706129764
+"811","GO:MF","GO:0016814","hydrolase activity, acting on carbon-nitrogen (but not peptide) bonds, in cyclic amidines",19,6,0.0224528706129764
+"812","GO:MF","GO:0016831","carboxy-lyase activity",25,7,0.0226165124351146
+"813","GO:MF","GO:0016866","intramolecular transferase activity",25,7,0.0226165124351146
+"814","GO:MF","GO:0019239","deaminase activity",14,5,0.0261548713285171
+"815","GO:MF","GO:0051540","metal cluster binding",46,10,0.0268753722386448
+"816","GO:MF","GO:0051536","iron-sulfur cluster binding",46,10,0.0268753722386448
+"817","GO:MF","GO:0016835","carbon-oxygen lyase activity",46,10,0.0268753722386448
+"818","GO:MF","GO:0042887","amide transmembrane transporter activity",26,7,0.0280448353317081
+"819","GO:MF","GO:0004849","uridine kinase activity",5,3,0.0285047079268193
+"820","GO:MF","GO:0008553","P-type proton-exporting transporter activity",5,3,0.0285047079268193
+"821","GO:MF","GO:0015103","inorganic anion transmembrane transporter activity",20,6,0.0285047079268193
+"822","GO:MF","GO:0008172","S-methyltransferase activity",5,3,0.0285047079268193
+"823","GO:MF","GO:0005338","nucleotide-sugar transmembrane transporter activity",5,3,0.0285047079268193
+"824","GO:MF","GO:0016741","transferase activity, transferring one-carbon groups",109,18,0.0285047079268193
+"825","GO:MF","GO:0015191","L-methionine transmembrane transporter activity",2,2,0.0285394802661579
+"826","GO:MF","GO:0016672","oxidoreductase activity, acting on a sulfur group of donors, quinone or similar compound as acceptor",2,2,0.0285394802661579
+"827","GO:MF","GO:0050086","mannitol 2-dehydrogenase activity",2,2,0.0285394802661579
+"828","GO:MF","GO:0050354","triokinase activity",2,2,0.0285394802661579
+"829","GO:MF","GO:0050484","GMP 5'-nucleotidase activity",2,2,0.0285394802661579
+"830","GO:MF","GO:0015165","pyrimidine nucleotide-sugar transmembrane transporter activity",2,2,0.0285394802661579
+"831","GO:MF","GO:0015168","glycerol transmembrane transporter activity",2,2,0.0285394802661579
+"832","GO:MF","GO:0047816","D-arabinose 1-dehydrogenase (NAD+) activity",2,2,0.0285394802661579
+"833","GO:MF","GO:0015141","succinate transmembrane transporter activity",2,2,0.0285394802661579
+"834","GO:MF","GO:0008898","S-adenosylmethionine-homocysteine S-methyltransferase activity",2,2,0.0285394802661579
+"835","GO:MF","GO:0051724","NAD transmembrane transporter activity",2,2,0.0285394802661579
+"836","GO:MF","GO:0050897","cobalt ion binding",2,2,0.0285394802661579
+"837","GO:MF","GO:0047635","alanine-oxo-acid transaminase activity",2,2,0.0285394802661579
+"838","GO:MF","GO:0047617","acyl-CoA hydrolase activity",2,2,0.0285394802661579
+"839","GO:MF","GO:0015226","carnitine transmembrane transporter activity",2,2,0.0285394802661579
+"840","GO:MF","GO:0018820","cyanamide hydratase activity",2,2,0.0285394802661579
+"841","GO:MF","GO:0033164","glycolipid 1,6-alpha-mannosyltransferase activity",2,2,0.0285394802661579
+"842","GO:MF","GO:0033558","protein lysine deacetylase activity",15,5,0.0285394802661579
+"843","GO:MF","GO:0033934","glucan 1,4-alpha-maltotriohydrolase activity",2,2,0.0285394802661579
+"844","GO:MF","GO:0034040","ATPase-coupled lipid transmembrane transporter activity",2,2,0.0285394802661579
+"845","GO:MF","GO:0034257","nicotinamide riboside transmembrane transporter activity",2,2,0.0285394802661579
+"846","GO:MF","GO:0036455","iron-sulfur transferase activity",2,2,0.0285394802661579
+"847","GO:MF","GO:0042281","dolichyl pyrophosphate Man9GlcNAc2 alpha-1,3-glucosyltransferase activity",2,2,0.0285394802661579
+"848","GO:MF","GO:0015214","pyrimidine nucleoside transmembrane transporter activity",2,2,0.0285394802661579
+"849","GO:MF","GO:0043865","methionine transmembrane transporter activity",2,2,0.0285394802661579
+"850","GO:MF","GO:0045174","glutathione dehydrogenase (ascorbate) activity",2,2,0.0285394802661579
+"851","GO:MF","GO:0045290","D-arabinose 1-dehydrogenase [NAD(P)+] activity",2,2,0.0285394802661579
+"852","GO:MF","GO:0046029","mannitol dehydrogenase activity",2,2,0.0285394802661579
+"853","GO:MF","GO:0046421","methylisocitrate lyase activity",2,2,0.0285394802661579
+"854","GO:MF","GO:0016454","C-palmitoyltransferase activity",2,2,0.0285394802661579
+"855","GO:MF","GO:0015254","glycerol channel activity",2,2,0.0285394802661579
+"856","GO:MF","GO:0015234","thiamine transmembrane transporter activity",2,2,0.0285394802661579
+"857","GO:MF","GO:0008721","D-serine ammonia-lyase activity",2,2,0.0285394802661579
+"858","GO:MF","GO:0045140","inositol phosphoceramide synthase activity",2,2,0.0285394802661579
+"859","GO:MF","GO:0051748","UTP-monosaccharide-1-phosphate uridylyltransferase activity",2,2,0.0285394802661579
+"860","GO:MF","GO:0008556","P-type potassium transmembrane transporter activity",2,2,0.0285394802661579
+"861","GO:MF","GO:0061627","S-methylmethionine-homocysteine S-methyltransferase activity",2,2,0.0285394802661579
+"862","GO:MF","GO:0004408","holocytochrome-c synthase activity",2,2,0.0285394802661579
+"863","GO:MF","GO:0004407","histone deacetylase activity",15,5,0.0285394802661579
+"864","GO:MF","GO:0004371","glycerone kinase activity",2,2,0.0285394802661579
+"865","GO:MF","GO:0004335","galactokinase activity",2,2,0.0285394802661579
+"866","GO:MF","GO:0004309","exopolyphosphatase activity",2,2,0.0285394802661579
+"867","GO:MF","GO:0004165","delta(3)-delta(2)-enoyl-CoA isomerase activity",2,2,0.0285394802661579
+"868","GO:MF","GO:0004141","dethiobiotin synthase activity",2,2,0.0285394802661579
+"869","GO:MF","GO:0004422","hypoxanthine phosphoribosyltransferase activity",2,2,0.0285394802661579
+"870","GO:MF","GO:0004099","chitin deacetylase activity",2,2,0.0285394802661579
+"871","GO:MF","GO:0004040","amidase activity",2,2,0.0285394802661579
+"872","GO:MF","GO:0004035","alkaline phosphatase activity",2,2,0.0285394802661579
+"873","GO:MF","GO:0004021","L-alanine:2-oxoglutarate aminotransferase activity",2,2,0.0285394802661579
+"874","GO:MF","GO:0003983","UTP:glucose-1-phosphate uridylyltransferase activity",2,2,0.0285394802661579
+"875","GO:MF","GO:0003850","2-deoxyglucose-6-phosphatase activity",2,2,0.0285394802661579
+"876","GO:MF","GO:0002953","5'-deoxynucleotidase activity",2,2,0.0285394802661579
+"877","GO:MF","GO:0000810","diacylglycerol diphosphate phosphatase activity",2,2,0.0285394802661579
+"878","GO:MF","GO:0004096","catalase activity",2,2,0.0285394802661579
+"879","GO:MF","GO:0051990","(R)-2-hydroxyglutarate dehydrogenase activity",2,2,0.0285394802661579
+"880","GO:MF","GO:0004451","isocitrate lyase activity",2,2,0.0285394802661579
+"881","GO:MF","GO:0004568","chitinase activity",2,2,0.0285394802661579
+"882","GO:MF","GO:0032450","maltose alpha-glucosidase activity",2,2,0.0285394802661579
+"883","GO:MF","GO:0008551","P-type cadmium transporter activity",2,2,0.0285394802661579
+"884","GO:MF","GO:0008425","2-polyprenyl-6-methoxy-1,4-benzoquinone methyltransferase activity",2,2,0.0285394802661579
+"885","GO:MF","GO:0080122","AMP transmembrane transporter activity",2,2,0.0285394802661579
+"886","GO:MF","GO:0103064","inositol phosphorylceramide mannosyltransferase activity",2,2,0.0285394802661579
+"887","GO:MF","GO:0005534","galactose binding",2,2,0.0285394802661579
+"888","GO:MF","GO:0004474","malate synthase activity",2,2,0.0285394802661579
+"889","GO:MF","GO:0004775","succinate-CoA ligase (ADP-forming) activity",2,2,0.0285394802661579
+"890","GO:MF","GO:0005352","alpha-glucoside:proton symporter activity",2,2,0.0285394802661579
+"891","GO:MF","GO:0004758","serine C-palmitoyltransferase activity",2,2,0.0285394802661579
+"892","GO:MF","GO:0004742","dihydrolipoyllysine-residue acetyltransferase activity",2,2,0.0285394802661579
+"893","GO:MF","GO:0004739","pyruvate dehydrogenase (acetyl-transferring) activity",2,2,0.0285394802661579
+"894","GO:MF","GO:0004660","protein farnesyltransferase activity",2,2,0.0285394802661579
+"895","GO:MF","GO:0004609","phosphatidylserine decarboxylase activity",2,2,0.0285394802661579
+"896","GO:MF","GO:0004577","N-acetylglucosaminyldiphosphodolichol N-acetylglucosaminyltransferase activity",2,2,0.0285394802661579
+"897","GO:MF","GO:0004774","succinate-CoA ligase activity",2,2,0.0285394802661579
+"898","GO:MF","GO:0030580","quinone cofactor methyltransferase activity",2,2,0.0285394802661579
+"899","GO:MF","GO:0015203","polyamine transmembrane transporter activity",10,4,0.0287236177728139
+"900","GO:MF","GO:0009982","pseudouridine synthase activity",10,4,0.0287236177728139
+"901","GO:MF","GO:0002161","aminoacyl-tRNA editing activity",10,4,0.0287236177728139
+"902","GO:MF","GO:0000009","alpha-1,6-mannosyltransferase activity",10,4,0.0287236177728139
+"903","GO:MF","GO:0140303","intramembrane lipid transporter activity",10,4,0.0287236177728139
+"904","GO:MF","GO:0071617","lysophospholipid acyltransferase activity",10,4,0.0287236177728139
+"905","GO:MF","GO:0005509","calcium ion binding",28,7,0.0312114813465759
+"906","GO:MF","GO:0016903","oxidoreductase activity, acting on the aldehyde or oxo group of donors",28,7,0.0312114813465759
+"907","GO:MF","GO:0008168","methyltransferase activity",97,16,0.0324941953505828
+"908","GO:MF","GO:0015175","neutral L-amino acid transmembrane transporter activity",16,5,0.0346546512333228
+"909","GO:MF","GO:0050660","flavin adenine dinucleotide binding",36,8,0.0382888236632566
+"910","GO:MF","GO:0030246","carbohydrate binding",36,8,0.0382888236632566
+"911","GO:MF","GO:0015923","mannosidase activity",6,3,0.0383180430615714
+"912","GO:MF","GO:0008169","C-methyltransferase activity",6,3,0.0383180430615714
+"913","GO:MF","GO:0019206","nucleoside kinase activity",6,3,0.0383180430615714
+"914","GO:MF","GO:0015108","chloride transmembrane transporter activity",6,3,0.0383180430615714
+"915","GO:MF","GO:0004559","alpha-mannosidase activity",6,3,0.0383180430615714
+"916","GO:MF","GO:0070006","metalloaminopeptidase activity",11,4,0.0403962184942104
+"917","GO:MF","GO:0019203","carbohydrate phosphatase activity",11,4,0.0403962184942104
+"918","GO:MF","GO:0016628","oxidoreductase activity, acting on the CH-CH group of donors, NAD or NADP as acceptor",17,5,0.0441218087090068
+"919","GO:MF","GO:0046527","glucosyltransferase activity",17,5,0.0441218087090068
+"920","KEGG","KEGG:01100","Metabolic pathways",797,305,5.6942397714049e-81
+"921","KEGG","KEGG:00510","N-Glycan biosynthesis",30,19,1.31666601852726e-06
+"922","KEGG","KEGG:00562","Inositol phosphate metabolism",21,15,2.4808951500318e-06
+"923","KEGG","KEGG:00563","Glycosylphosphatidylinositol (GPI)-anchor biosynthesis",25,16,7.08537669616384e-06
+"924","KEGG","KEGG:04070","Phosphatidylinositol signaling system",23,15,9.4830395051124e-06
+"925","KEGG","KEGG:00520","Amino sugar and nucleotide sugar metabolism",34,18,4.33333571101183e-05
+"926","KEGG","KEGG:00500","Starch and sucrose metabolism",41,20,5.4204070356736e-05
+"927","KEGG","KEGG:00250","Alanine, aspartate and glutamate metabolism",32,17,5.84799628882082e-05
+"928","KEGG","KEGG:04145","Phagosome",35,17,0.000246687425770176
+"929","KEGG","KEGG:00052","Galactose metabolism",24,13,0.000445156143052576
+"930","KEGG","KEGG:00564","Glycerophospholipid metabolism",40,18,0.000445156143052576
+"931","KEGG","KEGG:01110","Biosynthesis of secondary metabolites",351,88,0.000700437996850153
+"932","KEGG","KEGG:00600","Sphingolipid metabolism",14,9,0.000971633600717348
+"933","KEGG","KEGG:00760","Nicotinate and nicotinamide metabolism",20,11,0.00113295341735455
+"934","KEGG","KEGG:00040","Pentose and glucuronate interconversions",12,8,0.00142662032618135
+"935","KEGG","KEGG:00020","Citrate cycle (TCA cycle)",31,14,0.00196421206806119
+"936","KEGG","KEGG:00970","Aminoacyl-tRNA biosynthesis",40,16,0.00374843071483392
+"937","KEGG","KEGG:00780","Biotin metabolism",6,5,0.00449196922909126
+"938","KEGG","KEGG:00460","Cyanoamino acid metabolism",9,6,0.00752845540919446
+"939","KEGG","KEGG:04146","Peroxisome",40,15,0.0101406071084534
+"940","KEGG","KEGG:00620","Pyruvate metabolism",52,18,0.0103255098036562
+"941","KEGG","KEGG:00130","Ubiquinone and other terpenoid-quinone biosynthesis",10,6,0.0138415812086536
+"942","KEGG","KEGG:01250","Biosynthesis of nucleotide sugars",23,10,0.0139519031003691
+"943","KEGG","KEGG:00513","Various types of N-glycan biosynthesis",31,12,0.0171710420916507
+"944","KEGG","KEGG:00791","Atrazine degradation",3,3,0.0175763960563573
+"945","KEGG","KEGG:00430","Taurine and hypotaurine metabolism",3,3,0.0175763960563573
+"946","KEGG","KEGG:00785","Lipoic acid metabolism",3,3,0.0175763960563573
+"947","KEGG","KEGG:01200","Carbon metabolism",112,31,0.0175763960563573
+"948","KEGG","KEGG:00470","D-Amino acid metabolism",3,3,0.0175763960563573
+"949","KEGG","KEGG:00790","Folate biosynthesis",11,6,0.0184143962257789
+"950","KEGG","KEGG:00561","Glycerolipid metabolism",32,12,0.0184143962257789
+"951","KEGG","KEGG:00730","Thiamine metabolism",18,8,0.0214577824153705
+"952","KEGG","KEGG:00630","Glyoxylate and dicarboxylate metabolism",29,11,0.0214577824153705
+"953","KEGG","KEGG:01240","Biosynthesis of cofactors",131,34,0.026293388165168
+"954","KEGG","KEGG:00900","Terpenoid backbone biosynthesis",20,8,0.0414710645476093
+"955","KEGG","KEGG:00640","Propanoate metabolism",13,6,0.041691489074625
+"956","KEGG","KEGG:00061","Fatty acid biosynthesis",13,6,0.041691489074625
