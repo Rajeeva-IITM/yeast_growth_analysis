@@ -1,0 +1,12 @@
+defaults:
+  - utilities
+  - _self_
+
+# run_path: ${oc.env:RUN_DIR}/regression
+# out_path: ${oc.env:PROJECT_DIR}/results/shap_regression
+# data_path: ${oc.env:DATA_DIR}/regression_data/new_latent
+
+run_type: full # Must be one of full, geno_only, chem_only, dummy
+
+explainer:
+  _target_: shap.TreeExplainer

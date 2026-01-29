@@ -1,0 +1,74 @@
+defaults:
+  - model_params
+  - utilities
+  - _self_
+
+data:
+  path: ${oc.env:ROOT_DIR}/data/chem_subsets/new_latent/carbons/carbons_bloom2013_clf_3_pubchem.feather
+  savename: Carbons_Bloom2013
+  savedir: ${oc.env:ROOT_DIR}/runs/chem_subsets/Final/dummies/${data.savename} # Better to save as ${data.savename}_${seed}_${run_type}
+
+n_trials: 100
+
+seed: 42
+
+regression: false # used only for simple models training
+
+kfold_params:
+  n_splits: 5
+  seed: ${seed}
+  shuffle: true
+
+metric:
+  _target_: sklearn.metrics.roc_auc_score
+
+testing:
+  test_dataset: null
+  test_frac: 0.2 # fraction of data to use for testing,
+  #Not considered if a separate test dataset is provided
+
+dummy: # for creating baseline models
+  run: false # When false we don't care
+  strategy: stratified # strategy compatible with sklearn.dummy.DummyClassifier
+
+models:
+  RandomForest:
+    name: RandomForest
+    model_savename: ${data.savedir}/${models.RandomForest.name}.pkl # A folder is created for each seed, useful when running multiple seeds
+
+  Boosting:
+    name: Boosting
+    # device: "cuda:1"
+    model_savename: ${data.savedir}/${models.Boosting.name}.pkl
+
+  ElasticNet:
+    name: ElasticNet
+    model_savename: ${data.savedir}/${models.ElasticNet.name}.pkl
+
+  SVR:
+    name: NonLinearSVR
+    model_savename: ${data.savedir}/${models.SVR.name}.pkl
+
+  NeighboursR:
+    name: NeighboursR
+    model_savename: ${data.savedir}/${models.NeighboursR.name}.pkl
+
+  LDA:
+    name: LDA
+    model_savename: ${data.savedir}/${models.LDA.name}.pkl
+
+  QDA:
+    name: QDA
+    model_savename: ${data.savedir}/${models.QDA.name}.pkl
+
+  KNN:
+    name: KNN
+    model_savename: ${data.savedir}/${models.KNN.name}.pkl
+
+  NB:
+    name: NB
+    model_savename: ${data.savedir}/${models.NB.name}.pkl
+
+  GP:
+    name: GP
+    model_savename: ${data.savedir}/${models.GP.name}.pkl

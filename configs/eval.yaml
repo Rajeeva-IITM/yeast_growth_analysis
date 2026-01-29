@@ -1,0 +1,10 @@
+defaults:
+  - utilities
+  - _self_
+  - metrics: reg # choose this appropriately based on the task_type
+
+# run_path: ${oc.env:RUN_DIR}/chem_subsets/Final
+# out_path: ${oc.env:PROJECT_DIR}/performance/regression/full
+# data_path: ${oc.env:DATA_DIR}/regression_data/new_latent
+
+# run_type: full # Must be one of full, geno_only, chem_only, dummy
