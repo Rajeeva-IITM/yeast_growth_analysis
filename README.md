@@ -17,8 +17,8 @@ Each directory is self-contained with its own README, dependencies, and configur
 Clone the repo and navigate into the pipeline you want to run:
 
 ```bash
-git clone <this-repo-url>
-cd yeast_growth_pred
+git clone https://github.com/Rajeeva-IITM/yeast_growth_analysis.git
+cd yeast_growth_analysis
 
 # Example: run the ML pipeline
 cd Boosting
