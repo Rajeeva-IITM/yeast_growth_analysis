@@ -1,0 +1,7 @@
+cobra
+pandas
+polars
+numpy
+scipy
+matplotlib
+seaborn

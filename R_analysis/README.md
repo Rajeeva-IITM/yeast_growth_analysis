@@ -47,6 +47,11 @@ All scripts assume the working directory is the project root.
 └── renv.lock              # Dependency lockfile
 ```
 
+## Data
+
+<!-- TODO: Add Zenodo DOI link once published -->
+All required data (training data, predictions, SHAP values, etc.) will be available on [Zenodo](https://zenodo.org/) in the exact directory structure expected by this sub-repo. Download and extract the data archive into this directory to populate `data/`.
+
 ## External Dependencies
 
 This repo expects pre-computed outputs from sibling repositories:
