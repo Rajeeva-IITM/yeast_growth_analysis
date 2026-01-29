@@ -1,0 +1,10 @@
+r2_score:
+  _target_: sklearn.metrics.r2_score
+mean_squared_error:
+  _target_: sklearn.metrics.mean_squared_error
+pearson_correlation:
+  _target_: utils.get_corr # For some reason, src.utils.get_corr doesn't work. Probably because because this file is inside src/
+  method: pearson
+spearman_correlation:
+  _target_: utils.get_corr
+  method: spearman

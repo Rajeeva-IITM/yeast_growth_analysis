@@ -1,0 +1,30 @@
+# Need to be used in tandem with one of the other configs
+
+run_path: ${oc.env:RUN_DIR}/classification/0.25_sigma
+out_path: ${oc.env:PROJECT_DIR}/performance/classification/0.25_sigma
+data_path: ${oc.env:DATA_DIR}/full/varying_sigma/sigma_0.25
+
+run_type: full # one of full, geno_only, chem_only,
+regression: false
+
+# These are for getting the model from different directories - directly pass it to the get_model_paths function from utils.py
+# The structure is {run_path}/{prefix}{model_name}*{suffix}/{model_type}.pkl
+model_load_keys:
+  run_path: ${run_path}
+  model_type: Boosting # Must be one of Boosting, RandomForest, SVM, LogReg
+  prefix: Full_
+  suffix: ${run_type}
+  model_names:
+    - Bloom2013
+    # - Bloom2015
+    # - Bloom2019_BYxRM
+    # - Bloom2019_BYxM22
+    # - Bloom2019_RMxYPS163
+
+# Paths to data
+data_paths:
+  # Bloom2013: ${data_path}/bloom2013_clf.feather
+  # Bloom2015: ${data_path}/bloom2015_clf.feather
+  # Bloom2019_BYxRM: ${data_path}/bloom2019_clf.feather
+  # Bloom2019_BYxM22: ${data_path}/bloom2019_BYxM22_clf.feather
+  # Bloom2019_RMxYPS163: ${data_path}/bloom2019_RMxYPS163_clf.feather
