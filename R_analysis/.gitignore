@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+*.RData*
+.Ruserdata
+renv/
+data/
+results/
+src/result_2_files/
+src/result_model_evaluation_files/
+*pdf
+*typ
+*tex
+*.claude/*

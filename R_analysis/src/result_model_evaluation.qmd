@@ -1,0 +1,812 @@
+---
+title: "Result 2"
+lof: true
+lot: true
+format: 
+   typst:
+     toc: true
+     fontsize: 11pt
+     section-numbering: 1.1.1.
+     columns: 1
+     papersize: a4
+     # css-property-processing: none
+     margin: 
+        x: 0.75in
+        y: 0.75in
+execute: 
+  echo: false
+  warning: false
+  freeze: auto      
+# prefer-html: true 
+mainfont: CMU Serif
+monofont: CMU Typewriter Text
+tbl-cap-location: top
+keep-typ: true
+editor: visual
+---
+
+```{r}
+#| label: prelims
+
+library(gt)
+library(dplyr)
+library(data.table)
+library(tidyr)
+library(purrr)
+library(readr)
+library(scales)
+library(svglite)
+library(ggpubr)
+
+source("./utils/theme_set.R")
+
+data_names <- c("Bloom2013", "Bloom2015", "Bloom2019", "Bloom2019_BYxM22", "Bloom2019_RMxYPS163")
+
+plot_preds <- function(pred_df, sample_size=100){
+  pred_df %>%
+    group_by(Condition, Fold) %>%
+    slice_sample(n = sample_size) %>%
+    ggplot(., aes(x=Phenotype, y=Preds,)) +
+    geom_point(alpha=0.8) +
+    stat_smooth(method=lm) +
+    stat_cor() +
+    facet_wrap(~Condition)
+}
+
+fmt_table <- function(matrix){
+  matrix %>% 
+    as_tibble(rownames="Train dataset") %>% 
+    gt(rowname_col="Train dataset") %>% 
+    tab_spanner("Test Datasets", everything()) %>% 
+    tab_stubhead("Train Datasets") %>% 
+    tab_options(
+      table.border.bottom.color = "black",
+      table.border.bottom.width = px(1.5),
+      column_labels.border.top.width = px(2),
+      column_labels.border.bottom.width = px(2),
+      column_labels.border.top.color = "black",
+      column_labels.border.bottom.color = "black",
+      row_group.font.weight = "bold",
+      stub.font.weight = "bold"
+    ) %>% 
+    opt_footnote_marks(marks = "letters") %>% 
+    tab_style(
+      style = cell_text(weight = "bold"),
+      locations = cells_column_labels()
+    ) %>% 
+    tab_style(
+      style = cell_text(align = "center", weight="bold"),
+      locations = cells_column_spanners()
+    ) %>%
+    tab_style(
+      style = cell_text(v_align = "middle", weight = "bold"),
+      locations = cells_stubhead()
+    ) %>% 
+    tab_style(
+      style = cell_borders(sides="right", color="black", weight = px(1.5)),
+      locations = cells_row_groups(everything())
+    ) %>% 
+    return
+}
+
+fmt_conditionwise_table <- function(df){
+  df %>% 
+    group_by(Condition) %>% 
+      summarise(
+        Accuracy_mean = mean(accuracy), Accuracy_std = sqrt(var(accuracy)),
+        `AUC-ROC_mean`=mean(auc_roc), `AUC-ROC_std`=sqrt(var(auc_roc)),
+        F1_mean = mean(f1), F1_std = sqrt(var(f1))
+      ) %>% 
+    arrange(`AUC-ROC_mean`) %>% 
+    gt(rowname_col = "Condition") %>% 
+    fmt_number() %>% 
+    cols_merge(
+      columns = c(Accuracy_mean, Accuracy_std),
+      pattern = "{1} ± {2}"
+    ) %>% 
+    cols_merge(
+      columns = c(`AUC-ROC_mean`, `AUC-ROC_std`),
+      pattern = "{1} ± {2}"
+    ) %>% 
+    cols_merge(
+      columns = c(F1_mean, F1_std),
+      pattern = "{1} ± {2}"
+    ) %>% 
+    cols_label(
+      Accuracy_mean = 'Accuracy',
+      `AUC-ROC_mean` = "AUC-ROC",
+      F1_mean = 'F1'
+    ) %>% 
+    tab_stubhead("Conditions") %>% 
+    tab_options(
+      table.border.bottom.color = "black",
+      table.border.bottom.width = px(1.5),
+      column_labels.font.weight = "bold",
+      column_labels.border.top.width = px(2),
+      column_labels.border.bottom.width = px(2),
+      column_labels.border.top.color = "black",
+      column_labels.border.bottom.color = "black",
+      row_group.font.weight = "bold",
+      stub.font.weight = "bold"
+    ) %>% 
+    data_color(
+      palette = "viridis"
+    ) %>% 
+    opt_table_font(
+      font = "CMU Serif"
+    ) %>% 
+    return
+}
+
+fmt_conditionwise_table_reg <- function(df){
+  df %>% 
+    group_by(Condition) %>% 
+      summarise(
+        `R-Squared` = mean(r2_score), `R-squared_std` = sqrt(var(r2_score)),
+        MSE=mean(mean_squared_error), `MSE_std`=sqrt(var(mean_squared_error)),
+        Correlation = mean(pearson_correlation), Correlation_std = sqrt(var(pearson_correlation))
+      ) %>% 
+    arrange(MSE) %>% 
+    gt(rowname_col = "Condition") %>% 
+    fmt_number() %>% 
+    cols_merge(
+      columns = c(`R-Squared`, `R-squared_std`),
+      pattern = "{1} ± {2}"
+    ) %>% 
+    cols_merge(
+      columns = c(MSE, MSE_std),
+      pattern = "{1} ± {2}"
+    ) %>% 
+    cols_merge(
+      columns = c(Correlation, Correlation_std),
+      pattern = "{1} ± {2}"
+    ) %>% 
+    tab_stubhead("Conditions") %>% 
+    tab_options(
+      table.border.bottom.color = "black",
+      table.border.bottom.width = px(1.5),
+      column_labels.font.weight = "bold",
+      column_labels.border.top.width = px(2),
+      column_labels.border.bottom.width = px(2),
+      column_labels.border.top.color = "black",
+      column_labels.border.bottom.color = "black",
+      row_group.font.weight = "bold",
+      stub.font.weight = "bold"
+    ) %>% 
+    data_color(
+      palette = "viridis"
+    ) %>% 
+    opt_table_font(
+      font = google_font("CMU Serif")
+    ) %>% 
+    return
+}
+
+```
+
+# Logistic Regression
+
+```{r}
+#| label: tbl-logreg-full
+#| tbl-cap: Performance of the Logistic Regression Model - AUC-ROC
+
+logreg_mat <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+logreg_condition <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+
+for(rowname in rownames(logreg_mat)){
+  for(colname in colnames(logreg_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_LogReg.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performances/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    logreg_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    logreg_condition[rowname, colname] <- paste0("../results/result_2/pairwise/","LogReg_", rowname, "_", colname, ".png")
+    gtsave(condition.wise.df, paste0("../results/result_2/pairwise/","LogReg_", rowname, "_", colname, ".png"))
+  }
+}
+fmt_table(logreg_mat)
+```
+
+```{r}
+#| label: tbl-logreg-conditionwise
+
+logreg_condition %>% 
+  fmt_table() %>% 
+  fmt_image(
+    columns = data_names,
+    path="./"
+  )
+```
+
+# Support Vector Machine
+
+```{r}
+#| label: tbl-svm
+#| tbl-cap: Performance of the Support Vector Machine - AUC-ROC
+
+
+svm_mat <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+svm_mat_condition <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+
+for(rowname in rownames(svm_mat)){
+  for(colname in colnames(svm_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_SVM.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performances/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    svm_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    gtsave(condition.wise.df, paste0("../results/result_2/pairwise/","SVM_", rowname, "_", colname, ".png"))
+  }
+}
+fmt_table(svm_mat)
+```
+
+# Random Forest
+
+```{r}
+#| label: tbl-rf
+#| tbl-cap: Performance of the Random Forest Model - AUC-ROC
+
+
+rf_mat <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+
+for(rowname in rownames(rf_mat)){
+  for(colname in colnames(rf_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_RandomForest.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performance_boosting/Final/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    rf_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    gtsave(condition.wise.df, paste0("../results/result_2/pairwise/","RF_", rowname, "_", colname, ".png"))
+  }
+}
+fmt_table(rf_mat)
+```
+
+# Boosting
+
+```{r}
+#| label: tbl-boosting
+#| tbl-cap: Performance of the GDBT Model - AUC-ROC
+
+
+boost_mat <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+
+for(rowname in rownames(boost_mat)){
+  for(colname in colnames(boost_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_Boosting.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performance_boosting/Final/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    boost_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    gtsave(condition.wise.df, paste0("../results/result_2/pairwise/","Boosting_", rowname, "_", colname, ".png"))
+  }
+}
+fmt_table(boost_mat)
+```
+
+## Geno Only
+
+```{r}
+#| label: tbl-boosting-geno
+#| tbl-cap: Performance of the GDBT Model - AUC-ROC - Genotype only
+
+boost_mat <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+
+for(rowname in rownames(boost_mat)){
+  for(colname in colnames(boost_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_Boosting.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performance_boosting/Final/Geno_only/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    boost_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    gtsave(condition.wise.df, paste0("../results/result_2/geno_pairwise/","Boosting_", rowname, "_", colname, ".png"))
+  }
+}
+fmt_table(boost_mat)
+
+```
+
+## Chem Only
+
+```{r}
+#| label: tbl-boosting-chem
+#| tbl-cap: Performance of the GDBT Model - AUC-ROC - Chem only
+
+boost_mat <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+
+for(rowname in rownames(boost_mat)){
+  for(colname in colnames(boost_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_Boosting.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performance_boosting/Final/Chem_only/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    boost_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    gtsave(condition.wise.df, paste0("../results/result_2/chem_pairwise/","Boosting_", rowname, "_", colname, ".png"))
+  }
+}
+fmt_table(boost_mat)
+```
+
+# Baseline - Most frequent
+
+```{r}
+#| label: tbl-dummy-mf
+#| tbl-cap: Performance of the dummy most frequent Model - AUC-ROC - 
+
+boost_mat <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+
+for(rowname in rownames(boost_mat)){
+  for(colname in colnames(boost_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_most_frequent.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performance_boosting/Final/Dummies/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    boost_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    gtsave(condition.wise.df, paste0("../results/result_2/dummy/","Most_Frequent_", rowname, "_", colname, ".png"))
+  }
+}
+fmt_table(boost_mat)
+```
+
+# Baseline - Stratified
+
+```{r}
+#| label: tbl-dummy-stratified
+#| tbl-cap: Performance of the dummy stratified Model - AUC-ROC - 
+
+boost_mat <- matrix(nrow=5, ncol=5, dimnames = list(data_names, data_names))
+
+for(rowname in rownames(boost_mat)){
+  for(colname in colnames(boost_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_stratified.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performance_boosting/Final/Dummies/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    boost_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    gtsave(condition.wise.df, paste0("../results/result_2/dummy/","stratified_", rowname, "_", colname, ".png"))
+  }
+}
+fmt_table(boost_mat)
+```
+
+# Full models
+
+```{r}
+#| label: tbl-full
+#| tbl-cap: Performance of the full data trained Model - AUC-ROC 
+
+
+boost_mat <- matrix(nrow=2, ncol=2, dimnames=list(data_names[1:2], data_names[1:2]))
+
+for(rowname in rownames(boost_mat)){
+  for(colname in colnames(boost_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_Boosting.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performance_boosting/Final/Full/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    boost_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    # gtsave(condition.wise.df, paste0("../results/result_2/full/","", rowname, "_", colname, ".png"))
+    
+    svglite(filename = paste0("../results/result_2/full/","Full_", rowname, "_", colname, ".svg"), height=20, width = 20)
+    condition.wise.df %>% as_gtable(plot = TRUE)
+    dev.off()
+  }
+}
+fmt_table(boost_mat)
+```
+
+# Full models - Genotype only
+
+```{r}
+#| label: tbl-full-geno_only
+#| tbl-cap: Performance of the full data trained Model - AUC-ROC 
+
+
+boost_mat <- matrix(nrow=2, ncol=2, dimnames=list(data_names[1:2], data_names[1:2]))
+
+for(rowname in rownames(boost_mat)){
+  for(colname in colnames(boost_mat)) {
+    filename <- paste("metrics_", rowname, "_", colname, "_Boosting.csv", sep = "")
+    df <- read_csv(
+      paste("../data/performance_boosting/Final/Full/Geno_only/", filename, sep=""),
+      col_types = "fidddd"
+    )
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    boost_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    gtsave(condition.wise.df, paste0("../results/result_2/full/","Geno_only_", rowname, "_", colname, ".png"))
+  }
+}
+fmt_table(boost_mat)
+```
+
+# Comparing Full and genotype only models
+
+```{r}
+#| label: fig-reg-compare-full-geno
+#| fig-cap: Performance of the Genotype only data compared to full model
+
+df1 <- read_csv("../data/performance_regression/full/metrics_Bloom2013_Bloom2015_Boosting.csv") %>%
+  mutate(run = 'Combined')
+df2 <- read_csv("../data/performance_regression/geno_only/metrics_Bloom2013_Bloom2015_Boosting.csv") %>% 
+  mutate(run = "Genotype only")
+
+df <- bind_rows(df1, df2)
+
+df %>% 
+  group_by(Condition, run) %>% 
+  summarise(r2_score_mean=mean(r2_score), r2_score_std=sqrt(var(r2_score))) %>% 
+ggplot(., aes(x=Condition, y = r2_score_mean, fill=run)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  geom_errorbar(
+    aes(x=Condition, ymin=r2_score_mean-r2_score_std, ymax=r2_score_mean+r2_score_std),
+    position='dodge'
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+# Classification - Varying Sigma
+
+```{r}
+#| label: fig-clf-sigma0.25
+#| fig-cap: Performance of the sigma 0.25
+
+
+data_names <- c("Bloom2013", "Bloom2015", "Bloom2019_BYxRM", "Bloom2019_BYxM22", "Bloom2019_RMxYPS163")
+
+boost_mat <- matrix(nrow=5, ncol=5, dimnames=list(data_names, data_names))
+file_loc <- "../data/performance_classification/classification/0.25_sigma/"
+save_dir <- "../results/result_2/classification_varying_sigma/0.25_sigma/"
+
+for(rowname in rownames(boost_mat)){
+  for(colname in colnames(boost_mat)) {
+    
+    print(rowname)
+    print(colname)
+    
+    filename <- paste("metrics_", rowname, "_", colname, "_Boosting.csv", sep = "")
+    df <- read_csv(
+      paste(file_loc, filename, sep=""),
+      col_types = "fidddd"
+    )
+    df <- rename(df, auc_roc=roc_auc)
+    pred_name <- paste("predictions_", rowname, "_",
+                       colname, "_Boosting.parquet",
+                       sep = "")
+    pred_df <- arrow::read_parquet(
+      paste(file_loc, pred_name, sep=""),
+    )
+    
+    # Plotting predictions
+    p <- plot_preds(pred_df = pred_df)
+    save_plot(paste0(save_dir,"Full_", rowname, "_", colname, "_preds.svg"), height=6, width = 9, units='in', scale=1.5)
+    
+    
+    # Adding to table
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    boost_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    
+    svglite(filename = paste0(save_dir,"Full_", rowname, "_", colname, ".svg"), height=20, width = 20)
+    condition.wise.df %>% as_gtable(plot = TRUE)
+    dev.off()
+  }
+}
+fmt_table(boost_mat)
+```
+
+# Classification - 0.5 Sigma
+
+```{r}
+#| label: fig-clf-0.5sigma
+#| fig-cap: Performance of the 0.5 trained model
+
+
+data_names <- c("Bloom2013", "Bloom2015", "Bloom2019_BYxRM", "Bloom2019_BYxM22", "Bloom2019_RMxYPS163")
+
+boost_mat <- matrix(nrow=5, ncol=5, dimnames=list(data_names, data_names))
+file_loc <- "../data/performance_classification/classification/0.5_sigma/"
+save_dir <- "../results/result_2/classification_varying_sigma/0.5_sigma/"
+
+for(rowname in rownames(boost_mat)){
+  for(colname in colnames(boost_mat)) {
+    
+    print(rowname)
+    print(colname)
+    
+    filename <- paste("metrics_", rowname, "_", colname, "_Boosting.csv", sep = "")
+    df <- read_csv(
+      paste(file_loc, filename, sep=""),
+      col_types = "fidddd"
+    )
+    df <- rename(df, auc_roc=roc_auc)
+    pred_name <- paste("predictions_", rowname, "_",
+                       colname, "_Boosting.parquet",
+                       sep = "")
+    pred_df <- arrow::read_parquet(
+      paste(file_loc, pred_name, sep=""),
+    )
+    
+    # Plotting predictions
+    p <- plot_preds(pred_df = pred_df)
+    save_plot(paste0(save_dir,"Full_", rowname, "_", colname, "_preds.svg"), height=6, width = 9, units='in', scale=1.5)
+    
+    
+    # Adding to table
+    mean <- mean(df$auc_roc) %>% round(digits = 2)
+    std <- sqrt(var(df$auc_roc)) %>% round(digits = 2)
+    boost_mat[rowname, colname] <- paste(mean, "±", std)
+    
+    condition.wise.df <- fmt_conditionwise_table(df)
+    
+    svglite(filename = paste0(save_dir,"Full_", rowname, "_", colname, ".svg"), height=20, width = 20)
+    condition.wise.df %>% as_gtable(plot = TRUE)
+    dev.off()
+  }
+}
+fmt_table(boost_mat)
+```
+
+# Comparison Classification
+
+```{r}
+#| label: fig-reg-compare-full-geno-clf
+#| fig-cap: Performance of the Genotype only data compared to full model - classification
+
+
+df1 <- read_csv("../data/performance_boosting/Final/Full/metrics_Bloom2013_Bloom2015_Boosting.csv") %>%
+  mutate(run = 'Combined')
+df2 <- read_csv("../data/performance_boosting/Final/Full/Geno_only/metrics_Bloom2013_Bloom2015_Boosting.csv") %>% 
+  mutate(run = "Genotype only")
+
+df <- bind_rows(df1, df2)
+
+df %>% 
+  group_by(Condition, run) %>% 
+  summarise(
+    auc_roc_mean = mean(auc_roc),
+    auc_roc_std = sqrt(var(auc_roc))
+  ) %>% 
+  ggplot(., aes(x=Condition, y = auc_roc_mean, fill=run)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  geom_errorbar(
+    aes(x=reorder(Condition, auc_roc_mean), ymin=auc_roc_mean-auc_roc_std, ymax=auc_roc_mean+auc_roc_std),
+    position='dodge'
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+save_plot(
+  "../results/result_2/comparison-bloom2013_on_bloom2015.svg",
+  width = 9,
+  height = 6,
+  units = 'in'
+)
+ # 0.25 sigma
+df1 <- read_csv("../data/performance_classification/classification/0.25_sigma/metrics_Bloom2013_Bloom2015_Boosting.csv") %>%
+  mutate(run = 'Combined') %>% 
+  rename(auc_roc = roc_auc)
+# df2 <- read_csv("../data/performance_boosting/Final/Full/Geno_only/metrics_Bloom2013_Bloom2015_Boosting.csv") %>% 
+#   mutate(run = "Genotype only")
+
+df <- bind_rows(df1, df2)
+
+df %>% 
+  group_by(Condition, run) %>% 
+  summarise(
+    auc_roc_mean = mean(auc_roc),
+    auc_roc_std = sqrt(var(auc_roc))
+  ) %>% 
+  ggplot(., aes(x=Condition, y = auc_roc_mean, fill=run)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  geom_errorbar(
+    aes(x=reorder(Condition, auc_roc_mean), ymin=auc_roc_mean-auc_roc_std, ymax=auc_roc_mean+auc_roc_std),
+    position='dodge'
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+save_plot(
+  "../results/result_2/comparison-bloom2013_on_bloom2015-0.25_sigma.svg",
+  width = 9,
+  height = 6,
+  units = 'in'
+)
+
+# 0.5 Sigma
+
+df1 <- read_csv("../data/performance_classification/classification/0.5_sigma/metrics_Bloom2013_Bloom2015_Boosting.csv") %>%
+  mutate(run = 'Combined') %>% 
+  rename(auc_roc = roc_auc)
+# df2 <- read_csv("../data/performance_boosting/Final/Full/Geno_only/metrics_Bloom2013_Bloom2015_Boosting.csv") %>% 
+#   mutate(run = "Genotype only")
+
+df <- bind_rows(df1, df2)
+
+df %>% 
+  group_by(Condition, run) %>% 
+  summarise(
+    auc_roc_mean = mean(auc_roc),
+    auc_roc_std = sqrt(var(auc_roc))
+  ) %>% 
+  ggplot(., aes(x=Condition, y = auc_roc_mean, fill=run)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  geom_errorbar(
+    aes(x=reorder(Condition, auc_roc_mean), ymin=auc_roc_mean-auc_roc_std, ymax=auc_roc_mean+auc_roc_std),
+    position='dodge'
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+save_plot(
+  "../results/result_2/comparison-bloom2013_on_bloom2015-0.5_sigma.svg",
+  width = 9,
+  height = 6,
+  units = 'in'
+)
+
+```
+
+# Comparing Different Sigmas
+
+```{r}
+#| label: fig-clf-compare-3sigma
+#| fig-cap: Performance of Classification models of varying sigmas
+
+
+df1 <- read_csv("../data/performance_classification/classification/0.25_sigma/metrics_Bloom2013_Bloom2015_Boosting.csv") %>%
+  mutate(run = '0.25 sigma') %>% 
+  rename(auc_roc = roc_auc)
+df2 <- read_csv("../data/performance_boosting/Final/Full/metrics_Bloom2013_Bloom2015_Boosting.csv") %>% 
+  mutate(run = "1 sigma") 
+
+df3 <- read_csv("../data/performance_classification/classification/0.5_sigma/metrics_Bloom2013_Bloom2015_Boosting.csv") %>% 
+  mutate(run = "0.5 sigma") %>% 
+  rename(auc_roc = roc_auc)
+
+df <- bind_rows(df1, df2, df3)
+
+df %>% 
+  group_by(Condition, run) %>% 
+  summarise(
+    auc_roc_mean = mean(auc_roc),
+    auc_roc_std = sqrt(var(auc_roc))
+  ) %>% 
+  ggplot(., aes(x=Condition, y = auc_roc_mean, fill=run)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  geom_errorbar(
+    aes(x=Condition, ymin=auc_roc_mean-auc_roc_std, ymax=auc_roc_mean+auc_roc_std),
+    position='dodge'
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+save_plot(
+  "../results/result_2/comparison-bloom2013_on_bloom2015-Sigmas.svg",
+  width = 9,
+  height = 6,
+  units = 'in'
+)
+```
+
+# Comparison Classification 0.25
+
+```{r}
+#| label: fig-clf-compare-0.25
+#| fig-cap: Performance of the Genotype only data compared to full model - classification 0.25
+
+
+df1 <- read_csv("../data/performance_classification/classification/0.25_sigma/metrics_Bloom2013_Bloom2015_Boosting.csv") %>%
+  mutate(run = 'Combined') %>% 
+  rename(auc_roc=roc_auc)
+df2 <- read_csv("../data/performance_classification/classification/0.25_sigma_geno_only/metrics_Bloom2013_Bloom2015_Boosting.csv") %>% 
+  mutate(run = "Genotype only") %>% 
+  rename(auc_roc=roc_auc)
+
+df <- bind_rows(df1, df2)
+
+df %>% 
+  group_by(Condition, run) %>% 
+  summarise(
+    auc_roc_mean = mean(auc_roc),
+    auc_roc_std = sqrt(var(auc_roc))
+  ) %>% 
+  ggplot(., aes(x=Condition, y = auc_roc_mean, fill=run)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  geom_errorbar(
+    aes(x=Condition, ymin=auc_roc_mean-auc_roc_std, ymax=auc_roc_mean+auc_roc_std),
+    position='dodge'
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+save_plot(
+  "../results/result_2/classification_varying_sigma/0.25_comparison_Bloom2013_on_Bloom2015.svg",
+  width = 9,
+  height = 6,
+  units = 'in'
+)
+```
+
+# Comparison Classification 0.5
+
+```{r}
+#| label: fig-clf-compare-0.5
+#| fig-cap: Performance of the Genotype only data compared to full model - classification 0.25
+
+
+df1 <- read_csv("../data/performance_classification/classification/0.5_sigma/metrics_Bloom2013_Bloom2015_Boosting.csv") %>%
+  mutate(run = 'Combined') %>% 
+  rename(auc_roc=roc_auc)
+df2 <- read_csv("../data/performance_classification/classification/0.5_sigma_geno_only/metrics_Bloom2013_Bloom2015_Boosting.csv") %>% 
+  mutate(run = "Genotype only") %>% 
+  rename(auc_roc=roc_auc)
+
+df <- bind_rows(df1, df2)
+
+df %>% 
+  group_by(Condition, run) %>% 
+  summarise(
+    auc_roc_mean = mean(auc_roc),
+    auc_roc_std = sqrt(var(auc_roc))
+  ) %>% 
+  ggplot(., aes(x=Condition, y = auc_roc_mean, fill=run)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  geom_errorbar(
+    aes(x=Condition, ymin=auc_roc_mean-auc_roc_std, ymax=auc_roc_mean+auc_roc_std),
+    position='dodge'
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+save_plot(
+  "../results/result_2/classification_varying_sigma/0.5_comparison_Bloom2013_on_Bloom2015.svg",
+  width = 9,
+  height = 6,
+  units = 'in'
+)
+```
