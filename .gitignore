@@ -1,0 +1,20 @@
+# Large input data
+data/expressionValues_imputed_median_antilog.csv
+
+# Generated strain models
+models/strain_models_gimme/
+models/strain_models_sprint/
+
+# All results (reproducible from scripts)
+results/
+
+# MATLAB temp files
+*.asv
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+
+*.claude*

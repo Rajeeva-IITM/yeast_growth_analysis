@@ -1,0 +1,78 @@
+"","source","term_id","term_name","term_size","intersection_size","adj_pval"
+"1","GO:BP","GO:0042761","very long-chain fatty acid biosynthetic process",7,4,1.10609273807301e-09
+"2","GO:BP","GO:0000038","very long-chain fatty acid metabolic process",11,4,5.20931790384961e-09
+"3","GO:BP","GO:0006665","sphingolipid metabolic process",54,5,1.01626621549967e-08
+"4","GO:BP","GO:0006643","membrane lipid metabolic process",87,5,8.86751822406567e-08
+"5","GO:BP","GO:0006633","fatty acid biosynthetic process",26,4,9.40516984297796e-08
+"6","GO:BP","GO:0030497","fatty acid elongation",5,3,1.14494659746335e-07
+"7","GO:BP","GO:0030148","sphingolipid biosynthetic process",44,4,6.07316323999677e-07
+"8","GO:BP","GO:0072330","monocarboxylic acid biosynthetic process",53,4,1.14373085673204e-06
+"9","GO:BP","GO:0006631","fatty acid metabolic process",70,4,3.16999473259914e-06
+"10","GO:BP","GO:0046467","membrane lipid biosynthetic process",75,4,3.77729850721371e-06
+"11","GO:BP","GO:0008610","lipid biosynthetic process",231,5,4.4942397493533e-06
+"12","GO:BP","GO:0044255","cellular lipid metabolic process",342,5,2.92897052051318e-05
+"13","GO:BP","GO:0006629","lipid metabolic process",367,5,3.84213211976136e-05
+"14","GO:BP","GO:0032787","monocarboxylic acid metabolic process",172,4,7.62920506884423e-05
+"15","GO:BP","GO:0046394","carboxylic acid biosynthetic process",195,4,0.000110107738563143
+"16","GO:BP","GO:0016053","organic acid biosynthetic process",195,4,0.000110107738563143
+"17","GO:BP","GO:0044283","small molecule biosynthetic process",357,4,0.00113320223156442
+"18","GO:BP","GO:0019752","carboxylic acid metabolic process",425,4,0.00211811364845184
+"19","GO:BP","GO:0043436","oxoacid metabolic process",443,4,0.00228090919859515
+"20","GO:BP","GO:0006082","organic acid metabolic process",445,4,0.00228090919859515
+"21","GO:BP","GO:0010166","wax metabolic process",1,1,0.0056242041220587
+"22","GO:BP","GO:0010025","wax biosynthetic process",1,1,0.0056242041220587
+"23","GO:BP","GO:0048640","negative regulation of developmental growth",1,1,0.0056242041220587
+"24","GO:BP","GO:0050730","regulation of peptidyl-tyrosine phosphorylation",1,1,0.0056242041220587
+"25","GO:BP","GO:0050732","negative regulation of peptidyl-tyrosine phosphorylation",1,1,0.0056242041220587
+"26","GO:BP","GO:1901570","fatty acid derivative biosynthetic process",1,1,0.0056242041220587
+"27","GO:BP","GO:0018212","peptidyl-tyrosine modification",2,1,0.0100809147200629
+"28","GO:BP","GO:0018108","peptidyl-tyrosine phosphorylation",2,1,0.0100809147200629
+"29","GO:BP","GO:0046514","ceramide catabolic process",2,1,0.0100809147200629
+"30","GO:BP","GO:0048638","regulation of developmental growth",3,1,0.0125866664110925
+"31","GO:BP","GO:0034625","fatty acid elongation, monounsaturated fatty acid",3,1,0.0125866664110925
+"32","GO:BP","GO:0034626","fatty acid elongation, polyunsaturated fatty acid",3,1,0.0125866664110925
+"33","GO:BP","GO:0044281","small molecule metabolic process",802,4,0.0125866664110925
+"34","GO:BP","GO:0019367","fatty acid elongation, saturated fatty acid",3,1,0.0125866664110925
+"35","GO:BP","GO:0019368","fatty acid elongation, unsaturated fatty acid",3,1,0.0125866664110925
+"36","GO:BP","GO:1901568","fatty acid derivative metabolic process",4,1,0.0162290271902173
+"37","GO:BP","GO:0030149","sphingolipid catabolic process",5,1,0.0192112196973476
+"38","GO:BP","GO:0046466","membrane lipid catabolic process",5,1,0.0192112196973476
+"39","GO:BP","GO:0048589","developmental growth",6,1,0.0218923976368132
+"40","GO:BP","GO:0051093","negative regulation of developmental process",6,1,0.0218923976368132
+"41","GO:BP","GO:0030154","cell differentiation",152,2,0.0294982527167705
+"42","GO:BP","GO:0048869","cellular developmental process",159,2,0.0308390541159319
+"43","GO:BP","GO:1901566","organonitrogen compound biosynthetic process",1076,4,0.0308390541159319
+"44","GO:BP","GO:0046513","ceramide biosynthetic process",11,1,0.0364174750155747
+"45","GO:BP","GO:0045926","negative regulation of growth",12,1,0.0380651496679265
+"46","GO:BP","GO:0007034","vacuolar transport",184,2,0.0380651496679265
+"47","GO:BP","GO:0006672","ceramide metabolic process",13,1,0.0402608044513851
+"48","GO:BP","GO:0001933","negative regulation of protein phosphorylation",15,1,0.0454521179007234
+"49","GO:CC","GO:0005783","endoplasmic reticulum",712,6,4.9777861925262e-05
+"50","GO:CC","GO:0042175","nuclear outer membrane-endoplasmic reticulum membrane network",428,5,5.09276252847239e-05
+"51","GO:CC","GO:0098827","endoplasmic reticulum subcompartment",417,5,5.09276252847239e-05
+"52","GO:CC","GO:0005789","endoplasmic reticulum membrane",414,5,5.09276252847239e-05
+"53","GO:CC","GO:0031984","organelle subcompartment",482,5,7.34583688948747e-05
+"54","GO:CC","GO:0012505","endomembrane system",1146,6,0.000145409320862633
+"55","GO:CC","GO:0031090","organelle membrane",1392,5,0.00936918395168978
+"56","GO:MF","GO:0009922","fatty acid elongase activity",4,2,0.000172377334936491
+"57","GO:MF","GO:0071633","dihydroceramidase activity",1,1,0.00626815471640448
+"58","GO:MF","GO:0102158","very-long-chain (3R)-3-hydroxyacyl-CoA dehydratase activity",1,1,0.00626815471640448
+"59","GO:MF","GO:0045703","ketoreductase activity",1,1,0.00626815471640448
+"60","GO:MF","GO:0102758","very-long-chain enoyl-CoA reductase activity",1,1,0.00626815471640448
+"61","GO:MF","GO:0018812","3-hydroxyacyl-CoA dehydratase activity",1,1,0.00626815471640448
+"62","GO:MF","GO:0070774","phytoceramidase activity",2,1,0.0083543448437292
+"63","GO:MF","GO:0004300","enoyl-CoA hydratase activity",2,1,0.0083543448437292
+"64","GO:MF","GO:0017040","N-acylsphingosine amidohydrolase activity",2,1,0.0083543448437292
+"65","GO:MF","GO:0003824","catalytic activity",2352,6,0.00882606628871009
+"66","GO:MF","GO:0016491","oxidoreductase activity",355,3,0.0104505875636669
+"67","GO:MF","GO:0003959","NADPH dehydrogenase activity",4,1,0.0125219387933673
+"68","GO:MF","GO:0016747","acyltransferase activity, transferring groups other than amino-acyl groups",110,2,0.0126862212424359
+"69","GO:MF","GO:0004497","monooxygenase activity",13,1,0.0347627398715978
+"70","GO:MF","GO:0016628","oxidoreductase activity, acting on the CH-CH group of donors, NAD or NADP as acceptor",17,1,0.0423635542465231
+"71","GO:MF","GO:0016746","acyltransferase activity",243,2,0.0478562141251968
+"72","KEGG","KEGG:00062","Fatty acid elongation",8,4,3.07404903670357e-09
+"73","KEGG","KEGG:01040","Biosynthesis of unsaturated fatty acids",10,4,4.60753474188954e-09
+"74","KEGG","KEGG:01212","Fatty acid metabolism",23,4,1.28876301271875e-07
+"75","KEGG","KEGG:01110","Biosynthesis of secondary metabolites",351,4,0.00592695312152789
+"76","KEGG","KEGG:01100","Metabolic pathways",797,5,0.0111488304234101
+"77","KEGG","KEGG:00600","Sphingolipid metabolism",14,1,0.0385549802319088
