@@ -33,7 +33,9 @@ cd R_analysis
 # follow R_analysis/README.md
 ```
 
-Refer to the README inside each subdirectory for environment setup, dependencies, and usage instructions.
+Refer to the README inside each subdirectory for environment setup, dependencies, and usage instructions. Each pipeline must be run from its own subdirectory (`Boosting/`, `MATLAB/`, `R_analysis/`).
+
+> **Note:** Some scripts contain hardcoded values (e.g., number of parallel cores, LP solver choice, file indices) that were configured for the original development environment. Please review the configuration notes in each subdirectory's README before running.
 
 ## Data
 

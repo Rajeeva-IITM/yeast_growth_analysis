@@ -35,7 +35,12 @@ This project builds strain-specific genome-scale metabolic models (GSMMs) for ye
 
 ## Pipeline
 
-All scripts must be run from the project root directory.
+All scripts must be run from the `MATLAB/` directory.
+
+> **Note:** Some scripts contain hardcoded values that may need to be adjusted for your environment:
+> - `bloom2013_strains_building.m`: LP solver is set to `gurobi` (line 13). Change this if using a different solver (e.g., `glpk`).
+> - `sampling.py`: Number of parallel processes is set to `4` (line 37). Adjust to match your machine's core count.
+> - `analyse_growth_rate.m`: Model directory is set to `models/strain_models_sprint/` (line 6). Change to `models/strain_models_gimme/` if using GIMME models.
 
 ### Step 1: Create YNB media model
 
