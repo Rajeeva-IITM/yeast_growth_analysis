@@ -920,6 +920,24 @@
       ],
       "Hash": "cad6cf7f1d5f6e906700b9d3e718c796"
     },
+    "ashr": {
+      "Package": "ashr",
+      "Version": "2.2-63",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "Matrix",
+        "R",
+        "Rcpp",
+        "SQUAREM",
+        "etrunct",
+        "graphics",
+        "invgamma",
+        "mixsqp",
+        "stats",
+        "truncnorm"
+      ]
+    },
     "assertthat": {
       "Package": "assertthat",
       "Version": "0.2.1",
@@ -1362,6 +1380,19 @@
       ],
       "Hash": "8ee9ac56ef633d0c7cab8b2ca87d683e"
     },
+    "dbscan": {
+      "Package": "dbscan",
+      "Version": "1.2-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "Rcpp",
+        "generics",
+        "graphics",
+        "stats"
+      ]
+    },
     "digest": {
       "Package": "digest",
       "Version": "0.6.36",
@@ -1721,6 +1752,18 @@
       ],
       "Hash": "6c64efa73d60c45946a5e6e3f894fdcd"
     },
+    "ggcorrplot": {
+      "Package": "ggcorrplot",
+      "Version": "0.1.4.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "ggplot2",
+        "reshape2",
+        "stats"
+      ]
+    },
     "ggforce": {
       "Package": "ggforce",
       "Version": "0.4.2",
@@ -1948,6 +1991,19 @@
         "ggplot2"
       ],
       "Hash": "a57f0f5dbcfd0d77ad4ff33032f5dc79"
+    },
+    "ggvenn": {
+      "Package": "ggvenn",
+      "Version": "0.1.10",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "dplyr",
+        "ggplot2",
+        "grid",
+        "rlang",
+        "scales"
+      ]
     },
     "ggtree": {
       "Package": "ggtree",
@@ -2523,6 +2579,21 @@
       ],
       "Hash": "e2817ccf4a065c5d9d7f2cfbe7c1d78c"
     },
+    "metap": {
+      "Package": "metap",
+      "Version": "1.11",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "Rdpack",
+        "TFisher",
+        "lattice",
+        "mathjaxr",
+        "mutoss",
+        "qqconf"
+      ]
+    },
     "mgcv": {
       "Package": "mgcv",
       "Version": "1.9-0",
@@ -2676,6 +2747,17 @@
         "askpass"
       ],
       "Hash": "c62edf62de70cadf40553e10c739049d"
+    },
+    "org.Sc.sgd.db": {
+      "Package": "org.Sc.sgd.db",
+      "Version": "3.18.0",
+      "Source": "Bioconductor",
+      "Repository": "Bioconductor 3.18",
+      "Requirements": [
+        "AnnotationDbi",
+        "R",
+        "methods"
+      ]
     },
     "patchwork": {
       "Package": "patchwork",
