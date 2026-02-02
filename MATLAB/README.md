@@ -106,8 +106,8 @@ Or run `notebooks/sampling.ipynb`. Performs flux sampling (10,000 samples per st
 | `data/strains_0.5_ynb.csv` | Strain filter list (sigma=0.5) | This study |
 | `data/ynb_table.csv` | Growth comparison table | This study |
 | `data/gimme_growth_comparison_sigma_0.5.csv` | GIMME growth concordance | This study |
-| `data/BYxRM_PhenoData.txt` | Experimental phenotype data | [Bloom et al. 2013](https://doi.org/10.1038/ncomms3680) |
-| `data/bloom2013_annotations.tab` | SNP annotations | [Bloom et al. 2013](https://doi.org/10.1038/ncomms3680) |
+| `data/BYxRM_PhenoData.txt` | Experimental phenotype data | [Bloom et al. 2013]([https://doi.org/10.1038/ncomms3680](https://doi.org/10.1038/nature11867)) |
+| `data/bloom2013_annotations.tab` | SNP annotations | [Bloom et al. 2013]([https://doi.org/10.1038/ncomms3680](https://doi.org/10.1038/nature11867)) |
 | `data/bloom2013_genotype_concordant_strains.csv` | Genotype matrix for concordant strains | This study |
 | `data/enrichment/*.csv` | Gene set enrichment results from g:Profiler | [g:Profiler](https://biit.cs.ut.ee/gprofiler/) |
 
