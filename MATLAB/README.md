@@ -1,6 +1,6 @@
 # Yeast Growth Prediction using Genome-Scale Metabolic Models
 
-This project builds strain-specific genome-scale metabolic models (GSMMs) for yeast and uses them to predict and analyse growth phenotypes. Transcriptomics data from [Albert et al. 2018 (eLife)](https://elifesciences.org/articles/35471) is integrated with the yeast-GEM metabolic model using the GIMME algorithm to construct context-specific models for BYxRM cross strains. Predicted growth rates are compared against experimental phenotype data from [Bloom et al. 2013]([https://doi.org/10.1038/ncomms3680](https://doi.org/10.1038/nature11867)).
+This project builds strain-specific genome-scale metabolic models (GSMMs) for yeast and uses them to predict and analyse growth phenotypes. Transcriptomics data from [Albert et al. 2018 (eLife)](https://doi.org/10.7554/eLife.35471) is integrated with the yeast-GEM metabolic model using the GIMME algorithm to construct context-specific models for BYxRM cross strains. Predicted growth rates are compared against experimental phenotype data from [Bloom et al. 2013]([https://doi.org/10.1038/ncomms3680](https://doi.org/10.1038/nature11867)).
 
 ## Repository Structure
 
