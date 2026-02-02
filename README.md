@@ -40,7 +40,7 @@ Refer to the README inside each subdirectory for environment setup, dependencies
 ## Data
 
 <!-- TODO: Add Zenodo DOI link once published -->
-All data required to reproduce the analyses will be available on [Zenodo](https://zenodo.org/) in the exact directory structure expected by each subdirectory. Download and extract the data archive into the repository root to populate the `data/`, `models/`, and `results/` directories.
+All data required to reproduce the analyses will be available on [Zenodo](https://zenodo.org/). Download and extract the data archive into the repository root.
 
 ## Data Flow
 
