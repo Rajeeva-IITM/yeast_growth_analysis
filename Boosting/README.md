@@ -1,6 +1,6 @@
 # Boosting - Yeast Growth Prediction
 
-Hyperparameter tuning, training, and evaluation of machine learning models for predicting yeast growth phenotypes from genotype and chemical environment features. Uses data from Bloom lab yeast crosses (Bloom2013, Bloom2015, Bloom2019 BYxRM/BYxM22/RMxYPS163).
+Hyperparameter tuning, training, and evaluation of machine learning models for predicting yeast growth phenotypes from genotype and chemical environment features. Uses data from Bloom et al. yeast crosses (Bloom2013, Bloom2015, Bloom2019 BYxRM).
 
 Models include LightGBM (gradient boosting), Logistic Regression, SVM/SVR, Random Forest, Elastic Net, LDA/QDA, KNN, and Naive Bayes. Hyperparameter optimization is done via Optuna with TPE sampling and cross-validation.
 
