@@ -1,6 +1,6 @@
 # Yeast Growth Prediction using Genome-Scale Metabolic Models
 
-This project builds strain-specific genome-scale metabolic models (GSMMs) for yeast and uses them to predict and analyse growth phenotypes. Transcriptomics data from [Albert et al. 2018 (eLife)](https://elifesciences.org/articles/35471) is integrated with the yeast-GEM metabolic model using the GIMME algorithm to construct context-specific models for BYxRM cross strains. Predicted growth rates are compared against experimental phenotype data from [Bloom et al. 2013](https://doi.org/10.1038/ncomms3680).
+This project builds strain-specific genome-scale metabolic models (GSMMs) for yeast and uses them to predict and analyse growth phenotypes. Transcriptomics data from [Albert et al. 2018 (eLife)](https://elifesciences.org/articles/35471) is integrated with the yeast-GEM metabolic model using the GIMME algorithm to construct context-specific models for BYxRM cross strains. Predicted growth rates are compared against experimental phenotype data from [Bloom et al. 2013]([https://doi.org/10.1038/ncomms3680](https://doi.org/10.1038/nature11867)).
 
 ## Repository Structure
 
@@ -106,8 +106,8 @@ Or run `notebooks/sampling.ipynb`. Performs flux sampling (10,000 samples per st
 | `data/strains_0.5_ynb.csv` | Strain filter list (sigma=0.5) | This study |
 | `data/ynb_table.csv` | Growth comparison table | This study |
 | `data/gimme_growth_comparison_sigma_0.5.csv` | GIMME growth concordance | This study |
-| `data/BYxRM_PhenoData.txt` | Experimental phenotype data | [Bloom et al. 2013]([https://doi.org/10.1038/ncomms3680](https://doi.org/10.1038/nature11867)) |
-| `data/bloom2013_annotations.tab` | SNP annotations | [Bloom et al. 2013]([https://doi.org/10.1038/ncomms3680](https://doi.org/10.1038/nature11867)) |
+| `data/BYxRM_PhenoData.txt` | Experimental phenotype data | [Bloom et al. 2013](https://doi.org/10.1038/nature11867) |
+| `data/bloom2013_annotations.tab` | SNP annotations | [Bloom et al. 2013](https://doi.org/10.1038/nature11867) |
 | `data/bloom2013_genotype_concordant_strains.csv` | Genotype matrix for concordant strains | This study |
 | `data/enrichment/*.csv` | Gene set enrichment results from g:Profiler | [g:Profiler](https://biit.cs.ut.ee/gprofiler/) |
 
@@ -128,7 +128,7 @@ The files below will be available on [Zenodo](https://zenodo.org/) in the exact 
 
 ### MATLAB
 - [COBRA Toolbox](https://opencobra.github.io/cobratoolbox/)
-- [Gurobi Optimizer](https://www.gurobi.com/) (LP/MILP solver)
+- [Gurobi License](https://www.gurobi.com/) (LP/MILP solver)
 
 ### Python
 - [COBRApy](https://opencobra.github.io/cobrapy/)
