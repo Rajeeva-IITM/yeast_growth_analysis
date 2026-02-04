@@ -1,6 +1,6 @@
-# Yeast Growth Prediction
+# Overview
 
-Predicting and analysing yeast growth phenotypes from genotype data across multiple Bloom lab crosses. This repository brings together three analysis pipelines that cover machine learning, metabolic modelling, and statistical/biological interpretation.
+Predicting and analysing yeast growth phenotypes from genotype data across multiple yeast crosses. This repository brings together three analysis pipelines that cover machine learning, metabolic modelling, and statistical/biological interpretation.
 
 ## Repository Structure
 
