@@ -1,0 +1,77 @@
+# Partial-dependence / interaction analysis for the bloom_256 encoding runs.
+#
+#     python src/interaction_analysis.py --config-name=interaction
+#
+# No reported statistic uses SHAP. SHAP is observational -- it splits credit between
+# features along their joint distribution, so genes in linkage disequilibrium share it --
+# while partial dependence is interventional. The ranking that decides which curves get
+# plotted has to match those curves, so it is permutation importance, and every number
+# here comes from model.predict().
+#
+# SHAP is used for one thing only: nominating candidates. Split gain describes how the
+# model was fitted rather than how it behaves, so gating on gain alone would let one
+# criterion decide what permutation importance is ever allowed to see. The pool is the
+# union of both nominations; the ranking within it is permutation importance, unchanged.
+# See analysis.shap_candidates.
+defaults:
+  - utilities_encodings
+  - _self_
+
+# Which encoding family to analyse; mirrors interpret_encodings.yaml.
+encoding: max
+encoding_prefix: Max
+
+# Which family of training runs is being analysed; see interpret_encodings.yaml. Must
+# match the variant the SHAP csvs under shap_path were computed from. The name is
+# historical -- no run in this project uses linear trees any more -- but it is baked into
+# every output path under results/ and performance/, so it stays.
+variant: no_linear_tree
+
+out_path: ${oc.env:PROJECT_DIR}/results/interactions/${variant}/sigma_${alpha}/${encoding}/pdp
+
+# Seed-averaged mean|SHAP| written by src/shap_analysis.py --config-name=interpret_encodings.
+# Read only to widen the candidate pool. Optional: if shap_{dataset}_Boosting.csv is absent
+# the pool falls back to gain alone and ShapValue/ShapRank are left null, so sum / count /
+# sigma_1.0 run unchanged until SHAP has been computed for them.
+shap_path: ${oc.env:PROJECT_DIR}/results/shap_encodings/${variant}/sigma_${alpha}/${encoding}
+
+# Reproduce each run's own train/test split so the scaler matches what the model saw.
+# Must agree with conf.yaml.
+testing:
+  test_frac: 0.2
+
+analysis:
+  n_candidates: 200 # features nominated by split gain
+  shap_candidates: 200 # features nominated by mean|SHAP|; 0 disables the union.
+    # The pool permutation importance re-scores is the union of the two: 231-243 features
+    # across the nine encoding x dataset runs, of which 157-169 are shared. Each criterion
+    # contributes 31-43 features the other misses; 1-8 of those reach the reported top 50.
+  n_top: 50 # features carried into the PDP plots
+  n_gxe_genes: 25 # genes carried into the GxE panel, ranked within the genotype block
+  n_epistasis: 25 # top genes used for the pairwise grid (n*(n-1)/2 pairs)
+  interaction_method: friedman # friedman | ale | both (ale needs out_path pointed at .../ale)
+  ale_grid_size: 40 # PyALE grid_size for the second-order ALE surface
+  n_sample: 2000 # background rows per PDP sweep, stratified by Condition
+  n_permute: 2 # permutation-importance repeats per feature
+  pdp_backend: sklearn # sklearn.inspection.partial_dependence, or "builtin" for the
+    # hand-rolled sweep kept as a cross-check (verified bit-identical)
+  max_grid: 40 # cap on grid points; must exceed every feature's cardinality (max seen: 37)
+  n_ice: 60 # ICE lines drawn behind each PDP curve
+  min_rows_per_condition: 15 # conditions thinner than this are dropped from the GxE panel
+  seed: 0 # controls subsampling and permutation only, not the model splits
+  verify_auc: true # recompute held-out AUC to prove the split/scaler reconstruction
+
+model_load_keys:
+  model_names:
+    - Bloom2013
+    - Bloom2015
+    - Bloom2019_BYxRM
+    # - Bloom2019_BYxM22
+    # - Bloom2019_RMxYPS163
+
+data_paths:
+  Bloom2013: ${data_path}/bloom2013_${encoding}.feather
+  Bloom2015: ${data_path}/bloom2015_${encoding}.feather
+  Bloom2019_BYxRM: ${data_path}/bloom2019_BYxRM_${encoding}.feather
+  # Bloom2019_BYxM22: ${data_path}/bloom2019_BYxM22_${encoding}.feather
+  # Bloom2019_RMxYPS163: ${data_path}/bloom2019_RMxYPS163_${encoding}.feather

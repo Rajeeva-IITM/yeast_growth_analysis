@@ -1,38 +1,35 @@
 #!/bin/bash
 
-# cd "/home/rajeeva/Project/boosting/" ||
-# Run script
+# Run script — classification pipeline on the sigma_0.5 datasets.
+# Run from inside a `pixi shell` (uses plain `python`).
 
-export python=/data/rajeeva/micromamba/envs/boost_env/bin/python
-cd "/data/rajeeva/Boosting-yeast_growth_pred/" ||
-# export seed=1
-export SEED="1,2,3,4,5"   # Suffix of the directory created
-export extra_params='data.savedir=${oc.env:RUN_DIR}/regression/minmax/${data.savename}_${seed}_${run_type} n_trials=50 model_params.objective=mse
-           metric._target_=sklearn.metrics.r2_score'
+# Classification is already the config default (objective=binary, metric=roc_auc_score,
+# n_trials=100), so the only override we need is the run output directory.
+export extra_params='data.savedir=${oc.env:RUN_DIR}/classification_sigma/0.5_sigma/${data.savename}_${seed}_${run_type}'
 
-$python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/regression_data/minmax_scaled/bloom2013_regression_minmax.feather' \
+python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/full/varying_sigma/sigma_0.5/bloom2013_clf.feather' \
  data.savename=Full_Bloom2013 'seed=1,2,3,4,5' $extra_params
 
 echo "Full_Bloom2013 Done"
 
-$python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/regression_data/minmax_scaled/bloom2015_regression_minmax.feather' \
+python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/full/varying_sigma/sigma_0.5/bloom2015_clf.feather' \
  data.savename=Full_Bloom2015 'seed=1,2,3,4,5' $extra_params
 
 echo "Full_Bloom2015 Done"
 
-$python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/regression_data/minmax_scaled/bloom2019_regression_minmax.feather' \
- data.savename=Full_Bloom2019_BYxRM 'seed=2,3,4,5' $extra_params
+python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/full/varying_sigma/sigma_0.5/bloom2019_clf.feather' \
+ data.savename=Full_Bloom2019_BYxRM 'seed=1,2,3,4,5' $extra_params
 
-echo "Full_Bloom2019 Done"
+echo "Full_Bloom2019_BYxRM Done"
 
-$python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/regression_data/minmax_scaled/bloom2019_BYxM22_regression_minmax.feather' \
- data.savename=Full_Bloom2019_BYxM22 'seed=1,2,3,4,5' $extra_params
-
-echo "Full_Bloom2019_BYxM22 Done"
-
-$python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/regression_data/minmax_scaled/bloom2019_RMxYPS163_regression_minmax.feather' \
- data.savename=Full_Bloom2019_RMxYPS163 'seed=1,2,3,4,5' $extra_params
-
-echo "Full_Bloom2019_RMxYPS163 Done"
+# python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/full/varying_sigma/sigma_0.5/bloom2019_BYxM22_clf.feather' \
+#  data.savename=Full_Bloom2019_BYxM22 'seed=1,2,3,4,5' $extra_params
+#
+# echo "Full_Bloom2019_BYxM22 Done"
+#
+# python src/tune_model.py --multirun 'data.path=${oc.env:DATA_DIR}/full/varying_sigma/sigma_0.5/bloom2019_RMxYPS163_clf.feather' \
+#  data.savename=Full_Bloom2019_RMxYPS163 'seed=1,2,3,4,5' $extra_params
+#
+# echo "Full_Bloom2019_RMxYPS163 Done"
 
 echo "All Done"

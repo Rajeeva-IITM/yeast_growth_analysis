@@ -1,0 +1,11 @@
+# @package _global_
+# Bloom2015, max gene encoding: largest effect encoding among a gene's variants — the pre-August-2026 baseline.
+# data_path interpolates ${alpha}, so this file serves both threshold families.
+
+encoding: max
+encoding_prefix: Max
+
+data:
+  path: ${data_path}/bloom2015_max.feather
+  savename: Max_Bloom2015
+  savedir: ${run_path}/${data.savename}_${seed}_${run_type}

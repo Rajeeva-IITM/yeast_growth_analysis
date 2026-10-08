@@ -1,0 +1,39 @@
+# Need to be used in tandem with conf_encodings.yaml
+
+# Which trinarization threshold family to train on. The datasets under bloom_256 are named
+# sigma_1.0 / sigma_0.5 after it, so overriding `alpha` moves data, runs and performance
+# output together. 0.5 is the near-balanced split; 1.0 reproduces the pre-August-2026 builds.
+alpha: 0.5
+
+run_path: ${oc.env:RUN_DIR}/classification_encodings/sigma_${alpha}
+out_path: ${oc.env:PROJECT_DIR}/performance/classification_encodings/sigma_${alpha}
+data_path: ${oc.env:DATA_DIR}/bloom_256/sigma_${alpha}
+
+run_type: full # one of full, geno_only, chem_only,
+regression: false
+
+# Set by the dataset group (configs/dataset/*.yaml); listed here so the interpolations below
+# resolve even when no group is selected.
+encoding: max
+encoding_prefix: Max
+
+# Same structure as utilities.yaml: {run_path}/{prefix}{model_name}*{suffix}/{model_type}.pkl
+model_load_keys:
+  run_path: ${run_path}
+  model_type: Boosting # Must be one of Boosting, RandomForest, SVM, LogReg
+  prefix: ${encoding_prefix}_
+  suffix: ${run_type}
+  model_names:
+    - Bloom2013
+    # - Bloom2015
+    # - Bloom2019_BYxRM
+    # - Bloom2019_BYxM22
+    # - Bloom2019_RMxYPS163
+
+# Paths to data
+data_paths:
+  # Bloom2013: ${data_path}/bloom2013_${encoding}.feather
+  # Bloom2015: ${data_path}/bloom2015_${encoding}.feather
+  # Bloom2019_BYxRM: ${data_path}/bloom2019_BYxRM_${encoding}.feather
+  # Bloom2019_BYxM22: ${data_path}/bloom2019_BYxM22_${encoding}.feather
+  # Bloom2019_RMxYPS163: ${data_path}/bloom2019_RMxYPS163_${encoding}.feather

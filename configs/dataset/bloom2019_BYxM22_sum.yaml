@@ -1,0 +1,11 @@
+# @package _global_
+# Bloom2019_BYxM22, sum gene encoding: those encodings added, so a gene's total mutational load shows.
+# data_path interpolates ${alpha}, so this file serves both threshold families.
+
+encoding: sum
+encoding_prefix: Sum
+
+data:
+  path: ${data_path}/bloom2019_BYxM22_sum.feather
+  savename: Sum_Bloom2019_BYxM22
+  savedir: ${run_path}/${data.savename}_${seed}_${run_type}

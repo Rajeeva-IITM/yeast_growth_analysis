@@ -1,0 +1,21 @@
+# Held-out predictions + per-condition metrics for the bloom_256 encoding runs.
+#
+#     python src/compare_performance_encodings.py --config-name=eval_encodings_holdout
+#
+# Same model/dataset grid as eval_encodings.yaml, but scored correctly: only each run's own
+# held-out rows for matched pairs, and roc_auc computed from probabilities rather than from
+# thresholded labels. See the module docstring for the size of the difference.
+defaults:
+  - eval_encodings
+  - _self_
+
+# Must match conf.yaml, or the reconstructed split is not the one the model trained under.
+testing:
+  test_frac: 0.2
+
+# Metrics that need a score rather than a label. Everything else in the `metrics` group is
+# handed the 0/1 prediction.
+proba_metrics:
+  - roc_auc
+
+out_path: ${oc.env:PROJECT_DIR}/performance/classification_encodings/${variant}/sigma_${alpha}/${encoding}/holdout

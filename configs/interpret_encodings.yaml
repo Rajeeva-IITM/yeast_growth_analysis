@@ -1,0 +1,45 @@
+# SHAP analysis for the bloom_256 encoding runs.
+#
+#     python src/shap_analysis.py --config-name=interpret_encodings
+#
+# Composes interpret.yaml (run_type + explainer) and then utilities_encodings.yaml, so
+# run_path / data_path / model_load_keys.prefix all point at classification_encodings
+# instead of the old classification/0.5_sigma tree. Switch encoding or threshold on the
+# command line: `encoding=sum encoding_prefix=Sum`, `alpha=1.0`.
+defaults:
+  - interpret
+  - utilities_encodings
+  - _self_
+
+# Which encoding family to explain. encoding picks the data file, encoding_prefix picks the
+# run directories (Max_/Sum_/Count_) via model_load_keys.prefix.
+encoding: max
+encoding_prefix: Max
+
+# Which family of training runs is being explained. linear_tree was briefly a tuned
+# hyperparameter; every run from 2026-09-04 onward was retrained without it, and their
+# output is kept in a separate tree so the two are never mixed. The superseded linear-tree
+# csvs are still on disk at results/shap_encodings/sigma_0.5/ with no variant segment, but
+# the models behind them were deleted and cannot be regenerated -- treat that tree as a
+# historical record, not as something to compare against or re-run.
+variant: no_linear_tree
+
+# SHAP csvs live beside the other interpretation output, not under performance/.
+out_path: ${oc.env:PROJECT_DIR}/results/shap_encodings/${variant}/sigma_${alpha}/${encoding}
+
+# get_model_paths globs {run_path}/{prefix}{model}*{suffix}/Boosting.pkl, which picks up all
+# five seeds per dataset; shap_analysis treats them as folds and averages.
+model_load_keys:
+  model_names:
+    - Bloom2013
+    - Bloom2015
+    - Bloom2019_BYxRM
+    # - Bloom2019_BYxM22
+    # - Bloom2019_RMxYPS163
+
+data_paths:
+  Bloom2013: ${data_path}/bloom2013_${encoding}.feather
+  Bloom2015: ${data_path}/bloom2015_${encoding}.feather
+  Bloom2019_BYxRM: ${data_path}/bloom2019_BYxRM_${encoding}.feather
+  # Bloom2019_BYxM22: ${data_path}/bloom2019_BYxM22_${encoding}.feather
+  # Bloom2019_RMxYPS163: ${data_path}/bloom2019_RMxYPS163_${encoding}.feather
