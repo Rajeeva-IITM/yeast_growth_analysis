@@ -11,3 +11,7 @@ src/result_model_evaluation_files/
 *typ
 *tex
 *.claude/*
+
+# Third-party fine-mapping binaries + sources (FINEMAP, CAVIAR, finemapr)
+# Installed locally by src/finemapping/install_finemap_caviar.sh - not versioned.
+tools/

@@ -253,7 +253,7 @@ enrichGO_yeast(bottom_genes_oxidative)
 
 
 # Pleiotropic genes
-
+## Bloom2013 - Can't run for other datasets because QTL data unavailable
 bloom2013_qtl_full = read_csv("./results/result_contingency/contingency_bloom2013_0.5sigma_full.csv") %>% 
   mutate(adj_pval = p.adjust(pval, 'fdr')) 
 pleiotropic_qtl_df <- all_qtl_df %>%

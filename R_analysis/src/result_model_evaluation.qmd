@@ -787,6 +787,7 @@ df2 <- read_csv("../data/performance_classification/classification/0.5_sigma_gen
   mutate(run = "Genotype only") %>% 
   rename(auc_roc=roc_auc)
 
+
 df <- bind_rows(df1, df2)
 
 df %>% 
@@ -807,6 +808,485 @@ save_plot(
   "../results/result_2/classification_varying_sigma/0.5_comparison_Bloom2013_on_Bloom2015.svg",
   width = 9,
   height = 6,
+  units = 'in'
+)
+```
+
+```{r}
+#| label: fig-clf-compare-0.5-figure-6a
+#| fig-cap: Performance of the Genotype only data compared to full model - classification 0.5
+
+df1 <- read_csv("../data/performance_classification/classification/0.5_sigma/metrics_Bloom2015_Bloom2013_Boosting.csv") %>%
+  mutate(run = 'Combined') %>% 
+  rename(auc_roc=roc_auc)
+df2 <- read_csv("../data/performance_classification/classification/0.5_sigma_geno_only/metrics_Bloom2015_Bloom2013_Boosting.csv") %>% 
+  mutate(run = "Genotype only") %>% 
+  rename(auc_roc=roc_auc)
+
+df3 <- read_csv("../data/performance_classification/classification/0.5_sigma_chem_only/metrics_Bloom2015_Bloom2013_Boosting.csv") %>% 
+  mutate(run = "Chem only") %>% 
+  rename(auc_roc=roc_auc)
+
+df <- bind_rows(df1, df2, df3)
+
+df %>% 
+  filter(Condition %in% c('CaCl2', 'MgSO4', 'sorbitol', 'galactose')) %>% 
+  group_by(Condition, run) %>% 
+  summarise(
+    auc_roc_mean = mean(auc_roc),
+    auc_roc_std = sqrt(var(auc_roc))
+  ) %>% 
+  ggplot(., aes(x=Condition, y = auc_roc_mean, fill=run)) +
+  geom_bar(stat = 'identity', position = 'dodge', color='black') +
+  geom_errorbar(
+    aes(x=Condition, ymin=auc_roc_mean-auc_roc_std, ymax=auc_roc_mean+auc_roc_std),
+    position='dodge'
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(y='Mean AUC-ROC', x='Condition', fill='Run Type')
+
+save_plot(
+  "../results/result_2/comparisons/.5_comparison_Bloom2015_on_Bloom2013.svg",
+  width = 9,
+  height = 6,
+  units = 'in')
+```
+
+## Condition-wise significance - all train/test combinations
+
+One table per train/test combination. Each run type contributes 5 folds per condition, so the
+two-sided Mann-Whitney U cannot go below p = 0.0079 at n = 5 vs 5, and the folds are resamples of
+a single dataset rather than independent replicates - the tests describe the stability of the fold
+estimates, they are not inferential about new data. Only FDR adjusted values are reported, and
+each table is adjusted within itself.
+
+```{r}
+#| label: conditionwise-geno-vs-combined-tables
+#| output: asis
+
+clf_dir <- "../data/performance_classification/classification/"
+clf_datasets <- c("Bloom2013", "Bloom2015", "Bloom2019_BYxRM")
+
+# Display name for the third cross, which is spelled Bloom2019_BYxRM on disk
+short_ds <- function(x) sub("Bloom2019_BYxRM", "Bloom2019", x, fixed = TRUE)
+
+runtype_df <- expand_grid(
+    tibble(
+      run = c("Genotype only", "Combined"),
+      run_id = c("geno", "comb"),
+      subdir = c("0.5_sigma_geno_only", "0.5_sigma")
+    ),
+    Train = clf_datasets,
+    Test = clf_datasets
+  ) %>%
+  pmap(function(run, run_id, subdir, Train, Test) {
+    read_csv(
+      paste0(clf_dir, subdir, "/metrics_", Train, "_", Test, "_Boosting.csv"),
+      col_types = "fidddd"
+    ) %>%
+      rename(auc_roc = roc_auc) %>%
+      mutate(run = run, run_id = run_id, Train = Train, Test = Test)
+  }) %>%
+  list_rbind()
+
+runtype_tests <- runtype_df %>%
+  group_by(Train, Test, Condition) %>%
+  summarise(
+    mwu_p = suppressWarnings(wilcox.test(
+      auc_roc[run == "Combined"],
+      auc_roc[run == "Genotype only"],
+      alternative = "two.sided"
+    )$p.value),
+    .groups = "drop"
+  ) %>%
+  # Each pair is its own table, so BH runs within a pair across its conditions
+  group_by(Train, Test) %>%
+  mutate(mwu_q = p.adjust(mwu_p, "BH")) %>%
+  ungroup()
+
+# Prettify condition names without touching the chemical formulae (CoCl2, MnSO4, ...)
+pretty_condition <- function(x) {
+  x <- gsub("_", " ", as.character(x))
+  ifelse(grepl("^[a-z]", x), paste0(toupper(substr(x, 1, 1)), substring(x, 2)), x)
+}
+
+runtype_table_df <- runtype_df %>%
+  group_by(Train, Test, Condition, run_id) %>%
+  summarise(mean = mean(auc_roc), sd = sd(auc_roc), .groups = "drop") %>%
+  pivot_wider(names_from = run_id, values_from = c(mean, sd), names_sep = "_") %>%
+  left_join(runtype_tests, by = c("Train", "Test", "Condition")) %>%
+  mutate(delta = mean_comb - mean_geno, Condition = pretty_condition(Condition)) %>%
+  # Same ordering as the condition-wise figure: ascending genotype only AUC-ROC
+  arrange(Train, Test, mean_geno)
+
+conditionwise_gt <- function(df) {
+  df %>%
+    select(Condition, mean_geno, sd_geno, mean_comb, sd_comb, delta, mwu_q) %>%
+    gt(rowname_col = "Condition") %>%
+    fmt_number(columns = c(mean_geno, sd_geno, mean_comb, sd_comb, delta), decimals = 3) %>%
+    fmt_number(columns = mwu_q, decimals = 4) %>%
+    cols_merge(columns = c(mean_geno, sd_geno), pattern = "{1} ± {2}") %>%
+    cols_merge(columns = c(mean_comb, sd_comb), pattern = "{1} ± {2}") %>%
+    cols_label(
+      mean_geno = "Genotype only", mean_comb = "Combined",
+      delta = "Δ AUC", mwu_q = "q (FDR)"
+    ) %>%
+    tab_spanner("Mean AUC-ROC", columns = c(mean_geno, mean_comb)) %>%
+    tab_stubhead("Conditions") %>%
+    cols_width(
+      stub() ~ px(150),
+      c(mean_geno, mean_comb) ~ px(130),
+      delta ~ px(80),
+      mwu_q ~ px(90)
+    ) %>%
+    cols_align(align = "center", columns = -Condition) %>%
+    tab_footnote(
+      "Mean ± SD over the 5 folds. The Chem only run type is excluded: its AUC-ROC is constant at 0.5.",
+      locations = cells_column_spanners(spanners = "Mean AUC-ROC")
+    ) %>%
+    tab_footnote(
+      "Benjamini-Hochberg FDR adjusted p-value of a two-sided Mann-Whitney U over the 5 folds, Combined vs Genotype only, adjusted across the conditions of this table. At n = 5 vs 5 the smallest attainable unadjusted p is 0.0079.",
+      locations = cells_column_labels(columns = mwu_q)
+    ) %>%
+    tab_footnote(
+      "Difference in mean AUC-ROC, Combined - Genotype only.",
+      locations = cells_column_labels(columns = delta)
+    ) %>%
+    opt_footnote_marks(marks = "letters") %>%
+    tab_options(
+      table.border.bottom.color = "black",
+      table.border.bottom.width = px(1.5),
+      column_labels.font.weight = "bold",
+      column_labels.border.top.width = px(2),
+      column_labels.border.bottom.width = px(2),
+      column_labels.border.top.color = "black",
+      column_labels.border.bottom.color = "black",
+      row_group.font.weight = "bold",
+      stub.font.weight = "bold",
+      data_row.padding = px(4)
+    ) %>%
+    opt_table_font(font = "CMU Serif")
+}
+
+runtype_tables <- runtype_table_df %>%
+  group_split(Train, Test) %>%
+  map(function(d) {
+    list(
+      gt = conditionwise_gt(d),
+      caption = paste0(
+        "Condition-wise performance of ", short_ds(d$Train[1]),
+        " trained model on ", short_ds(d$Test[1]), " dataset statistical analysis"
+      )
+    )
+  })
+
+# Rendered inline only while knitting, so the chunk can also be run standalone
+if (isTRUE(getOption("knitr.in.progress"))) {
+  for (t in runtype_tables) {
+    cat("\n\n", t$caption, "\n\n", sep = "")
+    cat(knitr::knit_print(t$gt))
+  }
+}
+```
+
+## Model types - Kruskal-Wallis over every train/test pair
+
+```{r}
+#| label: tbl-clf-modeltype-kw
+#| tbl-cap: "Mean AUC-ROC by model type for every train/test combination at 0.5 sigma, with a Kruskal-Wallis test across the four model types. The Chem only run type is excluded, as its AUC-ROC is a constant 0.5."
+
+model_specs <- tibble(
+  model = c("LogReg", "SVM", "RandomForest", "Boosting"),
+  model_id = c("logreg", "svm", "rf", "boost"),
+  subdir = c(rep("0.5_sigma_simple_models", 3), "0.5_sigma"),
+  # LogReg/SVM name the third dataset Bloom2019; RandomForest/Boosting use Bloom2019_BYxRM
+  ds_2019 = c("Bloom2019", "Bloom2019", "Bloom2019_BYxRM", "Bloom2019_BYxRM")
+)
+model_datasets <- c("Bloom2013", "Bloom2015", "Bloom2019")
+
+model_df <- expand_grid(model_specs, Train = model_datasets, Test = model_datasets) %>%
+  pmap(function(model, model_id, subdir, ds_2019, Train, Test) {
+    resolve <- function(ds) if (ds == "Bloom2019") ds_2019 else ds
+    d <- read_csv(
+      paste0(clf_dir, subdir, "/metrics_", resolve(Train), "_", resolve(Test), "_", model, ".csv"),
+      col_types = "fidddd"
+    )
+    # The AUC column is named roc_auc in some files and auc_roc in others, inconsistently
+    # even within one directory - normalise on auc_roc.
+    names(d)[names(d) == "roc_auc"] <- "auc_roc"
+    stopifnot("auc_roc" %in% names(d))
+    d %>% mutate(model = model, model_id = model_id, Train = Train, Test = Test)
+  }) %>%
+  list_rbind()
+
+# One observation per condition (folds averaged), i.e. the condition-level spread the
+# figure's error bars show, rather than pooling condition x fold.
+model_condition <- model_df %>%
+  group_by(Train, Test, model, model_id, Condition) %>%
+  summarise(auc_roc = mean(auc_roc), .groups = "drop")
+
+model_tests <- model_condition %>%
+  group_by(Train, Test) %>%
+  summarise(kw_p = kruskal.test(x = auc_roc, g = factor(model))$p.value, .groups = "drop") %>%
+  mutate(kw_q = p.adjust(kw_p, "BH"))
+
+model_table_df <- model_condition %>%
+  group_by(Train, Test, model_id) %>%
+  summarise(mean = mean(auc_roc), sd = sd(auc_roc), .groups = "drop") %>%
+  pivot_wider(names_from = model_id, values_from = c(mean, sd), names_sep = "_") %>%
+  left_join(model_tests, by = c("Train", "Test")) %>%
+  arrange(Train, Test) %>%
+  mutate(Train = paste("Trained on", Train)) %>%
+  select(Train, Test, mean_logreg, sd_logreg, mean_svm, sd_svm,
+         mean_rf, sd_rf, mean_boost, sd_boost, kw_q)
+
+model_gt <- model_table_df %>%
+  gt(rowname_col = "Test", groupname_col = "Train") %>%
+  fmt_number(
+    columns = c(mean_logreg, sd_logreg, mean_svm, sd_svm, mean_rf, sd_rf, mean_boost, sd_boost),
+    decimals = 3
+  ) %>%
+  fmt_scientific(columns = kw_q, decimals = 2) %>%
+  cols_merge(columns = c(mean_logreg, sd_logreg), pattern = "{1} ± {2}") %>%
+  cols_merge(columns = c(mean_svm, sd_svm), pattern = "{1} ± {2}") %>%
+  cols_merge(columns = c(mean_rf, sd_rf), pattern = "{1} ± {2}") %>%
+  cols_merge(columns = c(mean_boost, sd_boost), pattern = "{1} ± {2}") %>%
+  cols_label(
+    mean_logreg = "LogReg", mean_svm = "SVM",
+    mean_rf = "RF", mean_boost = "Boosting",
+    kw_q = "q (FDR)"
+  ) %>%
+  tab_spanner("Mean AUC-ROC", columns = c(mean_logreg, mean_svm, mean_rf, mean_boost)) %>%
+  tab_stubhead("Test dataset") %>%
+  # No cols_width here: gt turns fixed widths into absolute p{...pt} columns whose sum
+  # overruns \linewidth. Left unset, the LaTeX columns size to their content.
+  cols_align(align = "center", columns = -Test) %>%
+  tab_footnote(
+    "Mean ± SD across the conditions of the test dataset, each condition first averaged over its 5 folds.",
+    locations = cells_column_spanners(spanners = "Mean AUC-ROC")
+  ) %>%
+  tab_footnote(
+    "Benjamini-Hochberg FDR adjusted p-value of a Kruskal-Wallis test across the four model types, adjusted across the 9 train/test pairs. One observation per condition, so n per model type is the number of conditions in the test dataset (39 for Bloom2013, 18 for Bloom2015, 31 for Bloom2019).",
+    locations = cells_column_labels(columns = kw_q)
+  ) %>%
+  opt_footnote_marks(marks = "letters") %>%
+  tab_options(
+    table.border.bottom.color = "black",
+    table.border.bottom.width = px(1.5),
+    column_labels.font.weight = "bold",
+    column_labels.border.top.width = px(2),
+    column_labels.border.bottom.width = px(2),
+    column_labels.border.top.color = "black",
+    column_labels.border.bottom.color = "black",
+    row_group.font.weight = "bold",
+    stub.font.weight = "bold",
+    data_row.padding = px(4),
+    # Slightly smaller than the condition-wise tables: this one carries six columns
+    table.font.size = px(13)
+  ) %>%
+  opt_table_font(font = "CMU Serif")
+
+model_gt
+```
+
+## Encodings - Kruskal-Wallis over every train/test pair
+
+```{r}
+#| label: tbl-clf-encoding-kw
+#| tbl-cap: "Mean AUC-ROC for models trained on the three genotype encodings, for every train/test combination at 0.5 sigma, with a Kruskal-Wallis test across the encodings."
+
+enc_dir <- "../data/final/performance/classification_encodings/no_linear_tree/sigma_0.5/"
+
+# Legend order of the encodings figure
+encoding_specs <- tibble(
+  encoding = c("Max", "Sum", "Count"),
+  encoding_id = c("max", "sum", "count")
+)
+
+encoding_df <- expand_grid(encoding_specs, Train = clf_datasets, Test = clf_datasets) %>%
+  pmap(function(encoding, encoding_id, Train, Test) {
+    read_csv(
+      paste0(enc_dir, encoding_id, "/metrics_", Train, "_", Test, "_Boosting.csv"),
+      col_types = "fidddd"
+    ) %>%
+      rename(auc_roc = roc_auc) %>%
+      mutate(encoding = encoding, encoding_id = encoding_id, Train = Train, Test = Test)
+  }) %>%
+  list_rbind()
+
+# One observation per condition (folds averaged), as in the model type table
+encoding_condition <- encoding_df %>%
+  group_by(Train, Test, encoding, encoding_id, Condition) %>%
+  summarise(auc_roc = mean(auc_roc), .groups = "drop")
+
+encoding_tests <- encoding_condition %>%
+  group_by(Train, Test) %>%
+  summarise(kw_p = kruskal.test(x = auc_roc, g = factor(encoding))$p.value, .groups = "drop") %>%
+  mutate(kw_q = p.adjust(kw_p, "BH"))
+
+encoding_table_df <- encoding_condition %>%
+  group_by(Train, Test, encoding_id) %>%
+  summarise(mean = mean(auc_roc), sd = sd(auc_roc), .groups = "drop") %>%
+  pivot_wider(names_from = encoding_id, values_from = c(mean, sd), names_sep = "_") %>%
+  left_join(encoding_tests, by = c("Train", "Test")) %>%
+  arrange(Train, Test) %>%
+  mutate(Train = paste("Trained on", short_ds(Train)), Test = short_ds(Test)) %>%
+  select(Train, Test, mean_max, sd_max, mean_sum, sd_sum, mean_count, sd_count, kw_q)
+
+encoding_gt <- encoding_table_df %>%
+  gt(rowname_col = "Test", groupname_col = "Train") %>%
+  fmt_number(
+    columns = c(mean_max, sd_max, mean_sum, sd_sum, mean_count, sd_count),
+    decimals = 3
+  ) %>%
+  fmt_number(columns = kw_q, decimals = 3) %>%
+  cols_merge(columns = c(mean_max, sd_max), pattern = "{1} ± {2}") %>%
+  cols_merge(columns = c(mean_sum, sd_sum), pattern = "{1} ± {2}") %>%
+  cols_merge(columns = c(mean_count, sd_count), pattern = "{1} ± {2}") %>%
+  cols_label(
+    mean_max = "Max", mean_sum = "Sum", mean_count = "Count",
+    kw_q = "q (FDR)"
+  ) %>%
+  tab_spanner("Mean AUC-ROC", columns = c(mean_max, mean_sum, mean_count)) %>%
+  tab_stubhead("Test dataset") %>%
+  cols_align(align = "center", columns = -Test) %>%
+  tab_footnote(
+    "Mean ± SD across the conditions of the test dataset, each condition first averaged over its 5 folds.",
+    locations = cells_column_spanners(spanners = "Mean AUC-ROC")
+  ) %>%
+  tab_footnote(
+    "Benjamini-Hochberg FDR adjusted p-value of a Kruskal-Wallis test across the three encodings, adjusted across the 9 train/test pairs. One observation per condition, so n per encoding is the number of conditions in the test dataset (39 for Bloom2013, 18 for Bloom2015, 31 for Bloom2019).",
+    locations = cells_column_labels(columns = kw_q)
+  ) %>%
+  opt_footnote_marks(marks = "letters") %>%
+  tab_options(
+    table.border.bottom.color = "black",
+    table.border.bottom.width = px(1.5),
+    column_labels.font.weight = "bold",
+    column_labels.border.top.width = px(2),
+    column_labels.border.bottom.width = px(2),
+    column_labels.border.top.color = "black",
+    column_labels.border.bottom.color = "black",
+    row_group.font.weight = "bold",
+    stub.font.weight = "bold",
+    data_row.padding = px(4)
+  ) %>%
+  opt_table_font(font = "CMU Serif")
+
+# All eleven tables as LaTeX in one file. Requires \usepackage{booktabs}, \usepackage{array}
+# and, for the condition-wise tables, \usepackage{longtable}; gt writes a literal "±" and "Δ",
+# swapped here for math macros so the tables also compile under pdfLaTeX rather than only
+# XeLaTeX/LuaLaTeX. gt emits no caption of its own, so a \caption macro is inserted directly
+# after the opening environment - plain \caption{} inside a table float, \caption{}\\ inside a
+# longtable, where the caption is a row of the table itself.
+as_tex <- function(gt_tbl, caption, longtable = FALSE) {
+  if (longtable) gt_tbl <- tab_options(gt_tbl, latex.use_longtable = TRUE)
+  lines <- strsplit(as.character(as_latex(gt_tbl)), "\n", fixed = TRUE)[[1]]
+  opener <- if (longtable) "\\begin{longtable}" else "\\begin{table}"
+  at <- grep(opener, lines, fixed = TRUE)[1]
+  stopifnot(!is.na(at))
+  lines <- append(lines, paste0("\\caption{", caption, "}", if (longtable) "\\\\" else ""), after = at)
+  x <- paste(lines, collapse = "\n")
+  x <- gsub("±", "$\\pm$", x, fixed = TRUE)
+  gsub("Δ", "$\\Delta$", x, fixed = TRUE)
+}
+
+writeLines(
+  c(
+    # One condition-wise table per train/test pair, as longtables so they can break across pages
+    map_chr(runtype_tables, function(t) {
+      paste0("% ", t$caption, "\n", as_tex(t$gt, t$caption, longtable = TRUE), "\n")
+    }),
+    "% Model types per train/test pair, Kruskal-Wallis",
+    as_tex(
+      model_gt,
+      paste(
+        "Mean AUC-ROC by model type for every train/test combination at 0.5 sigma, with a",
+        "Kruskal-Wallis test across the four model types. The Chem only run type is excluded,",
+        "as its AUC-ROC is a constant 0.5."
+      )
+    ),
+    "",
+    "% Genotype encodings per train/test pair, Kruskal-Wallis",
+    as_tex(
+      encoding_gt,
+      paste(
+        "Comparison of performance of models trained on different genotype encodings, for every",
+        "train/test combination at 0.5 sigma, with a Kruskal-Wallis test across the three",
+        "encodings."
+      )
+    )
+  ),
+  "../results/result_2/comparisons/significance_tables-0.5_sigma.tex"
+)
+
+encoding_gt
+```
+
+## Between encodings
+
+```{r}
+#| label: fig-clf-compare-encodings
+#| fig-cap: Comparison of performance of models trained on different genotype encodings, across every train/test combination - classification 0.5 sigma
+
+enc_dir <- "../data/final/performance/classification_encodings/no_linear_tree/sigma_0.5/"
+encodings <- c("max", "sum", "count")
+enc_datasets <- c("Bloom2013", "Bloom2015", "Bloom2019_BYxRM")
+
+enc_df <- expand_grid(
+    Encoding = encodings,
+    Train = enc_datasets,
+    Test = enc_datasets
+  ) %>%
+  pmap(function(Encoding, Train, Test) {
+    read_csv(
+      paste0(enc_dir, Encoding, "/metrics_", Train, "_", Test, "_Boosting.csv"),
+      col_types = "fidddd"
+    ) %>%
+      rename(auc_roc = roc_auc) %>%
+      mutate(Encoding = Encoding, Train = Train, Test = Test)
+  }) %>%
+  list_rbind()
+
+enc_summary <- enc_df %>%
+  # Average the folds within a condition, then summarise across all conditions
+  group_by(Encoding, Train, Test, Condition) %>%
+  summarise(auc_roc = mean(auc_roc), .groups = "drop") %>%
+  group_by(Encoding, Train, Test) %>%
+  summarise(
+    auc_roc_mean = mean(auc_roc),
+    auc_roc_std = sd(auc_roc),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    Encoding = factor(Encoding, levels = encodings, labels = c("Max", "Sum", "Count")),
+    Train = factor(
+      Train,
+      levels = enc_datasets,
+      labels = paste("Trained on", c("Bloom2013", "Bloom2015", "Bloom2019"))
+    ),
+    Test = factor(Test, levels = enc_datasets, labels = c("Bloom2013", "Bloom2015", "Bloom2019"))
+  )
+
+ggplot(enc_summary, aes(x = Test, y = auc_roc_mean, fill = Encoding)) +
+  geom_col(position = position_dodge(0.9), color = "black") +
+  geom_errorbar(
+    aes(ymin = auc_roc_mean - auc_roc_std, ymax = auc_roc_mean + auc_roc_std),
+    position = position_dodge(0.9),
+    width = 0.25
+  ) +
+  geom_hline(yintercept = 0.5, linetype = "dashed") +
+  facet_wrap(~Train) +
+  scale_fill_manual(values = cbPalette[c(1, 2, 3)]) +
+  scale_y_continuous(breaks = seq(0, 1, 0.25)) +
+  coord_cartesian(ylim = c(0, 1)) +
+  labs(x = "Test Dataset", y = "Mean AUC-ROC", fill = "Encoding") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+save_plot(
+  "../results/result_2/comparisons/encodings-comparison-every_combination-sigma_0.5.svg",
+  width = 9,
+  height = 4,
   units = 'in'
 )
 ```
