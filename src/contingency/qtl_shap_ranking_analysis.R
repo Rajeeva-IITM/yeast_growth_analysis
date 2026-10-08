@@ -109,12 +109,7 @@ get_final_df_bloom2013 <- partial(
   shap_df = bloom2013_shap_conditionwise
 )
 
-get_final_df_bloom2019 <- partial(
-  get_final_df, 
-  qtl_df=all_qtl_df,
-  contingency_df=final_contingency_df,
-  shap_df = bloom2019_shap_conditionwise
-)
+
 
 plot_position_odds <- function(df, title, shap_size=T) {
   p <- df %>% arrange(Gene) %>% 
@@ -193,26 +188,17 @@ for(condition in unique(bloom2013_shap_conditionwise$condition)){
   print(condition)
   savename_shap <- paste0(save_loc, condition, '_shap.svg')
   savename_noshap <- paste0(save_loc, condition, '_noshap.svg')
+  savename_previous_qtls <- paste0(save_loc, condition, '_previous-qtl-ranked.csv')
   condition_df <- get_final_df_bloom2013(condition)
   
   p_shap <- plot_position_odds(condition_df, condition)
   p_noshap <- plot_position_odds(condition_df, condition, F)
   
-  write_csv(condition_df, paste0(save_loc, condition, '.csv'))
-  save_plot(filename = savename_noshap, plot=p_noshap)
-  save_plot(filename = savename_shap, plot=p_shap)
-}
-
-save_loc <- "results/result_contingency/ranking/Bloom2019/"
-
-for(condition in unique(bloom2019_shap_conditionwise$condition)){
-  print(condition)
-  savename_shap <- paste0(save_loc, condition, '_shap.svg')
-  savename_noshap <- paste0(save_loc, condition, '_noshap.svg')
-  condition_df <- get_final_df_bloom2019(condition)
-  
-  p_shap <- plot_position_odds(condition_df, condition)
-  p_noshap <- plot_position_odds(condition_df, condition, F)
+  condition_df %>%
+    select(-SHAP_full) %>% # Get's confusing
+    filter(Pheno_fraction_explained !=0) %>%
+    arrange( -Pheno_fraction_explained, Chromosome, Peak_pos, -SHAP_conditionwise) %>% 
+    write_csv(savename_previous_qtls)
   
   write_csv(condition_df, paste0(save_loc, condition, '.csv'))
   save_plot(filename = savename_noshap, plot=p_noshap)
@@ -309,9 +295,14 @@ congo_all %>%
 neomycin_all %>%
   filter(grepl('^YM[L|R]0[0-1]', Gene)) %>% 
   mutate(targets = ifelse(Gene %in% c('YOR054C','YOR043W'), 'True', 'False')) %>%
-  plot_shap_odds("Neomycin - YML070-YML100 locus") %>% 
+  plot_shap_odds("Neomycin - YML020-YMR020 locus") %>% 
   save_plot(
     paste0(save_loc, 'neomycin-qtl1.svg'),
     plot=.,
     height=8, width=15, units='cm'
   )
+
+
+# Ranking for all QTLs in Bloom2013
+
+all_qtl_df 

@@ -13,7 +13,11 @@ R-based downstream analysis for the yeast growth prediction project. This sub-re
 renv::restore()
 ```
 
-All scripts assume the working directory is the project root.
+All scripts assume the working directory is the `R_analysis/` directory.
+
+> **Note:** Some scripts contain hardcoded values that may need to be adjusted for your environment:
+> - `prediction_contingency.R`: Parallel cluster size is set to `12` (line 54). Adjust to match your machine's core count.
+> - `prediction_contingency.R`: Input files are selected by positional index from `list.files()` (lines 22-23, 114-147). Verify the indices match your directory contents, as file ordering may differ across operating systems.
 
 <!-- ## Datasets -->
 
@@ -46,6 +50,11 @@ All scripts assume the working directory is the project root.
 ├── renv/                  # R environment (managed by renv)
 └── renv.lock              # Dependency lockfile
 ```
+
+## Data
+
+<!-- TODO: Add Zenodo DOI link once published -->
+All required data (training data, predictions, SHAP values, etc.) will be available on [Zenodo](https://zenodo.org/) in the exact directory structure expected by this sub-repo. Download and extract the data archive into this directory to populate `data/`.
 
 ## External Dependencies
 
