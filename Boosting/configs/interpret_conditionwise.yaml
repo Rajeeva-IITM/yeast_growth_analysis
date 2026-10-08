@@ -1,0 +1,83 @@
+# Per-condition SHAP for the bloom_256 encoding runs.
+#
+#     python src/shap_conditionwise.py --config-name=interpret_conditionwise
+#
+# Composes interpret.yaml (run_type + explainer) and utilities_encodings.yaml, so run_path /
+# data_path / model_load_keys.prefix point at classification_encodings, exactly as
+# interpret_encodings.yaml does. The output is a separate tree from results/shap_encodings/
+# because it answers a different question: mean |SHAP| per gene *within one condition*,
+# rather than averaged over all of them.
+defaults:
+  - interpret
+  - utilities_encodings
+  - _self_
+
+# Which encoding family to explain. encoding picks the data file, encoding_prefix picks the
+# run directories (Max_/Sum_/Count_) via model_load_keys.prefix.
+encoding: max
+encoding_prefix: Max
+
+# Which family of training runs is being explained. No run in this project uses linear trees
+# any more; the name is kept because it is baked into every output path.
+variant: no_linear_tree
+
+out_path: ${oc.env:PROJECT_DIR}/results/shap_conditionwise/${variant}/sigma_${alpha}/${encoding}
+
+# Conditions to explain. null runs every condition present in each dataset -- 39 for
+# Bloom2013, 18 for Bloom2015, 31 for Bloom2019_BYxRM. Override with a list to spot-check:
+# `conditions=[cycloheximide]`.
+conditions: null
+
+# Rows sampled from the condition to serve as the interventional background. Cost is linear
+# in this: 100 rows is ~11 s per condition per fold, 50 rows ~7 s. The latent block is
+# constant across the whole condition, so subsampling the background does not weaken the
+# guarantee that its SHAP is exactly zero.
+n_background: 100
+background_seed: 0
+
+# Overrides the bare TreeExplainer in interpret.yaml. Passing a background is what makes the
+# latent features drop out: with no background at all the node weights are the training
+# distribution over *all* conditions and the latent block keeps 0.27 of the attribution.
+explainer:
+  _target_: shap.TreeExplainer
+  feature_perturbation: interventional
+
+# false = exact interventional TreeSHAP, ~11 s per condition per fold. true = Saabas, which
+# routes to _cext.dense_tree_saabas and finishes in seconds.
+#
+# Saabas is not the background-free shortcut it is sometimes taken for. Handing TreeExplainer
+# a `data` argument makes SingleTree re-push it through every tree and rewrite each internal
+# node as the weighted average of its children, and Saabas differences precisely those
+# rewritten values -- so with a within-condition background it zeroes the latent block just
+# as the exact method does (1.4e-17 vs 0.000e+00). What it is not is a Shapley value: it is
+# order-dependent and over-credits features split near the root. Measured agreement with
+# exact on Bloom2013/cycloheximide is Spearman +0.957, 46 of the top 50 genes shared.
+#
+# Exact is the default because the output is a reported gene list. The Saabas companion is
+# run separately and written to results/shap_conditionwise_saabas/ so the two never mix; see
+# `./scripts/run_shap_conditionwise.sh max 0.5 no_linear_tree saabas`.
+approximate: false
+
+# Checks that the attributions sum to the model margin. Cheap, and it catches a mis-scaled
+# feature matrix immediately, so it stays on for both methods.
+check_additivity: true
+
+# Ceiling on latent attribution before the run aborts. Exact interventional returns exactly
+# 0.000e+00 on every seed measured, so the tight default is a real guard rather than a
+# formality. Saabas fails it -- measured 4.0e-2, 4.1e-2, 3.7e-2 and 8.4e-2 on Bloom2013 seeds
+# 1-4 for cycloheximide, and enlarging the background does not help -- so the companion run
+# passes latent_tolerance=1.0 and the per-condition leak is written to the run log instead.
+latent_tolerance: 1e-10
+
+# get_model_paths globs {run_path}/{prefix}{model}*{suffix}/Boosting.pkl, picking up all five
+# seeds per dataset; the folds are averaged.
+model_load_keys:
+  model_names:
+    - Bloom2013
+    - Bloom2015
+    - Bloom2019_BYxRM
+
+data_paths:
+  Bloom2013: ${data_path}/bloom2013_${encoding}.feather
+  Bloom2015: ${data_path}/bloom2015_${encoding}.feather
+  Bloom2019_BYxRM: ${data_path}/bloom2019_BYxRM_${encoding}.feather

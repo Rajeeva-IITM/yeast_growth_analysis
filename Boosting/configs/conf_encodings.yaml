@@ -1,0 +1,16 @@
+# Classification on the bloom_256 datasets — the three gene encodings (max, sum, count)
+# rebuilt on the 256-dim PubChem latent.
+#
+# Select it with Hydra's --config-name, so conf.yaml stays the default for existing runs:
+#
+#   python src/tune_model.py --config-name=conf_encodings --multirun \
+#     dataset=bloom2013_count alpha=0.5 'seed=1,2,3,4,5'
+#
+# Everything about the model, metric, testing split and dummy baseline is inherited from
+# conf.yaml, so the two families stay in step. Only the paths change.
+
+defaults:
+  - conf # the existing root config: model_params, metric, testing, dummy, models
+  - utilities_encodings # then point data_path / run_path at bloom_256
+  - _self_
+  - dataset: bloom2013_max # last, so the chosen dataset wins over everything above

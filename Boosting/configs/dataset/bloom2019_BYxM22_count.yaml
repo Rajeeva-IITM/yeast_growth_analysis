@@ -1,0 +1,11 @@
+# @package _global_
+# Bloom2019_BYxM22, count gene encoding: three columns per gene, how many variants of each effect score — 18042 gene columns.
+# data_path interpolates ${alpha}, so this file serves both threshold families.
+
+encoding: count
+encoding_prefix: Count
+
+data:
+  path: ${data_path}/bloom2019_BYxM22_count.feather
+  savename: Count_Bloom2019_BYxM22
+  savedir: ${run_path}/${data.savename}_${seed}_${run_type}

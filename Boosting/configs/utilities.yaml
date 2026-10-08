@@ -1,8 +1,8 @@
 # Need to be used in tandem with one of the other configs
 
-run_path: ${oc.env:RUN_DIR}/classification/0.25_sigma
-out_path: ${oc.env:PROJECT_DIR}/performance/classification/0.25_sigma
-data_path: ${oc.env:DATA_DIR}/full/varying_sigma/sigma_0.25
+run_path: ${oc.env:RUN_DIR}/classification/0.5_sigma
+out_path: ${oc.env:PROJECT_DIR}/performance/classification/0.5_sigma
+data_path: ${oc.env:DATA_DIR}/full/varying_sigma/sigma_0.5
 
 run_type: full # one of full, geno_only, chem_only,
 regression: false

@@ -4,7 +4,7 @@
 # cd "/data/rajeeva/Boosting-yeast_growth_pred/" ||
 # export seed=1
 export SEED="1,2,3,4,5"   # Suffix of the directory created
-export extra_params='data.savedir=${oc.env:ROOT_DIR}/runs/classification_other_models/${data.savename}_${seed}_${run_type}
+export extra_params='data.savedir=${oc.env:RUN_DIR}/classification_other_models/${data.savename}_${seed}_${run_type}
            n_trials=50'
 
 python src/tune_and_train_simple_models_2.py --multirun 'data.path=${oc.env:DATA_DIR}/full/varying_sigma/sigma_0.5/bloom2013_clf.feather' \

@@ -107,8 +107,6 @@ def tune_LGBM(
         "early_stopping_rounds": config.model_params.early_stopping_rounds,
         "num_threads": config.model_params.num_threads,
         "boosting_type": config.model_params.boosting_type,
-        "device_type": config.model_params.device_type,
-        "gpu_use_dp": config.model_params.gpu_use_dp,
         "seed": config.seed,
         "lambda_l1": trial.suggest_float("lambda_l1", **config.model_params.lambda_l1),
         "lambda_l2": trial.suggest_float("lambda_l2", **config.model_params.lambda_l2),
@@ -128,6 +126,9 @@ def tune_LGBM(
         "learning_rate": trial.suggest_float(
             "learning_rate", **config.model_params.learning_rate
         ),
+        # "linear_tree": trial.suggest_categorical(
+        #     "linear_tree", **config.model_params.linear_tree
+        # ),
     }
 
     n_estimators = trial.suggest_int("n_estimators", **config.model_params.n_estimators)
@@ -138,11 +139,11 @@ def tune_LGBM(
         random_state=config.kfold_params.seed,
     )
 
+    # Xtest/ytest are accepted for signature compatibility but deliberately unused: scoring
+    # trials on the held-out test set makes the reported test metric a maximum over
+    # n_trials noisy estimates, which is biased upward. The five inner validation folds
+    # cover every training row and are the larger signal anyway.
     scores = []  # List of scores
-    if (Xtest is not None) and (ytest is not None):
-        # test_scores = []
-        X_test, y_test = Xtest, ytest
-        # test_dataset = lgb.Dataset(X_test, label=y_test)
 
     for train_idx, val_idx in splits.split(Xtrain, ytrain):
         X_train, y_train = Xtrain[train_idx], ytrain[train_idx]
@@ -165,13 +166,6 @@ def tune_LGBM(
         scores.append(
             hydra.utils.call(config.metric, _args_=(y_val, y_pred_val))
         )  # Include score for validation set
-
-        # if separate test set is given
-        if (Xtest is not None) and (ytest is not None):
-            y_pred_test = model.predict(X_test)
-            scores.append(
-                hydra.utils.call(config.metric, _args_=(y_test, y_pred_test))
-            )  # Include score for test set
 
     return np.mean(scores)
 
@@ -320,7 +314,18 @@ def main(conf: DictConfig):
 
     console.print(f"Best parameters: {best_params}", justify="center")
 
-    model = train_booster(conf, best_params, Xtrain, ytrain, Xtest, ytest)
+    # train_booster passes its last two arguments to lgb.train as valid_sets, and
+    # early_stopping_rounds is set, so those rows choose the stopping round. Give it a
+    # validation split carved from the training partition rather than the test set. Sized at
+    # 1/n_splits of train to match the inner CV, giving the 64:16:20 train:val:test layout.
+    X_fit, X_val, y_fit, y_val = train_test_split(
+        Xtrain,
+        ytrain,
+        test_size=1 / conf.kfold_params.n_splits,
+        random_state=conf.seed,
+    )
+
+    model = train_booster(conf, best_params, X_fit, y_fit, X_val, y_val)
 
     with open(conf.data.savedir + f"/{study_name}.pkl", "wb") as f:
         pickle.dump(model, f)

@@ -1,0 +1,37 @@
+# Predictions + per-condition metrics for the bloom_256 encoding runs.
+#
+#     python src/compare_performance.py --config-name=eval_encodings encoding=sum encoding_prefix=Sum
+#
+# Composes eval.yaml (which brings in the regression metric set) and then overrides the
+# metric group with `clf`, since these runs are classification. utilities_encodings then
+# repoints run_path / data_path / model_load_keys.prefix at classification_encodings.
+defaults:
+  - eval
+  - utilities_encodings
+  - _self_
+  - override metrics: clf # eval.yaml selects `reg`; these runs are classification
+
+# Which encoding family to score. encoding picks the data files, encoding_prefix picks the
+# run directories (Max_/Sum_/Count_) through model_load_keys.prefix.
+encoding: max
+encoding_prefix: Max
+
+# Which family of training runs; mirrors interaction.yaml. The linear_tree runs that this
+# supersedes were never scored with this script, so there is no legacy tree here -- unlike
+# results/, performance/ has no bare sigma_0.5 directory to avoid.
+variant: no_linear_tree
+
+out_path: ${oc.env:PROJECT_DIR}/performance/classification_encodings/${variant}/sigma_${alpha}/${encoding}
+
+# compare_performance.py loops models x datasets, so this yields the 3 matched pairs plus
+# the 6 cross-dataset combinations.
+model_load_keys:
+  model_names:
+    - Bloom2013
+    - Bloom2015
+    - Bloom2019_BYxRM
+
+data_paths:
+  Bloom2013: ${data_path}/bloom2013_${encoding}.feather
+  Bloom2015: ${data_path}/bloom2015_${encoding}.feather
+  Bloom2019_BYxRM: ${data_path}/bloom2019_BYxRM_${encoding}.feather

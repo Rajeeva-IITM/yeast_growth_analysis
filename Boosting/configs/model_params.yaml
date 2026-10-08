@@ -44,3 +44,5 @@ model_params:
   n_estimators:
     low: 10
     high: 1000
+  # linear_tree:
+  #   choices: [true, false]

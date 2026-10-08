@@ -4,8 +4,8 @@ defaults:
   - _self_
 
 data:
-  path: ${oc.env:ROOT_DIR}/data/chem_subsets/new_latent/carbons/carbons_bloom2013_clf_3_pubchem.feather
-  savename: Carbons_Bloom2013
+  path: ${data_path}/carbons_bloom2013_clf_3_pubchem.feather
+  savename: Bloom2013
   savedir: ${oc.env:ROOT_DIR}/runs/chem_subsets/Final/dummies/${data.savename} # Better to save as ${data.savename}_${seed}_${run_type}
 
 n_trials: 100
