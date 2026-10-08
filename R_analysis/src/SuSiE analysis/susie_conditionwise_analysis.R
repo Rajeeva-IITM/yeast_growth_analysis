@@ -180,7 +180,7 @@ run_conditionwise_susie <- function(dataname, shap_name,
 #' harmonising the lowercase `condition` column to `Condition`.
 load_conditionwise_shap <- function(shap_name) {
   read_parquet(sprintf(
-    "data/final/shap/sigma_0.5/max/shap/sigmas/shap_classification_0.5/%s_conditionwise_shap.parquet",
+    "data/shap/sigmas/shap_classification_0.5/%s_conditionwise_shap.parquet",
     shap_name
   )) %>%
     filter(Value > 0, grepl("^Y", Feature)) %>%
